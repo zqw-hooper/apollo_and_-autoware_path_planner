@@ -1,0 +1,26 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/zy/Desktop/op_local_planner/devel/include/**",
+                "/opt/ros/kinetic/include/**",
+                "/home/zy/Desktop/op_local_planner/src/utils/glviewer/include/**",
+                "/home/zy/Desktop/op_local_planner/src/utils/image_rectifier/include/**",
+                "/home/zy/Desktop/op_local_planner/src/planning/local_planner/include/**",
+                "/home/zy/Desktop/op_local_planner/src/utils/rosinterface/include/**",
+                "/home/zy/Desktop/op_local_planner/src/common/utils/include/**",
+                "/usr/include/**"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

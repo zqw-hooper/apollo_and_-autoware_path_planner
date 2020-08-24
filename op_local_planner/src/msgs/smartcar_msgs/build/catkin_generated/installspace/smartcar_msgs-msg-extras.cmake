@@ -1,0 +1,2 @@
+set(smartcar_msgs_MESSAGE_FILES "msg/Lane.msg;msg/ControlCommand.msg;msg/ControlCommandStamped.msg;msg/Waypoint.msg;msg/LaneArray.msg;msg/PointsImage.msg;msg/ProjectionMatrix.msg;msg/ImageObj.msg;msg/ImageObjects.msg;msg/ImageObjTracked.msg;msg/ImageObjRanged.msg;msg/ImageRect.msg;msg/ImageRectRanged.msg;msg/DetectedObject.msg;msg/DetectedObjectArray.msg;msg/TrafficLightResult.msg;msg/TrafficLight.msg;msg/TrafficLightResultArray.msg;msg/ImageLaneObjects.msg")
+set(smartcar_msgs_SERVICE_FILES "")

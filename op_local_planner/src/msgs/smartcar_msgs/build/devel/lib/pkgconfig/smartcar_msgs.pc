@@ -1,0 +1,8 @@
+prefix=/home/zy/Desktop/smartcar-dev_sunm/src/msgs/smartcar_msgs/build/devel
+
+Name: smartcar_msgs
+Description: Description of smartcar_msgs
+Version: 0.0.0
+Cflags: -I/home/zy/Desktop/smartcar-dev_sunm/src/msgs/smartcar_msgs/build/devel/include
+Libs: -L/home/zy/Desktop/smartcar-dev_sunm/src/msgs/smartcar_msgs/build/devel/lib 
+Requires: message_runtime

@@ -1,0 +1,158 @@
+
+
+
+
+
+1. EM-Planner是具体的规划实施类，它基于高精地图、导航路径及障碍物信息作出实际的驾驶决策，包括路径、速度等方面。
+首先使用DP（动态规划）方法确定初始的路径和速度，再利用QP（二次规划）方法进一步优化路径和速度，以得到一条更平滑的轨迹，既满足舒适性，又方便车辆操纵
+
+基于样条的车辆轨迹优化二次规划，为了寻求更优质更平滑，体感更好的路径，需要使用二次规划的方法寻找。需要的限制条件有：曲率和曲率连续性、贴近中心线、避免碰撞
+
+EM:
+https://blog.csdn.net/yuxuan20062007/article/details/83629595
+
+https://zhuanlan.zhihu.com/p/69878689
+
+
+
+总体概述:
+apollo motion planner 学习总结
+https://blog.csdn.net/qq_39990094/article/details/89667556
+https://blog.csdn.net/qq_39990094/article/details/89668551
+https://blog.csdn.net/qq_39990094/article/details/89669316
+https://blog.csdn.net/qq_39990094/article/details/89669804
+
+
+博客:
+https://www.zhihu.com/people/xigjs-lin/posts
+
+https://www.zhihu.com/people/liu-yang-21-71-74/posts
+
+https://www.zhihu.com/people/hu-zhen-69-33/posts?page=1
+
+https://blog.csdn.net/yuxuan20062007
+
+
+https://blog.csdn.net/qq_27513221/article/details/86753295
+
+https://blog.csdn.net/linxigjs/category_7520902.html
+
+
+https://www.zhihu.com/people/ren-gan-16/posts
+https://blog.csdn.net/qq_42589654/category_9770672.html
+
+https://blog.csdn.net/qq_21933647/category_9791167.html
+
+https://blog.csdn.net/weixin_41399111?t=1
+
+https://blog.csdn.net/zhouyy858/category_9139635_2.html
+
+https://zhuanlan.zhihu.com/self-driving
+
+
+// 阅读  // 代码解析
+
+1. 动态规划及其在Apollo项目Planning模块的应用(DP路径算法和DP速度算法)
+	https://my.oschina.net/u/4299156/blog/3233199
+
+
+2. 动态规划在Apollo的Planner中的应用及C++代码实现
+https://blog.csdn.net/weixin_43078345/article/details/87886933
+
+3. 速度规划——S-T图的C++实现
+https://blog.csdn.net/weixin_43078345/article/details/103737910
+
+
+4. 二次规划（QP）样条路径优化
+https://blog.csdn.net/xinmei4275/article/details/93330702
+
+
+
+5.Apollo_ADS_路径规划3- 速度曲线 优化_QP-Spline-ST-Speed Optimizer
+https://blog.csdn.net/chepwavege/article/details/95476077
+
+
+
+6. 二次规划样条ST坐标速度优化
+https://developer.baidu.com/topic/show/290462
+
+	
+
+7. qp_spline_st_speed_optimizer_cn
+https://blog.csdn.net/xinmei4275/article/details/93334172
+
+
+
+	
+	
+QP_path_planner_demo
+https://github.com/lucianzhong/qp_path_planner
+
+
+基于二次规划的自动驾驶车辆路径规划，C++源码
+https://blog.csdn.net/weixin_44201317/article/details/105423775
+
+
+Apollo ADS platform study (Apollo自动驾驶平台)
+https://blog.csdn.net/chepwavege/article/details/93743239
+
+
+
+
+已经阅读:
+
+1. Baidu Apollo代码解析之s-t图的创建与采样（path_time_graph)
+https://zhuanlan.zhihu.com/p/73374674
+
+
+2. Baidu Apollo代码解析之碰撞检测
+https://zhuanlan.zhihu.com/p/73375021
+
+
+3. Baidu Apollo代码解析之轨迹规划中的轨迹评估代价函数
+https://zhuanlan.zhihu.com/p/77122649
+
+
+4. Baidu Apollo代码解析之EM Planner中的DP Path Optimizer
+https://zhuanlan.zhihu.com/p/78158531
+
+
+
+5. Baidu Apollo代码解析之EM Planner中的DP Speed Optimizer
+https://zhuanlan.zhihu.com/p/94044688
+
+
+
+6. apollo motion planner 学习总结
+https://blog.csdn.net/qq_39990094/category_8904454.html
+
+
+7. 
+https://blog.csdn.net/chepwavege
+https://blog.csdn.net/chepwavege/article/details/95476077
+https://blog.csdn.net/chepwavege/article/details/95353813
+https://blog.csdn.net/chepwavege/article/details/94563488
+
+
+
+
+//  Baidu Apollo代码详细解析——EM Planner中的DP Speed Optimizer
+https://blog.csdn.net/qq_41324346/article/details/105285029
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

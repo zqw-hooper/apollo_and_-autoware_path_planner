@@ -1,0 +1,161 @@
+
+
+
+
+
+
+
+1. Baidu Apollo代码解析之s-t图的创建与采样（path_time_graph)
+    https://zhuanlan.zhihu.com/p/73374674
+
+    百度Apollo中使用Frenet坐标系下的s-t图来帮助分析障碍物的状态（静态、动态）对于自车轨迹规划的影响。典型的如Lattice Planner中，
+    在s-t图中绘制出障碍物占据的s-t区间范围，便可以在范围外采样无碰撞的轨迹点（end condition)，然后拟合和评估轨迹，选取最优的输出。
+
+在s-t图中，静态障碍物是矩形块表示，因为直观的，随着时间推移，其s轴位置始终不变；
+动态障碍物是四边形表示（如果是匀速运动，则是平行四边形），因为随着时间推移，障碍物的s轴位置不断朝着s轴正方向移动，且斜率就是移动的速度
+
+
+
+2. Baidu Apollo代码解析之碰撞检测
+https://zhuanlan.zhihu.com/p/73375021
+
+在Lattice Planner中，需要对1D横纵向轨迹结合（combine）后形成的2D轨迹做限制检测（速度、加速度等）和碰撞检测。
+碰撞检测由CollisionChecker类完成，
+文件路径：apollo3.5\modules\planning\constraint_checker\http://collision_checker.cc。
+碰撞检测主要是遍历每个障碍物的预测轨迹的每个轨迹点、遍历自车规划轨迹的每个轨迹点，
+分别构造轮廓box（近似bounding box），查看box是否重叠（overlap）。
+原理比较简单，粗暴贴代码。
+
+对于给定的2条离散点轨迹，在检测碰撞前可能会有对其插值以提高检测分辨率的需求，插值的方法会在后续的博文中给出
+
+考虑到感知模块对不同类型障碍物的检测准确度可能不同（检测私家车可能比检测货车、卡车更准），预测模块对于不同时刻轨迹点的预测准确度也不同（
+越往后越不准），可以设计合理的轮廓尺寸的extend程度，自适应调整。
+
+应该有一个指标量化碰撞检测的置信度，可以根据此置信度制定对应的行为决策，比如适当减速、提示信息等。
+但是该置信度会受考察的轨迹时间长度影响较大
+
+
+3. 轨迹差值方法——Trajectory Interpolation Methods
+Lagrange Interpolation
+output a polynomial passing all the input control points, interpolated points can be get from the polynomial
+the order of interpolation polynomials increases with the number of control points. Runge phenomenon may happen when the order is too high, which will result in a greator error and oscillation.
+low precision
+rarely used
+Bezier Curve Interpolation
+interpolates the first and last control point, while the inner ones are approximated
+the polynomial order grows linearly with the number of control points
+high order curves suffer from the oscillation problems inherent to high order polynomials
+global control, meaning a base pose update affects the whole curve
+B-spline Interpolation
+is a piecewise polynomial function and a generation of Bezier curve
+actually interpolates the first and last control points, approximates the inner control points
+local control contrasts to the Bezier curve
+Piecewise Cubic Hermite Interpolation
+H(xi) = yi, H'(xi) = yi', 3-order polynomial for every segment
+continuous first derivative on the whole domain
+maintain the shape
+Piecewise Cubic Spline Interpolation
+output a polynomial passing all the input control points
+curve is smooth on control points. first and second derivative is continuous, but second derivative is not smooth.
+local control
+3 different boundary conditions:
+natural, 自然边界（边界点的二阶导为0)
+not-a-knot, default choice in MATLAB, 非扭结边界（使两端点的三阶导与这两端点的邻近点的三阶导相等）
+clamping, 夹持边界（边界点导数给定）
+3 different solving methods
+undetermined first derivative, solving three corner equations, also called three gradient interpolation, actually based on piecewise cubic Hermite polynomials and make their second derivatives continuous on control points. Apollo uses this.
+undetermined second derivative, solving three moment equations, most frequently used.
+base functions
+can't maintain the shape
+frequently used
+2D cubic spline interpolation: output a polynomial z = f(x,y) passing all the input control points (x,y,z).
+Time Based Interpolation
+dispart the 2D movement into 2 1D movement, such as x(t) and y(t)
+Inverse Distance Weighted Interpolation
+assuming closer values are more related than further values. The assigned values to unknown points are calculated with a weighted average of the values available at the known points. It resorts to the inverse of the distance to each known point when assigning weights.
+It is usually used in Geology spatial interpolation and performs well when data is dense and evenly-spaced.
+Specifying the power of the distance's inverse and the size of the neighborhood is needed. When the data is uneven, it's difficult to adjust the size according to the points' distribution.
+Conclusion
+When the input control points are dense, all the methods are ok except Lagrange interpolation method.
+If the input control points are sparce and unevenly distributed, we may decompose the trajectory to x(t) and y(x), apply Piecewise Cubic Spline Interpolation on each function.
+
+
+
+
+
+3. Baidu Apollo代码解析之轨迹规划中的轨迹评估代价函数
+https://zhuanlan.zhihu.com/p/77122649
+
+Baidu Apollo中包含了2种轨迹规划方法：Lattice Planner 和 EM Planner。其中，Lattice主要是采样和剪枝的思想，
+EM主要是优化的思想。二者的目标都是求取代价最小的路径，那么，代价函数设计的好坏，就至关重要了
+
+EM Planner 将轨迹规划分为2部分优化：path即d-s，speed即s-t，
+优化分为2个步骤：DP动态规划求大致解，更像是给出nudge or overtake这样的决策，把优化问题变为凸优化问题，
+为后续的QP二次规划提供参考。QP则求精细的平滑的轨迹
+
+
+
+4. Baidu Apollo代码解析之EM Planner中的DP Path Optimizer
+https://zhuanlan.zhihu.com/p/78158531
+
+apollo中的EM Planner采用优化的思路做轨迹规划，并将轨迹分为path和speed 2部分，分别优化，求取5次多项式曲线，
+最终合并为一条trajectory。优化过程分为动态规划DP和二次规划QP。
+我打算分多篇文章介绍DP-Path、QP-Path、DP-Speed、QP-Speed 4部分对应的代码
+
+DP-Path的主要思路是以自车当前位置为起点，沿着车道横纵向（横向为L或d，纵向为s，这里为了字母更清晰，横向统一以d表示）
+采样一些点，横向采样的一组点叫做level，点封装成node后，分别计算不同level间的node的cost，就构成了graph。
+利用DP更新node的最小cost，便找到了代价最小的一条路径。
+听起来很像传统的图搜索方法找最短路径，区别在于cost包含了平滑、无碰的指标
+
+
+modules/planning/tasks/optimizers/dp_poly_path/dp_poly_path_optimizer.cc
+
+
+
+
+5. apollo motion planner 学习总结
+A*需要知道全局的信息，当只能知道局部的信息时，就不行了。利用D*算法，处理只能看到的有限范围
+利用上述的路径规划的算法，没有考虑路径的平滑，以及车辆的运动学以及动力学模型，交通规则等
+
+
+路径规划的框架:
+1. lattice search is simpler and more suitable for autonomous driving on structured road
+2. searching on the 3 dimensional lattice is still time consuming. path speed iterative search vs 
+    direct search both have pros and cons
+3. dynamic programming based search methid depends on the state dimension
+4. quadratic programming based method need decision to determine a feasible covex tunnel
+5. splines are more smooth than direct finite differencing and grid trajectory,
+    but splines need decisions as well
+
+
+
+
+Lattice sampling:
+vehicle moving states are discretized into lattice
+
+
+
+
+
+
+
+第一个就是网格化，通过动态规划的方法将他降维成一个polynomial,polynomial也是一种quadratic programming.
+
+第二个三维空间的search，需要考虑几何形状，路径里面需要包括车的heading，以及bounded model，整个车至少需要当成一个刚体考虑，三位空间的优化方法包括直接在三维空间里面优化，或者是path speed iterative,降维以后处理每个子问题，然后通过不断迭代的方式去寻找最优解，先生成最优的path，然后再生成最优path下的speed，然后根据最优的speed，再生成最优的path，但这种迭代的方式收敛到的不是最优解，可能是一个local 最优。
+
+第三个就是利用动态规划来简化运算，简化那些需要重复计算的。
+
+第四个是一个二次优化问题，在空间中速度非常快，可以找到一个最优解，但是要求空间是凸的，
+
+Smooth spline以及spiral path这些都是连接两个点能够光滑连接的一个方法，贝塞尔曲线是另一种处理方法，贝塞尔就是先生成一些离散的点，然后再平滑，但是平滑曲线阶数高了以后，安全性不好保证
+
+
+
+参考文献:
+1. The D* Algorithm 
+<< optimal and efficient path planning  for partially-known environments >>
+
+2. << The field D* algorithm for improved path planning and replanning in uniform and non-uniform cost evironment >>
+
+
+3. << A review of motion planning techniques for automated vehicles >>
