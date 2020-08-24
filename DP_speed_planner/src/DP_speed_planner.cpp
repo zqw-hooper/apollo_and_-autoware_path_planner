@@ -601,8 +601,12 @@ void DisplayStGraph(const std::vector<StBoundary> &st_boundaries)
 double FLAGS_planning_upper_speed_limit = 15;
 static constexpr double kDoubleEpsilon = 1.0e-6;
 double unit_t_ = 1.0;
-double total_length_t_ = 10;
-double total_length_s_ = 200;
+
+// 总时间   // level
+double total_length_t_ = 2;
+
+double total_length_s_ = 30;
+
 double dense_dimension_s_ = 101;
 
 double sparse_unit_s_ = 1.0;
@@ -627,20 +631,22 @@ bool InitCostTable()
                      total_length_t_ / static_cast<double>(unit_t_))) +
                  1;
 
-  double sparse_length_s =
-      total_length_s_ -
-      static_cast<double>(dense_dimension_s_ - 1) * dense_unit_s_;
+  // double sparse_length_s =
+  //     total_length_s_ -
+  //     static_cast<double>(dense_dimension_s_ - 1) * dense_unit_s_;
 
-  uint32_t sparse_dimension_s_ =
-      sparse_length_s > std::numeric_limits<double>::epsilon()
-          ? static_cast<uint32_t>(std::ceil(sparse_length_s / sparse_unit_s_))
-          : 0;
-  dense_dimension_s_ =
-      sparse_length_s > std::numeric_limits<double>::epsilon()
-          ? dense_dimension_s_
-          : static_cast<uint32_t>(std::ceil(total_length_s_ / dense_unit_s_)) +
-                1;
-  dimension_s_ = dense_dimension_s_ + sparse_dimension_s_;
+  // uint32_t sparse_dimension_s_ =
+  //     sparse_length_s > std::numeric_limits<double>::epsilon()
+  //         ? static_cast<uint32_t>(std::ceil(sparse_length_s / sparse_unit_s_))
+  //         : 0;
+  // dense_dimension_s_ =
+  //     sparse_length_s > std::numeric_limits<double>::epsilon()
+  //         ? dense_dimension_s_
+  //         : static_cast<uint32_t>(std::ceil(total_length_s_ / dense_unit_s_)) +
+  //               1;
+  // dimension_s_ = dense_dimension_s_ + sparse_dimension_s_;
+
+  dimension_s_ = 10;
 
   // Sanity Check
   if (dimension_t_ < 1 || dimension_s_ < 1)
@@ -651,6 +657,9 @@ bool InitCostTable()
 
   cost_table_.clear();
   StPoint st_point(0, 0);
+
+  std::cout << "dimension_t_   " << dimension_t_ << std::endl;
+  std::cout << "dimension_s_   " << dimension_s_ << std::endl;
   cost_table_ = std::vector<std::vector<StGraphPoint>>(
       dimension_t_, std::vector<StGraphPoint>(dimension_s_, StGraphPoint(st_point)));
 
@@ -1024,28 +1033,60 @@ bool CalculateTotalCost()
       next_lowest_row = lowest_row;
     }
 
+    { // debug only
+      for (size_t c = 0; c < cost_table_.size(); ++c)
+      {
+        for (size_t r = 0; r < cost_table_[c].size(); r++)
+        {
+          if (c == 0)
+          {
+            cost_table_[c][r].SetPrePoint(cost_table_[0][50]);
+          }
+          else
+          {
+
+            cost_table_[c][r].SetPrePoint(cost_table_[c - 1][50]);
+          }
+          cost_table_[c][r].cost = r + 1;
+          if (r == 50)
+          {
+            cost_table_[c][r].cost = 0;
+          }
+        }
+      }
+    }
+
     return true;
   }
 }
 
 bool RetrieveSpeedProfile()
 {
-
   double min_cost = std::numeric_limits<double>::infinity();
-   StGraphPoint *best_end_point = nullptr;
+  StGraphPoint *best_end_point = nullptr;
 
-  int jj = 0;
-  for ( StGraphPoint &cur_point : cost_table_.back())
+  // int jj = 0;
+  // for (StGraphPoint &cur_point : cost_table_.back())
+  // {
+  //   if (!std::isinf(cur_point.cost &&
+  //                   cur_point.cost < min_cost))
+  //   {
+  //     best_end_point = &cur_point;
+  //     min_cost = cur_point.cost;
+  //   }
+  //   jj++;
+  // }
+  // std::cout << "jj   " << jj << std::endl;
+
+  for (int i = 0; i < cost_table_.back().size(); i++)
   {
-    if (!std::isinf(cur_point.cost &&
-                    cur_point.cost < min_cost))
+    if (!std::isinf(cost_table_.back()[i].cost &&
+                    cost_table_.back()[i].cost < min_cost))
     {
-      best_end_point = &cur_point;
-      min_cost = cur_point.cost;
+      best_end_point = &cost_table_.back()[i];
+      min_cost = cost_table_.back()[i].cost;
     }
-    jj++;
   }
-  std::cout << "jj   " << jj << std::endl;
 
   std::cout << "cost_table_.size()   " << cost_table_.size() << std::endl;
   std::cout << "cost_table_.[2].size()  " << cost_table_[2].size() << std::endl;
@@ -1070,20 +1111,53 @@ bool RetrieveSpeedProfile()
 
   // 以cur_point为当前的node一直往前搜索,直到 node==nullptr
   std::vector<SpeedPoint> speed_profile;
-   StGraphPoint *cur_point = best_end_point;
+  // StGraphPoint *cur_point = best_end_point;
 
-cur_point->SetPrePoint(cost_table_[2][100]);
 
+    { // debug only
+      for (size_t c = 0; c < cost_table_.size(); ++c)
+      {
+        for (size_t r = 0; r < cost_table_[c].size(); r++)
+        {
+          if (c == 0)
+          {
+            cost_table_[c][r].SetPrePoint(cost_table_[0][5]);
+          }
+          else
+          {
+
+            cost_table_[c][r].SetPrePoint(cost_table_[c - 1][5]);
+          }
+          cost_table_[c][r].cost = r + 1;
+          if (r == 5)
+          {
+            cost_table_[c][r].cost = 0;
+          }
+        }
+      }
+    }
+
+
+  std::cout << "cost_table_.size()   " << cost_table_.size() << std::endl;
+  std::cout << "cost_table_.[2].size()  " << cost_table_[2].size() << std::endl;
+
+StGraphPoint * cur_point = &cost_table_.back()[1];
+
+  // cur_point->SetPrePoint(cost_table_[9][100]);
+  // cur_point = cur_point->pre_node;
 
   int kk = 0;
   while (cur_point != nullptr)
   {
     SpeedPoint speed_point(0, 0, 0);
-    speed_point.set_s(cur_point->st_point.s);
-    speed_point.set_t(cur_point->st_point.t);
+    // speed_point.set_s(cur_point->st_point.s);
+    speed_point.set_s(1);
+    // speed_point.set_t(cur_point->st_point.t);
+    speed_point.set_t(1);
     speed_profile.push_back(speed_point);
     cur_point = cur_point->pre_node;
     kk++;
+      std::cout << "kk   " << kk << std::endl;
   }
   std::cout << "kk   " << kk << std::endl;
   std::reverse(speed_profile.begin(), speed_profile.end());
@@ -1105,7 +1179,6 @@ cur_point->SetPrePoint(cost_table_[2][100]);
   std::cout << "speed_profile.size()  " << speed_profile.size() << std::endl;
   for (int i = 0; i < speed_profile.size(); i++)
   {
-
     std::cout << "index, (s,t,v)  " << i << " (" << speed_profile[i].s << " " << speed_profile[i].t << " "
               << speed_profile[i].v << "  )" << std::endl;
   }

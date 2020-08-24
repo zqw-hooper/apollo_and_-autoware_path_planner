@@ -6,5 +6,5 @@ CXX_FLAGS =  -O0 -Wall -g -ggdb   -std=c++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/zy/Desktop/Apollo_and_Autoware_path_planner/DP_speed_planner/INCLUDE_DIRS -I/home/zy/Desktop/Apollo_and_Autoware_path_planner/DP_speed_planner/include 
+CXX_INCLUDES = -I/home/zy/Desktop/apollo_and_-autoware_path_planner/DP_speed_planner/INCLUDE_DIRS -I/home/zy/Desktop/apollo_and_-autoware_path_planner/DP_speed_planner/include 
 
