@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/DP_speed_planner.h
+array
+-
+vector
+-
+iostream
+-
+limits
+-
+algorithm
+-
+unordered_map
+-
+string
+-
+memory
+-
+future
+-
+chrono
+-
+
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/DP_speed_planner/src/DP_speed_planner.cpp
+DP_speed_planner.h
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/DP_speed_planner/src/DP_speed_planner.h
+

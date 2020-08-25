@@ -6,595 +6,17 @@
 // 而速度规划则根据生成的st boundary进行纵向规划，其中s是指主车在该path上的行驶里程。
 // S-T graph经常被用来做速度规划
 
-#include <array>
-#include <vector>
-#include <iostream>
-#include <limits>
-#include <algorithm>
-#include <unordered_map>
-#include <string>
-#include <memory>
-#include <future> // std::async, std::future
-#include <chrono> // std::chrono::milliseconds
-
-class Box2d
-{
-public:
-  Box2d(const std::vector<double> &center, const double heading, const double length,
-        const double width)
-  {
-    // std::cout << "Box2d  " << center[0] << "  " << center[1] << std::endl;
-    center_ = (center);
-    length_ = (length);
-    width_ = (width);
-    half_length_ = (length / 2.0);
-    half_width_ = (width / 2.0);
-    heading_ = (heading);
-    cos_heading_ = (cos(heading));
-    sin_heading_ = (sin(heading));
-    InitCorners();
-  }
-
-  double center_x()
-  {
-    return center_[0];
-  }
-
-  double center_y()
-  {
-    return center_[1];
-  }
-
-  bool HasOverlap(Box2d box)
-  {
-  }
-  double DistanceTo(Box2d &point)
-  {
-
-    double x_diff = center_[0] - point.center_[0];
-    double y_diff = center_[1] - point.center_[1];
-
-    double distance = hypot(y_diff, x_diff);
-
-    // distance = 0.5;
-    return distance;
-  }
-
-  void InitCorners()
-  {
-    const double dx1 = cos_heading_ * half_length_;
-    const double dy1 = sin_heading_ * half_length_;
-    const double dx2 = sin_heading_ * half_width_;
-    const double dy2 = -cos_heading_ * half_width_;
-    corners_.clear();
-
-    std::vector<double> corner_point_1{center_[0] + dx1 + dx2, center_[1] + dy1 + dy2};
-    std::vector<double> corner_point_2{center_[0] + dx1 - dx2, center_[1] + dy1 - dy2};
-    std::vector<double> corner_point_3{center_[0] - dx1 - dx2, center_[1] - dy1 - dy2};
-    std::vector<double> corner_point_4{center_[0] - dx1 + dx2, center_[1] - dy1 + dy2};
-
-    corners_.push_back(corner_point_1);
-    corners_.push_back(corner_point_2);
-    corners_.push_back(corner_point_3);
-    corners_.push_back(corner_point_4);
-
-    for (auto &corner : corners_)
-    {
-      max_x_ = std::fmax(corner[0], max_x_);
-      min_x_ = std::fmin(corner[0], min_x_);
-      max_y_ = std::fmax(corner[1], max_y_);
-      min_y_ = std::fmin(corner[1], min_y_);
-    }
-  }
-  std::vector<double> center_;
-  double length_ = 0.0;
-  double width_ = 0.0;
-  double half_length_ = 0.0;
-  double half_width_ = 0.0;
-  double heading_ = 0.0;
-  double cos_heading_ = 1.0;
-  double sin_heading_ = 0.0;
-
-  double max_x_ = std::numeric_limits<double>::lowest();
-  double min_x_ = std::numeric_limits<double>::max();
-  double max_y_ = std::numeric_limits<double>::lowest();
-  double min_y_ = std::numeric_limits<double>::max();
-
-  std::vector<std::vector<double>> corners_;
-};
-
-// 数据部分
-struct Waypoint
-{
-  Waypoint(const double _x, const double _y, const double _theta, const double _s)
-      : x(_x), y(_y), theta(_theta), s(_s)
-  {
-  }
-  double x;
-  double y;
-  double theta;
-  double s;
-};
-
-struct DiscretizedPath
-{
-  explicit DiscretizedPath(const std::vector<Waypoint> &_waypoints) : points(_waypoints)
-  {
-  }
-  DiscretizedPath() = default;
-  std::vector<Waypoint> points;
-};
-
-struct TrajectoryPoint
-{
-  TrajectoryPoint(const Waypoint &_waypoint, const double _v, const double _relative_time)
-      : waypoint(_waypoint), v(_v), relative_time(_relative_time)
-  {
-  }
-  Waypoint waypoint;
-  double v;
-  double relative_time;
-};
-
-struct DiscretizedTrajectory
-{
-  explicit DiscretizedTrajectory(const std::vector<TrajectoryPoint> &_traj_points)
-      : traj_points(_traj_points)
-  {
-  }
-  DiscretizedTrajectory() = default;
-  std::vector<TrajectoryPoint> traj_points;
-};
-
-// 障碍物
-struct Obstacle
-{
-  Obstacle(const std::string &_id, const Box2d &_bounding_box, const bool _is_static,
-           const DiscretizedTrajectory &_trajectory)
-      : id(_id), bounding_box(_bounding_box), is_static(_is_static), trajectory(_trajectory)
-  {
-  }
-  Obstacle(const std::string &_id, const Box2d &_bounding_box, const bool _is_static)
-      : id(_id), bounding_box(_bounding_box), is_static(_is_static)
-  {
-  }
-  std::string id;
-  Box2d bounding_box;
-  bool is_static;
-  DiscretizedTrajectory trajectory;
-};
-
-// StBoundary
-struct SpeedPoint
-{
-  SpeedPoint(const double _t, const double _s, double _v) : t(_t), s(_s), v(_v)
-  {
-  }
-
-  void set_s(std::uint32_t s_)
-  {
-    s = s_;
-  }
-
-  void set_t(std::uint32_t t_)
-  {
-    t = t_;
-  }
-
-  void set_v(std::uint32_t v_)
-  {
-    v = v_;
-  }
-
-  double t;
-  double s;
-  double v;
-};
-
-// StBoundary
-struct StPoint
-{
-  StPoint(const double _t, const double _s) : t(_t), s(_s)
-  {
-  }
-
-  void set_s(std::uint32_t s_)
-  {
-    s = s_;
-  }
-
-  void set_t(std::uint32_t t_)
-  {
-    t = t_;
-  }
-
-  double t;
-  double s;
-};
-
-struct SlPoint
-{
-  SlPoint(const double _s, const double _l) : s(_s), l(_l)
-  {
-  }
-  double s;
-  double l;
-};
-
-struct StGraphPoint
-{
-  StGraphPoint(StPoint &_st_point)
-      : st_point(_st_point), pre_node(nullptr), cost(std::numeric_limits<double>::max())
-  {
-  }
-
-  void Init(std::uint32_t index_t,
-            std::uint32_t index_s, StPoint st_point)
-  {
-    index_t_ = index_t;
-    index_s_ = index_s;
-    st_point = st_point;
-  }
-
-  void SetPrePoint(StGraphPoint pre_node_)
-  {
-    pre_node = &pre_node_;
-  }
-
-  StPoint st_point;
-  StGraphPoint *pre_node;
-
-  void SetTotalCost(double cost_)
-  {
-    cost = cost_;
-  }
-  double cost;
-
-  void SetObstacleCost(double ObstacleCost_)
-  {
-    ObstacleCost = ObstacleCost_;
-  }
-  double ObstacleCost;
-
-  void SetSpatialPotentialCost(double SpatialPotentialCost_)
-  {
-    ObstacleCost = SpatialPotentialCost_;
-  }
-  double SpatialPotentialCost;
-
-  std::uint32_t index_s_ = 0;
-  std::uint32_t index_t_ = 0;
-
-  void SetOptimalSpeed(double optimal_velocity_)
-  {
-    optimal_velocity = optimal_velocity_;
-  }
-  double optimal_velocity = 10;
-};
-
-class StBoundary
-{
-public:
-  StBoundary();
-
-  void Init(std::string obs_id, std::vector<StPoint> lower_points,
-            std::vector<StPoint> upper_points);
-
-  bool Evaluate(const double t, double *const lower_s, double *const upper_s) const;
-
-  std::string id() const
-  {
-    return obs_id_;
-  }
-
-private:
-  bool is_init_ = false;
-  std::string obs_id_;
-  std::vector<StPoint> lower_points_;
-  std::vector<StPoint> upper_points_;
-};
-
-StBoundary::StBoundary()
-{
-  is_init_ = false;
-}
-
-void StBoundary::Init(std::string obs_id, std::vector<StPoint> lower_points,
-                      std::vector<StPoint> upper_points)
-{
-  // CHECK_EQ(lower_points.size(), upper_points.size());
-  // CHECK_GE(lower_points.size(), 2);
-
-  obs_id_ = obs_id;
-  lower_points_ = lower_points;
-  upper_points_ = upper_points;
-  is_init_ = true;
-}
-
-bool StBoundary::Evaluate(const double t, double *const lower_s, double *const upper_s) const
-{
-  // CHECK_NOTNULL(lower_s);
-  // CHECK_NOTNULL(upper_s);
-  // CHECK(is_init_);
-  if (t < lower_points_.front().t)
-  {
-    return false;
-  }
-  if (t > lower_points_.back().t)
-  {
-    return false;
-  }
-
-  auto func = [](const StPoint &st_point, const double t) { return st_point.t < t; };
-  const auto &lower_iter = std::lower_bound(lower_points_.begin(), lower_points_.end(), t, func);
-  if (lower_iter != lower_points_.end())
-  {
-    *lower_s = lower_iter->s;
-  }
-  else
-  {
-    return false;
-  }
-  const auto &upper_iter = std::lower_bound(upper_points_.begin(), upper_points_.end(), t, func);
-  if (upper_iter != upper_points_.end())
-  {
-    *upper_s = upper_iter->s;
-  }
-  else
-  {
-    return false;
-  }
-  return true;
-}
-
-// S-T Graph
-class StGraph final
-{
-public:
-  StGraph(const DiscretizedPath &path, const std::vector<Obstacle> &obstacles);
-
-  bool GetAllObstacleStBoundary(std::vector<StBoundary> *const st_boundaries) const;
-
-  bool GetObstacleStBoundary(const std::string &obs_id, StBoundary *const st_boundary) const;
-
-  bool GetAllBlockedSRangesByT(const double t,
-                               std::vector<std::pair<double, double>> *const blocked_ranges) const;
-
-  bool GetBlockedSRangeByT(const double t, const StBoundary &st_boundary,
-                           std::pair<double, double> *blocked_range) const;
-
-private:
-  void CalculateAllObstacleStBoundary(const std::vector<Obstacle> &obstacles);
-
-  bool CalculateObstacleStBoundary(const Obstacle &obs, StBoundary *const st_boundary) const;
-
-  bool CalculateStaticObstacleStBoundary(const std::string &obs_id, const Box2d &obs_box,
-                                         StBoundary *const st_boundary) const;
-
-  bool CalculateDynamicObstacleStBoundary(const Obstacle &obs, StBoundary *const st_boundary) const;
-
-  std::vector<Waypoint> GetWaypointsWithinDistance(const double x, const double y,
-                                                   const double radius) const;
-
-  bool GetBlockedSRange(const Box2d &obs_box, double *const lower_s, double *const upper_s) const;
-
-private:
-  std::unordered_map<std::string, StBoundary> obs_st_boundary_;
-  DiscretizedPath discretized_path_;
-
-  const double veh_heading_ = M_PI / 4.0;
-  const double veh_length_ = 2.0;
-  const double veh_width_ = 1.0;
-  const double time_range_ = 4.0;
-};
-
-StGraph::StGraph(const DiscretizedPath &path, const std::vector<Obstacle> &obstacles)
-    : discretized_path_(path)
-{
-  // CHECK_GE(discretized_path_.points.size(), 2);
-
-  obs_st_boundary_.clear();
-  CalculateAllObstacleStBoundary(obstacles);
-}
-
-bool StGraph::GetAllObstacleStBoundary(std::vector<StBoundary> *const st_boundaries) const
-{
-  // CHECK_NOTNULL(st_boundaries);
-
-  for (auto iter = obs_st_boundary_.begin(); iter != obs_st_boundary_.end(); ++iter)
-  {
-    st_boundaries->emplace_back(iter->second);
-  }
-  return true;
-}
-
-bool StGraph::GetObstacleStBoundary(const std::string &obs_id,
-                                    StBoundary *const st_boundary) const
-{
-  // CHECK_NOTNULL(st_boundary);
-
-  const auto &iter = obs_st_boundary_.find(obs_id);
-  if (iter == obs_st_boundary_.end())
-  {
-    return false;
-  }
-  *st_boundary = iter->second;
-  return true;
-}
-
-bool StGraph::GetAllBlockedSRangesByT(
-    const double t, std::vector<std::pair<double, double>> *const blocked_ranges) const
-{
-  // CHECK_NOTNULL(blocked_ranges);
-  std::vector<StBoundary> st_boundaries;
-  GetAllObstacleStBoundary(&st_boundaries);
-
-  for (const auto &st_boundary : st_boundaries)
-  {
-    std::pair<double, double> blocked_range;
-    if (GetBlockedSRangeByT(t, st_boundary, &blocked_range))
-    {
-      blocked_ranges->emplace_back(blocked_range);
-    }
-  }
-  return true;
-}
-
-bool StGraph::GetBlockedSRangeByT(const double t, const StBoundary &st_boundary,
-                                  std::pair<double, double> *blocked_range) const
-{
-  // CHECK_NOTNULL(blocked_range);
-  double lower_s = 0.0;
-  double upper_s = 0.0;
-  if (st_boundary.Evaluate(t, &lower_s, &upper_s))
-  {
-    *blocked_range = std::make_pair(lower_s, upper_s);
-    return true;
-  }
-  return false;
-}
-
-void StGraph::CalculateAllObstacleStBoundary(const std::vector<Obstacle> &obstacles)
-{
-  for (const auto &obstacle : obstacles)
-  {
-    const auto &iter = obs_st_boundary_.find(obstacle.id);
-    // CHECK(iter == obs_st_boundary_.end());
-    StBoundary st_boundary;
-    if (!CalculateObstacleStBoundary(obstacle, &st_boundary))
-    {
-      // AWARN << "Failed to get obstacle: " << obstacle.id << " st_boundary. ";
-      continue;
-    }
-    obs_st_boundary_.insert(std::make_pair(obstacle.id, st_boundary));
-  }
-}
-
-bool StGraph::CalculateObstacleStBoundary(const Obstacle &obstacle,
-                                          StBoundary *const st_boundary) const
-{
-  // CHECK_NOTNULL(st_boundary);
-
-  if (obstacle.is_static)
-  {
-    return CalculateStaticObstacleStBoundary(obstacle.id, obstacle.bounding_box, st_boundary);
-  }
-  else
-  {
-    return CalculateDynamicObstacleStBoundary(obstacle, st_boundary);
-  }
-}
-
-bool StGraph::CalculateStaticObstacleStBoundary(const std::string &obs_id, const Box2d &obs_box,
-                                                StBoundary *const st_boundary) const
-{
-  // CHECK_NOTNULL(st_boundary);
-
-  double lower_s = 0.0;
-  double upper_s = 0.0;
-  if (!GetBlockedSRange(obs_box, &lower_s, &upper_s))
-  {
-    return false;
-  }
-  std::vector<StPoint> lower_points{StPoint(0.0, lower_s), StPoint(time_range_, lower_s)};
-  std::vector<StPoint> upper_points{StPoint(0.0, upper_s), StPoint(time_range_, upper_s)};
-  st_boundary->Init(obs_id, lower_points, upper_points);
-  return true;
-}
-
-bool StGraph::GetBlockedSRange(const Box2d &obs_box, double *const lower_s,
-                               double *const upper_s) const
-{
-  // CHECK_NOTNULL(lower_s);
-  // CHECK_NOTNULL(upper_s);
-
-  const double radius = 5.0;
-  double radiAus = 2;
-  const auto &points = GetWaypointsWithinDistance(obs_box.center_[0], obs_box.center_[1], radiAus);
-  if (points.empty())
-  {
-    // ADEBUG << "Obstacle is not on the path. ";
-    return false;
-  }
-
-  bool is_updated = false;
-
-  for (auto iter = points.begin(); iter != points.end(); ++iter)
-  {
-    Box2d veh_box({iter->x, iter->y}, veh_heading_, veh_length_, veh_width_);
-    if (veh_box.HasOverlap(obs_box))
-    {
-      iter = iter == points.begin() ? iter : iter - 1;
-      *lower_s = iter->s;
-      is_updated = true;
-      break;
-    }
-  }
-
-  if (!is_updated)
-
-  {
-    // ADEBUG << "There is no collision with obstacle. ";
-    return false;
-  }
-
-  for (auto iter = points.rbegin(); iter != points.rend(); ++iter)
-  {
-    Box2d veh_box({iter->x, iter->y}, veh_heading_, veh_length_, veh_width_);
-    if (veh_box.HasOverlap(obs_box))
-    {
-      iter = iter == points.rbegin() ? iter : iter - 1;
-      *upper_s = iter->s;
-      break;
-    }
-  }
-  // CHECK_GE(*upper_s, *lower_s) << "upper_s: " << *upper_s << ", lower_s: " << *lower_s;
-  return true;
-}
-
-bool StGraph::CalculateDynamicObstacleStBoundary(const Obstacle &obstacle,
-                                                 StBoundary *const st_boundary) const
-{
-  // CHECK_NOTNULL(st_boundary);
-  // CHECK_GE(obstacle.trajectory.traj_points.size(), 2);
-
-  bool has_st_boundary = false;
-  std::vector<StPoint> lower_points;
-  std::vector<StPoint> upper_points;
-  for (const auto &p : obstacle.trajectory.traj_points)
-  {
-    Box2d obs_box({p.waypoint.x, p.waypoint.y}, p.waypoint.theta, obstacle.bounding_box.length_,
-                  obstacle.bounding_box.width_);
-    double lower_s = 0.0;
-    double upper_s = 0.0;
-    if (GetBlockedSRange(obs_box, &lower_s, &upper_s))
-    {
-      lower_points.emplace_back(p.relative_time, lower_s);
-      upper_points.emplace_back(p.relative_time, upper_s);
-      has_st_boundary = true;
-    }
-  }
-  st_boundary->Init(obstacle.id, lower_points, upper_points);
-  return has_st_boundary;
-}
-
-std::vector<Waypoint> StGraph::GetWaypointsWithinDistance(const double x, const double y,
-                                                          const double radius) const
-{
-  std::vector<Waypoint> nearest_points;
-  for (const auto &p : discretized_path_.points)
-  {
-    if (std::hypot(p.x - x, p.y - y) < radius)
-    {
-      nearest_points.emplace_back(p);
-    }
-  }
-  return nearest_points;
-}
-
-void DisplayStGraph(const std::vector<StBoundary> &st_boundaries)
-{
-}
+// #include <array>
+// #include <vector>
+// #include <iostream>
+// #include <limits>
+// #include <algorithm>
+// #include <unordered_map>
+// #include <string>
+// #include <memory>
+// #include <future> // std::async, std::future
+// #include <chrono> // std::chrono::milliseconds
+#include "DP_speed_planner.h"
 
 // 数据
 
@@ -616,8 +38,8 @@ double max_acceleration_ = 2.0;
 double max_deceleration_ = -4.0;
 
 uint32_t dimension_t_;
-
 uint32_t dimension_s_;
+
 std::vector<std::vector<StGraphPoint>> cost_table_;
 std::vector<double> speed_limit_by_index_;
 std::vector<double> spatial_distance_by_index_;
@@ -663,31 +85,31 @@ bool InitCostTable()
   cost_table_ = std::vector<std::vector<StGraphPoint>>(
       dimension_t_, std::vector<StGraphPoint>(dimension_s_, StGraphPoint(st_point)));
 
-  double curr_t = 0.0;
-  for (uint32_t i = 0; i < cost_table_.size(); ++i, curr_t += unit_t_)
-  {
-    auto &cost_table_i = cost_table_[i];
-    double curr_s = 0.0;
-    for (uint32_t j = 0; j < dense_dimension_s_; ++j, curr_s += dense_unit_s_)
-    {
-      cost_table_i[j].Init(i, j, StPoint(curr_s, curr_t));
-    }
-    curr_s = static_cast<double>(dense_dimension_s_ - 1) * dense_unit_s_ +
-             sparse_unit_s_;
-    for (uint32_t j = dense_dimension_s_; j < cost_table_i.size();
-         ++j, curr_s += sparse_unit_s_)
-    {
-      cost_table_i[j].Init(i, j, StPoint(curr_s, curr_t));
-    }
-  }
+  // double curr_t = 0.0;
+  // for (uint32_t i = 0; i < cost_table_.size(); ++i, curr_t += unit_t_)
+  // {
+  //   auto &cost_table_i = cost_table_[i];
+  //   double curr_s = 0.0;
+  //   for (uint32_t j = 0; j < dense_dimension_s_; ++j, curr_s += dense_unit_s_)
+  //   {
+  //     cost_table_i[j].Init(i, j, StPoint(curr_s, curr_t));
+  //   }
+  //   curr_s = static_cast<double>(dense_dimension_s_ - 1) * dense_unit_s_ +
+  //            sparse_unit_s_;
+  //   for (uint32_t j = dense_dimension_s_; j < cost_table_i.size();
+  //        ++j, curr_s += sparse_unit_s_)
+  //   {
+  //     cost_table_i[j].Init(i, j, StPoint(curr_s, curr_t));
+  //   }
+  // }
 
-  const auto &cost_table_0 = cost_table_[0]; //第一列数据
-  spatial_distance_by_index_.clear();
-  spatial_distance_by_index_ = std::vector<double>(cost_table_0.size(), 0.0);
-  for (uint32_t i = 0; i < cost_table_0.size(); ++i)
-  {
-    spatial_distance_by_index_[i] = cost_table_0[i].st_point.s;
-  }
+  // const auto &cost_table_0 = cost_table_[0]; //第一列数据
+  // spatial_distance_by_index_.clear();
+  // spatial_distance_by_index_ = std::vector<double>(cost_table_0.size(), 0.0);
+  // for (uint32_t i = 0; i < cost_table_0.size(); ++i)
+  // {
+  //   spatial_distance_by_index_[i] = cost_table_0[i].st_point.s;
+  // }
   return true;
 }
 
@@ -709,43 +131,47 @@ bool InitSpeedLimitLookUp()
 double GetObstacleCost(const StGraphPoint st_graph_point)
 {
 
-  return 1;
+  return 0;
 }
 
 bool CalculateCostAt(size_t c, size_t r)
 {
   //   const uint32_t c = c;
   // const uint32_t r = r;
-  auto cost_cr = cost_table_[c][r];
+  StGraphPoint cost_cr = cost_table_[c][r];
   // if ((c - 1) >= 0)
   // {
-  //   cost_cr.SetPrePoint(cost_table_[c - 1][r]);
+  //   cost_cr.SetPreNode(cost_table_[c - 1][r]);
   // }
   // else
   // {
-  //   cost_cr.SetPrePoint(cost_table_[0][r]);
+  //   cost_cr.SetPreNode(cost_table_[0][r]);
   // }
 
-  if (1)
+  if (0)
   {
     // dp_st_cost_.GetObstacleCost(cost_cr)
+    // 和障碍物的cost
     double ObstacleCost_ = GetObstacleCost(cost_cr);
-    cost_cr.SetObstacleCost(ObstacleCost_);
-    if (cost_cr.ObstacleCost > std::numeric_limits<double>::max())
-    {
-      return true;
-    }
+    cost_cr.ObstacleCost = ObstacleCost_;
+
+    // cost_cr.SetObstacleCost(ObstacleCost_);
+    // if (
+    //   .ObstacleCost > std::numeric_limits<double>::max())
+    // {
+    //   return true;
+    // }
 
     // dp_st_cost_.GetSpatialPotentialCost(cost_cr)
     double SpatialPotentialCost = 0;
-    cost_cr.SetSpatialPotentialCost(SpatialPotentialCost);
+    // cost_cr.SetSpatialPotentialCost(SpatialPotentialCost);
+    cost_cr.SpatialPotentialCost = SpatialPotentialCost;
 
     const auto &cost_init = cost_table_[0][0];
     double init_point_v = 0;
     if (c == 0)
     {
       cost_cr.SetTotalCost(0.0);
-
       cost_cr.SetOptimalSpeed(init_point_v);
       return true;
     }
@@ -783,7 +209,7 @@ bool CalculateCostAt(size_t c, size_t r)
         CalculateEdgeCostForSecondCol(r, speed_limit, cruise_speed)*/
       );
 
-      cost_cr.SetPrePoint(cost_init);
+      cost_cr.SetPreNode(cost_init);
       cost_cr.SetOptimalSpeed(init_point_v + acc * unit_t_);
       return true;
     }
@@ -861,7 +287,7 @@ bool CalculateCostAt(size_t c, size_t r)
         if (cost < cost_cr.cost)
         {
           cost_cr.SetTotalCost(cost);
-          cost_cr.SetPrePoint(pre_col[r_pre]);
+          cost_cr.SetPreNode(pre_col[r_pre]);
           cost_cr.SetOptimalSpeed(pre_col[r_pre].optimal_velocity +
                                   curr_a * unit_t_);
         }
@@ -928,7 +354,7 @@ bool CalculateCostAt(size_t c, size_t r)
       if (cost < cost_cr.cost)
       {
         cost_cr.SetTotalCost(cost);
-        cost_cr.SetPrePoint(pre_col[r_pre]);
+        cost_cr.SetPreNode(pre_col[r_pre]);
         cost_cr.SetOptimalSpeed(pre_col[r_pre].optimal_velocity +
                                 curr_a * unit_t_);
       }
@@ -995,192 +421,213 @@ void GetRowRange(StGraphPoint point,
 
 bool CalculateTotalCost()
 {
-
   size_t next_highest_row = 0;
   size_t next_lowest_row = 0;
-
-  // CalculateTotalCost()的外层循环是
-  for (size_t c = 0; c < cost_table_.size(); ++c)
+  if (0)
   {
-    size_t highest_row = 0;
-    size_t lowest_row = cost_table_.back().size() - 1;
-
-    int count = static_cast<int>(next_highest_row) -
-                static_cast<int>(next_lowest_row) + 1;
-    if (count > 0)
+    // CalculateTotalCost()的外层循环 // level循环
+    for (size_t c = 0; c < cost_table_.size(); ++c)
     {
-      std::vector<std::future<void>> results;
+      size_t highest_row = 0;
+      size_t lowest_row = cost_table_.back().size() - 1;
 
-      for (size_t r = highest_row; r <= lowest_row; ++r)
+      int count = static_cast<int>(next_highest_row) -
+                  static_cast<int>(next_lowest_row) + 1;
+      if (count > 0)
       {
-        CalculateCostAt(c, r);
-      }
-
-      // CalculateTotalCost()的内层循环
-      for (size_t r = next_lowest_row; r <= next_highest_row; ++r)
-      {
-        const auto &cost_cr = cost_table_[c][r];
-        if (cost_cr.cost < std::numeric_limits<double>::infinity())
+        std::vector<std::future<void>> results;
+        for (size_t r = highest_row; r <= lowest_row; ++r)
         {
-          size_t h_r = 0;
-          size_t l_r = 0;
-          GetRowRange(cost_cr, h_r, l_r);
-          highest_row = std::max(highest_row, h_r);
-          lowest_row = std::min(lowest_row, l_r);
+          CalculateCostAt(c, r);
         }
-      }
-      next_highest_row = highest_row;
-      next_lowest_row = lowest_row;
-    }
 
-    { // debug only
-      for (size_t c = 0; c < cost_table_.size(); ++c)
-      {
-        for (size_t r = 0; r < cost_table_[c].size(); r++)
+        // CalculateTotalCost()的内层循环
+        for (size_t r = next_lowest_row; r <= next_highest_row; ++r)
         {
-          if (c == 0)
+          const auto &cost_cr = cost_table_[c][r];
+          if (cost_cr.cost < std::numeric_limits<double>::infinity())
           {
-            cost_table_[c][r].SetPrePoint(cost_table_[0][50]);
-          }
-          else
-          {
-
-            cost_table_[c][r].SetPrePoint(cost_table_[c - 1][50]);
-          }
-          cost_table_[c][r].cost = r + 1;
-          if (r == 50)
-          {
-            cost_table_[c][r].cost = 0;
+            size_t h_r = 0;
+            size_t l_r = 0;
+            GetRowRange(cost_cr, h_r, l_r);
+            highest_row = std::max(highest_row, h_r);
+            lowest_row = std::min(lowest_row, l_r);
           }
         }
+        next_highest_row = highest_row;
+        next_lowest_row = lowest_row;
       }
     }
-
     return true;
   }
 }
 
 bool RetrieveSpeedProfile()
 {
-  double min_cost = std::numeric_limits<double>::infinity();
-  StGraphPoint *best_end_point = nullptr;
-
-  // int jj = 0;
-  // for (StGraphPoint &cur_point : cost_table_.back())
+  // if (0)
   // {
-  //   if (!std::isinf(cur_point.cost &&
-  //                   cur_point.cost < min_cost))
+  // StGraphPoint *best_end_point = nullptr;
+  // double min_cost = std::numeric_limits<double>::infinity();
+  //   for (int i = 0; i < cost_table_.back().size(); i++)
   //   {
-  //     best_end_point = &cur_point;
-  //     min_cost = cur_point.cost;
+  //     if (!std::isinf(cost_table_.back()[i].cost &&
+  //                     cost_table_.back()[i].cost < min_cost))
+  //     {
+  //       best_end_point = &cost_table_.back()[i];
+  //       min_cost = cost_table_.back()[i].cost;
+  //     }
   //   }
-  //   jj++;
   // }
-  // std::cout << "jj   " << jj << std::endl;
 
-  for (int i = 0; i < cost_table_.back().size(); i++)
+  // 初始化 cost_table_
+  StPoint st_point(0, 0);
+  cost_table_ = std::vector<std::vector<StGraphPoint>>(
+      4, std::vector<StGraphPoint>(10, StGraphPoint(st_point)));
+
+  std::cout << "cost_table_.size()   " << cost_table_.size() << std::endl;
+  std::cout << "cost_table_.[0].size()  " << cost_table_[2].size() << std::endl;
+
+  // 赋值 cost_table_
+  for (int c = 0; c < cost_table_.size(); c++)
   {
-    if (!std::isinf(cost_table_.back()[i].cost &&
-                    cost_table_.back()[i].cost < min_cost))
+    for (int r = 0; r < cost_table_[c].size(); r++)
     {
-      best_end_point = &cost_table_.back()[i];
-      min_cost = cost_table_.back()[i].cost;
+      StPoint st_point{float(c), float(r)};
+      st_point.t = (float(c));
+      st_point.s = (float(r));
+      cost_table_[c][r].Init(c, r, st_point);
+      { // debug code
+        if (c == 0)
+        {
+          cost_table_[c][r].cost = double(c + r) + GetObstacleCost(cost_table_[c][r]);
+        }
+        else
+        {
+          double min_cost = std::numeric_limits<double>::max();
+          for (int i = 0; i <= r; i++)
+          {
+            if (cost_table_[c - 1][i].cost < min_cost)
+            {
+              min_cost = cost_table_[c - 1][i].cost;
+              // 当前node的cost是 上个level中最小的cost，加状态转移的cost
+              cost_table_[c][r].cost = double(c + r) + GetObstacleCost(cost_table_[c][r]) + min_cost;
+            }
+          }
+        }
+
+        // if (c == 2 && r == 3)
+        // {
+        //   cost_table_[c][r].cost = 10;
+        // }
+      }
+      // (s,t)
+      cost_table_[c][r].st_point = st_point;
     }
   }
 
-  std::cout << "cost_table_.size()   " << cost_table_.size() << std::endl;
-  std::cout << "cost_table_.[2].size()  " << cost_table_[2].size() << std::endl;
-  // int ii=0;
-  //   for ( auto &row : cost_table_)
-  //   {
-  //      StGraphPoint &cur_point = row.back();
-  //     if (!std::isinf(cur_point.cost &&
-  //                     cur_point.cost < min_cost))
-  //     {
-  //       best_end_point = &cur_point;
-  //       min_cost = cur_point.cost;
-  //     }
-  //     ii++;
-  //   }
-  // std::cout<<"ii   "<<ii<<std::endl;
-
-  if (best_end_point == nullptr)
-  {
-    return false;
-  }
-
-  // 以cur_point为当前的node一直往前搜索,直到 node==nullptr
-  std::vector<SpeedPoint> speed_profile;
-  // StGraphPoint *cur_point = best_end_point;
-
-
-    { // debug only
-      for (size_t c = 0; c < cost_table_.size(); ++c)
+  { // 设置 node 的 pre_node
+    for (int c = 0; c < cost_table_.size(); c++)
+    {
+      for (int r = 0; r < cost_table_[c].size(); r++)
       {
-        for (size_t r = 0; r < cost_table_[c].size(); r++)
+        // std::cout << "c  " << c << "  r   " << r << std::endl;
+        if (c == 0)
         {
-          if (c == 0)
+          continue;
+          cost_table_[c][r].SetPreNode(cost_table_[c][r]);
+        }
+        else
+        {
+          double min_cost = std::numeric_limits<double>::max();
+          for (int i = 0; i <= r; i++)
           {
-            cost_table_[c][r].SetPrePoint(cost_table_[0][5]);
-          }
-          else
-          {
-
-            cost_table_[c][r].SetPrePoint(cost_table_[c - 1][5]);
-          }
-          cost_table_[c][r].cost = r + 1;
-          if (r == 5)
-          {
-            cost_table_[c][r].cost = 0;
+            if (cost_table_[c - 1][i].cost < min_cost)
+            {
+              min_cost = cost_table_[c - 1][i].cost;
+              // 当前node的pre_node一定是上个level中cost最小的node
+              cost_table_[c][r].pre_node = &cost_table_[c - 1][i];
+            }
           }
         }
       }
     }
-
-
-  std::cout << "cost_table_.size()   " << cost_table_.size() << std::endl;
-  std::cout << "cost_table_.[2].size()  " << cost_table_[2].size() << std::endl;
-
-StGraphPoint * cur_point = &cost_table_.back()[1];
-
-  // cur_point->SetPrePoint(cost_table_[9][100]);
-  // cur_point = cur_point->pre_node;
-
-  int kk = 0;
-  while (cur_point != nullptr)
-  {
-    SpeedPoint speed_point(0, 0, 0);
-    // speed_point.set_s(cur_point->st_point.s);
-    speed_point.set_s(1);
-    // speed_point.set_t(cur_point->st_point.t);
-    speed_point.set_t(1);
-    speed_profile.push_back(speed_point);
-    cur_point = cur_point->pre_node;
-    kk++;
-      std::cout << "kk   " << kk << std::endl;
   }
-  std::cout << "kk   " << kk << std::endl;
-  std::reverse(speed_profile.begin(), speed_profile.end());
 
-  static constexpr double kEpsilon = std::numeric_limits<double>::epsilon();
-  if (speed_profile.front().t > kEpsilon ||
-      speed_profile.front().s > kEpsilon)
+  std::cout << "cost_table_[3][5].pre_node->cost   " << cost_table_[3][5].pre_node->cost
+            << "   " << cost_table_[3][5].pre_node->st_point.t << " " << cost_table_[3][5].pre_node->st_point.s << std::endl;
+
+  // 找到最后一个level中cost最小的node作为当前node
+  StGraphPoint cur_point = cost_table_.back()[5];
+  {
+    double min_cost = std::numeric_limits<double>::max();
+    for (int i = 0; i <= cost_table_.back().size(); i++)
+    {
+      if (cost_table_.back()[i].cost < min_cost)
+      {
+        min_cost = cost_table_.back()[i].cost;
+        // 当前node的pre_node一定是上个level中cost最小的node
+        cur_point = cost_table_.back()[i];
+      }
+    }
+  }
+
+  // cur_point = cost_table_.back()[5];
+  // 判断是否找到当前node
+  if (&cur_point == nullptr)
   {
     return false;
   }
 
+  std::vector<SpeedPoint> speed_profile;
+  int index = 0;
+  while (&cur_point != nullptr)
+  {
+    std::cout << "current_node (t s)  ( " << cur_point.index_t_ << "  "
+              << cur_point.index_s_ << " )" <<"  cost  " <<cur_point.cost <<std::endl;
+
+    SpeedPoint speed_point(0, 0, 0);
+    speed_point.set_s(cur_point.st_point.s);
+    speed_point.set_t(cur_point.st_point.t);
+    speed_profile.push_back(speed_point);
+
+    if (cur_point.pre_node != nullptr)
+    {
+      cur_point = *cur_point.pre_node;
+    }
+    else
+    {
+      break;
+    }
+
+    index++;
+  }
+
+  std::reverse(speed_profile.begin(), speed_profile.end());
+
+  // static constexpr double kEpsilon = std::numeric_limits<double>::epsilon();
+  // if (speed_profile.front().t > kEpsilon ||
+  //     speed_profile.front().s > kEpsilon)
+  // {
+  //   return false;
+  // }
+
   for (size_t i = 0; i + 1 < speed_profile.size(); ++i)
   {
-    const double v = (speed_profile[i + 1].s - speed_profile[i].s) /
-                     (speed_profile[i + 1].t - speed_profile[i].t + 1e-3);
+    double v = (speed_profile[i + 1].s - speed_profile[i].s) /
+               (speed_profile[i + 1].t - speed_profile[i].t + 1e-3);
     speed_profile[i].set_v(v);
+    speed_profile[i].v = v;
+    std::cout << "speed_profile[i + 1].s    " << speed_profile[i + 1].s << std::endl;
+    std::cout << "speed_profile[i ].s    " << speed_profile[i].s << std::endl;
+    std::cout << "speed_profile[i + 1].t    " << speed_profile[i + 1].t << std::endl;
+    std::cout << "speed_profile[i].t    " << speed_profile[i].t << std::endl;
   }
 
   std::cout << "speed_profile.size()  " << speed_profile.size() << std::endl;
   for (int i = 0; i < speed_profile.size(); i++)
   {
     std::cout << "index, (s,t,v)  " << i << " (" << speed_profile[i].s << " " << speed_profile[i].t << " "
-              << speed_profile[i].v << "  )" << std::endl;
+              << speed_profile[i].v << ")" << std::endl;
   }
 
   // *speed_data = SpeedData(speed_profile);
@@ -1216,9 +663,12 @@ bool DP_speed_Search(std::vector<StBoundary> st_boundaries)
     // }
   }
 
-  if (!InitCostTable())
+  if (0)
   {
-    // return false;
+    if (!InitCostTable())
+    {
+      // return false;
+    }
   }
 
   if (!InitSpeedLimitLookUp())
