@@ -1,0 +1,1 @@
+/usr/bin/c++    -O0 -Wall -g -ggdb   CMakeFiles/ST_graph.dir/src/ST_graph.cpp.o  -o ST_graph -rdynamic 

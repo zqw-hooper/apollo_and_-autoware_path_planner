@@ -19,6 +19,7 @@
 #include "DP_speed_planner.h"
 
 // 数据
+std::vector<StBoundary> st_boundaries;
 
 double FLAGS_planning_upper_speed_limit = 15;
 static constexpr double kDoubleEpsilon = 1.0e-6;
@@ -130,8 +131,33 @@ bool InitSpeedLimitLookUp()
 
 double GetObstacleCost(const StGraphPoint st_graph_point)
 {
+  float node_s = st_graph_point.st_point.s;
+  float node_t = st_graph_point.st_point.t;
 
-  return 0;
+  float cost = 0;
+  for (int i = 0; i < st_boundaries.size(); i++)
+  {
+    st_boundaries[i].lower_points_;
+    for (int m = 0; m < st_boundaries[i].lower_points_.size(); m++)
+    {
+      StPoint st_point_tmp = st_boundaries[i].lower_points_[m];
+      if (st_point_tmp.t == node_t)
+      {
+        cost += 1 / abs(st_point_tmp.s - node_s);
+      }
+    }
+
+    for (int m = 0; m < st_boundaries[i].upper_points_.size(); m++)
+    {
+      StPoint st_point_tmp = st_boundaries[i].upper_points_[m];
+      if (st_point_tmp.t == node_t)
+      {
+        cost += 1 / abs(st_point_tmp.s - node_s);
+      }
+    }
+  }
+
+  return cost;
 }
 
 bool CalculateCostAt(size_t c, size_t r)
@@ -583,7 +609,8 @@ bool RetrieveSpeedProfile()
   while (&cur_point != nullptr)
   {
     std::cout << "current_node (t s)  ( " << cur_point.index_t_ << "  "
-              << cur_point.index_s_ << " )" <<"  cost  " <<cur_point.cost <<std::endl;
+              << cur_point.index_s_ << " )"
+              << "  cost  " << cur_point.cost << std::endl;
 
     SpeedPoint speed_point(0, 0, 0);
     speed_point.set_s(cur_point.st_point.s);
@@ -701,53 +728,26 @@ int main()
   }
   path_ = std::make_shared<DiscretizedPath>(points);
 
-  // std::vector<Obstacle> obstacles;
-  // StGraph st_graph(*path_, obstacles);
+  Box2d obs_box3({-5.0, -1.0}, M_PI / 4.0, 2.0, 1.0);
+  std::vector<TrajectoryPoint> traj_points;
+  double t = 0.0;
+  for (double x = 5.0; x > 0.0; x -= 0.1)
+  {
+    TrajectoryPoint traj_p({x, -x + 5, 3 * M_PI / 4.0, 0}, 0.0, t);
+    traj_points.emplace_back(traj_p);
+    t += 0.1;
+  }
 
-  // std::vector<StBoundary> st_boundaries;
-  // st_graph.GetAllObstacleStBoundary(&st_boundaries);
-  // // EXPECT_TRUE(st_boundaries.empty());
-  // std::cout << "should be true   " << st_boundaries.empty() << std::endl;
+  DiscretizedTrajectory obs_trajectory(traj_points);
+  Obstacle obs1("3", obs_box3, false, obs_trajectory);
 
-  // std::string id = "1";
-  // StBoundary st_boundary;
-  // // EXPECT_TRUE(!st_graph.GetObstacleStBoundary(id, &st_boundary));
-  // std::cout << "should be true   " << !st_graph.GetObstacleStBoundary(id, &st_boundary) << std::endl;
+  Box2d obs_box4({15.0, 15.0}, M_PI / 4.0, 2.0, 1.0);
+  Obstacle obs2("4", obs_box4, true);
 
-  // double t = 0.0;
-  // std::vector<std::pair<double, double>> blocked_ranges;
-  // st_graph.GetAllBlockedSRangesByT(t, &blocked_ranges);
-  // // EXPECT_TRUE(blocked_ranges.empty());
-  // std::cout << "should be true   " << (blocked_ranges.empty()) << std::endl;
+  StGraph st_graph(*path_, std::vector<Obstacle>{obs1, obs2});
 
-  // Box2d obs_box_1({5.0, 5.0}, M_PI / 4.0, 2.0, 1.0);
-  // Box2d obs_box_2({5.0, 5.0}, M_PI / 2, 2.0, 1.0);
-  // Obstacle obs_1("1", obs_box_1, true);
-  // Obstacle obs_2("2", obs_box_2, true);
-  // StGraph st_graph(*path_, std::vector<Obstacle>{obs_1, obs_2});
-
-  // std::vector<StBoundary> st_boundaries;
-  // st_graph.GetAllObstacleStBoundary(&st_boundaries);
-  // // EXPECT_TRUE(!st_boundaries.empty());
-  // std::cout << "should be true   " << (!st_boundaries.empty()) << std::endl;
-  // std::string id = "2";
-  // StBoundary st_boundary;
-  // // EXPECT_TRUE(st_graph.GetObstacleStBoundary(id, &st_boundary));
-  // std::cout << "should be true   " << (st_graph.GetObstacleStBoundary(id, &st_boundary)) << std::endl;
-  // double lower_s = 0.0;
-  // double upper_s = 0.0;
-  // // st_boundary.Evaluate(3.0, &lower_s, &upper_s);
-  // // EXPECT_EQ(lower_s, 5 * std::sqrt(2.0) - 2.0);
-  // // EXPECT_EQ(upper_s, 5 * std::sqrt(2.0) + 2.0);
-
-  // std::cout << "should be true   " << (lower_s == (5 * std::sqrt(2.0) - 2.0)) << std::endl;
-  // std::cout << "should be true   " << (upper_s == (5 * std::sqrt(2.0) + 2.0)) << std::endl;
-
-  // double t = 0.0;
-  // std::vector<std::pair<double, double>> blocked_ranges;
-  // st_graph.GetAllBlockedSRangesByT(t, &blocked_ranges);
-  // // EXPECT_TRUE(!blocked_ranges.empty());
-  // std::cout << "should be true   " << (!blocked_ranges.empty()) << std::endl;
+  st_graph.GetAllObstacleStBoundary(&st_boundaries);
+  // std::cout << "st_boundaries is not empty   " << (!st_boundaries.empty()) << std::endl;
 
   //////////////////////////////////////////////////////
   std::vector<StBoundary> st_boundaries_debug;
@@ -770,7 +770,6 @@ int main()
   st_boundaries_debug.push_back(st_boundary_1);
   st_boundaries_debug.push_back(st_boundary_2);
   st_boundaries_debug.push_back(st_boundary_3);
-
   // DP用于速度规划
   DP_speed_Search(st_boundaries_debug);
   std::cout << "End DP_speed " << std::endl;

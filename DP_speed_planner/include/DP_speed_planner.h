@@ -282,7 +282,7 @@ public:
         return obs_id_;
     }
 
-private:
+public:
     bool is_init_ = false;
     std::string obs_id_;
     std::vector<StPoint> lower_points_;

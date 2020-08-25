@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/ST_graph/src/ST_graph.cpp
+array
+-
+vector
+-
+iostream
+-
+limits
+-
+algorithm
+-
+unordered_map
+-
+string
+-
+memory
+-
+
