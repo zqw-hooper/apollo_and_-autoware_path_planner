@@ -4,6 +4,11 @@ add_definitions(-std=c++11)
 # Find OSQP library and headers
 find_package(osqp REQUIRED)
 
+
+find_package(PythonLibs 3.6)
+include_directories(${PYTHON_INCLUDE_DIRS})  #使用这方式可以替代下面这行
+
+
 include_directories(
 )
 set(CMAKE_BUILD_TYPE Debug)

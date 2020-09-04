@@ -2,6 +2,9 @@
 
 #include "osqp_problem.h"
 #include <math.h>
+// #include "matplotlibcpp.h"
+
+// namespace plt = matplotlibcpp;
 
 using PathBoundary = std::vector<std::pair<double, double>>;
 
@@ -28,10 +31,10 @@ void build_path_boundary(PathBoundaryInfo &bound_info, double planning_length,
   bound_info.set_delta_s(delta_s);
 
   int num = floor(planning_length / delta_s);
-  PathBoundary bound;
+  PathBoundary bound; // 边界信息
   for (int i = 0; i < num; i++)
   {
-    bound.emplace_back(std::make_pair(-2.0, 3.0));
+    bound.emplace_back(std::make_pair(-2, 3.0));
   }
 
   int start = floor(num / 3.0);
@@ -51,7 +54,14 @@ int main(int argc, char **argv)
   PathBoundaryInfo bound_info;
 
   // PathBoundaryInfo& bound_info, double planning_length, double delta_s, double start_s
-   build_path_boundary(bound_info, 50.0, 0.5, 0.0);
+ build_path_boundary(bound_info, 10.0,1, 0.0);
+
+  // 边界信息
+  for (int i = 0; i < bound_info.boundary().size(); i++)
+  {
+    std::cout << "boundary low,high   " <<i<<"    " <<bound_info.boundary()[i].first<< "  "
+              << bound_info.boundary()[i].second << std::endl;
+  }
 
   std::array<double, 3> init_state = {1, 0.0, 0.0};
 
@@ -59,18 +69,17 @@ int main(int argc, char **argv)
   OSQPProblem osqp_problem(bound_info.boundary().size(), bound_info.delta_s(),
                            init_state);
 
-  std::array<double, 3> end_state = {1, 0.0, 0.0};
+  std::array<double, 3> end_state = {-1, 0.0, 0.0};
   // 设置结尾处的状态
-  osqp_problem.set_end_state_ref({100.0, 0.0, 0.0}, end_state);
+  osqp_problem.set_end_state_ref({1000.0, 0.0, 0.0}, end_state);
 
   // 设置权重
   osqp_problem.set_weight_x(4.0);
-  osqp_problem.set_weight_dx(2.0);
-  osqp_problem.set_weight_ddx(10.0);
-  osqp_problem.set_weight_dddx(50.0);
+  osqp_problem.set_weight_dx(20.0);
+  osqp_problem.set_weight_ddx(1000.0);
+  osqp_problem.set_weight_dddx(50000.0);
 
-
-  osqp_problem.set_scale_factor({1.0, 10.0, 10.0});
+  osqp_problem.set_scale_factor({1.0, 10.0, 100.0});
 
   //初始化各项变量的边界
   osqp_problem.set_x_bounds(bound_info.boundary());
@@ -87,10 +96,7 @@ int main(int argc, char **argv)
     std::cout << "Optimize failed!!" << std::endl;
   }
 
-  for (int i = 0; i < osqp_problem.x_.size(); i++)
-  {
-    std::cout << "index  " << i << "  x  " << osqp_problem.x_[i] << std::endl;
-  }
+
 
   std::cout << "End of OSQP " << std::endl;
 

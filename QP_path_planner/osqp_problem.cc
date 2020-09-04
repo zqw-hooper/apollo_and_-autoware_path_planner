@@ -543,10 +543,37 @@ bool OSQPProblem::Optimize(const int max_iter)
   ddx_.resize(num_of_knots_);
   for (size_t i = 0; i < num_of_knots_; ++i)
   {
-    x_.at(i) = osqp_work->solution->x[i] / scale_factor_[0];
-    dx_.at(i) = osqp_work->solution->x[i + num_of_knots_] / scale_factor_[1];
-    ddx_.at(i) = osqp_work->solution->x[i + 2 * num_of_knots_] / scale_factor_[2];
+    // x_.at(i) = osqp_work->solution->x[i] / scale_factor_[0];
+    // dx_.at(i) = osqp_work->solution->x[i + num_of_knots_] / scale_factor_[1];
+    // ddx_.at(i) = osqp_work->solution->x[i + 2 * num_of_knots_] / scale_factor_[2];
+
+    x_.at(i) = osqp_work->solution->x[i];
+    dx_.at(i) = osqp_work->solution->x[i + num_of_knots_];
+    ddx_.at(i) = osqp_work->solution->x[i + 2 * num_of_knots_];
   }
+
+  std::cout << " osqp_work->solution->x[i] " << std::endl;
+  for (int i = 0; i < x_.size(); i++)
+  {
+    std::cout << "index  " << i << "  x  " << osqp_work->solution->x[i] << std::endl;
+  }
+
+  // std::cout << "x " << std::endl;
+  // for (int i = 0; i < x_.size(); i++)
+  // {
+  //   std::cout << "index  " << i << "  x  " << x_[i] << std::endl;
+  // }
+
+  // std::cout << "dx " << std::endl;
+  // for (int i = 0; i < dx_.size(); i++)
+  // {
+  //   std::cout << "index  " << i << "  x  " << dx_[i] << std::endl;
+  // }
+  // std::cout << "ddx " << std::endl;
+  // for (int i = 0; i < ddx_.size(); i++)
+  // {
+  //   std::cout << "index  " << i << "  x  " << ddx_[i] << std::endl;
+  // }
 
   // Cleanup
   osqp_cleanup(osqp_work);
