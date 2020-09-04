@@ -1,0 +1,12 @@
+//
+// Created by ljn on 20-5-25.
+//
+
+#ifndef APOLLO_SPEED_INCLUDE_IPOPTINTERFACE_HPP_
+#define APOLLO_SPEED_INCLUDE_IPOPTINTERFACE_HPP_
+
+class IpoptInterface {
+
+};
+
+#endif //APOLLO_SPEED_INCLUDE_IPOPTINTERFACE_HPP_
