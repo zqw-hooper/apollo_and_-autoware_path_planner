@@ -219,11 +219,11 @@ PiecewiseJerkSpeedNonlinearIpoptInterface.hpp
 /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/src/PiecewiseJerkSpeedNonlinearIpoptInterface.hpp
 
 /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/src/PiecewiseJerkSpeedOptimizer.cpp
-chrono
--
 coin/IpIpoptApplication.hpp
 -
 coin/IpSolveStatistics.hpp
+-
+chrono
 -
 glog/logging.h
 /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/src/glog/logging.h

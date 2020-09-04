@@ -5,8 +5,11 @@
 #ifndef APOLLO_SPEED_INCLUDE_PIECEWISEJERKSPEEDNONLINEARIPOPTINTERFACE_HPP_
 #define APOLLO_SPEED_INCLUDE_PIECEWISEJERKSPEEDNONLINEARIPOPTINTERFACE_HPP_
 
+#define HAVE_CSTDDEF
 #include <coin/IpTNLP.hpp>
 #include <coin/IpTypes.hpp>
+#undef HAVE_CSTDDEF
+
 #include <unordered_map>
 #include <utility>
 #include <vector>

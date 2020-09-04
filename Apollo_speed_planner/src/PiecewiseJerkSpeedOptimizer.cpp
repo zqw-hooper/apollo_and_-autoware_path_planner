@@ -1,9 +1,14 @@
 //
 // Created by ljn on 20-5-25.
 //
-#include <chrono>
+
+#define HAVE_CSTDDEF
 #include <coin/IpIpoptApplication.hpp>
 #include <coin/IpSolveStatistics.hpp>
+#undef HAVE_CSTDDEF
+
+#include <chrono>
+
 #include "glog/logging.h"
 #include "PiecewiseJerkSpeedOptimizer.hpp"
 #include "PiecewiseJerkSpeedProblem.hpp"

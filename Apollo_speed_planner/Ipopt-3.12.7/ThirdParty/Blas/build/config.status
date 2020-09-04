@@ -512,7 +512,7 @@ s,@PKG_CONFIG@,pkg-config,;t t
 s,@ac_ct_PKG_CONFIG@,pkg-config,;t t
 s,@COIN_HAS_PKGCONFIG_TRUE@,,;t t
 s,@COIN_HAS_PKGCONFIG_FALSE@,#,;t t
-s,@COIN_PKG_CONFIG_PATH@,/usr/local/lib64/pkgconfig:/usr/local/lib/pkgconfig:/usr/local/share/pkgconfig:,;t t
+s,@COIN_PKG_CONFIG_PATH@,/usr/local/lib64/pkgconfig:/usr/local/lib/pkgconfig:/usr/local/share/pkgconfig:/opt/ros/kinetic/lib/pkgconfig:/opt/ros/kinetic/lib/x86_64-linux-gnu/pkgconfig,;t t
 s,@COIN_PKG_CONFIG_PATH_UNINSTALLED@,,;t t
 s,@EGREP@,grep -E,;t t
 s,@LN_S@,ln -s,;t t
