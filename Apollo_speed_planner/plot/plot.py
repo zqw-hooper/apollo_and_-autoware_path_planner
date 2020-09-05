@@ -17,6 +17,7 @@ s = st_data["s"].values
 plt.scatter(t, l, color='r')
 plt.scatter(t, u, color='r')
 plt.scatter(t, s, color='b')
+ax.set_title("st_test.csv")
 
 v_data = pd.read_csv(pwd+"/v_test.csv")
 s = v_data["s"].values;

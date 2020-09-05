@@ -8,3 +8,9 @@ sudo apt install coinor-libipopt-dev
 
 2. 使用脚本安装IPOPT
     ./install_ipopt.sh Ipopt-3.12.7
+
+3. 安装pandas
+    pip install pandas
+     sudo apt-get install python-pandas
+
+     plot/plot.py  // 画图
