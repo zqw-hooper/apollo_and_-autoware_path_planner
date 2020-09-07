@@ -57,6 +57,8 @@ int main() {
         p.s_ = s_list[i];
         path.push_back(p);
     }
+
+
     double dt = 0.2;
     std::vector<std::pair<double, double>> s_bounds;
     for (int i = 0; i != 41; ++i) {
@@ -68,10 +70,13 @@ int main() {
     for (int i = 0; i != 5; ++i) {
         s_bounds[36 + i].second = 50;
     }
+    // 参考路径点
     std::vector<double> ref_s_list;
     for (int i = 0; i != 41; ++i) {
         ref_s_list.emplace_back(15 * i * dt);
     }
+
+    // 速度的上边界
     SpeedLimit speed_limit;
     double ds = 0.5, s = 0;
     while (s < 80) {
@@ -96,18 +101,20 @@ int main() {
         t += 0.2;
     }
 
+    // 横坐标t, 纵坐标s
     std::ofstream out;
-//    out.open("/home/ljn/st_test.csv");
     out.open("../plot/st_test.csv");
-    out << "t,l,u,s" << std::endl;
+    out << "t,l,u,s,reference" << std::endl;
     for (int i = 0; i != s_bounds.size(); ++i) {
         double t = i * dt;
         SpeedPoint speed;
         result.EvaluateByTime(t, &speed);
-        out << t << "," << s_bounds[i].first << "," << s_bounds[i].second << "," << speed.s_ << std::endl;
+        // 时间，上边界，下边界，s
+        out << t << "," << s_bounds[i].first << "," << s_bounds[i].second << "," << speed.s_ <<","<< ref_s_list[i]<<std::endl;
     }
     out.close();
 
+    // 横坐标s, 纵坐标v
     out.open("../plot/v_test.csv");
     out << "s,b,v" << std::endl;
     ds = 0.3;
@@ -116,6 +123,7 @@ int main() {
         double limit = speed_limit.GetSpeedLimitByS(tmp_s);
         SpeedPoint speed;
         result.EvaluateByS(tmp_s, &speed);
+        // s, speed_limit, v
         out << tmp_s << "," << limit << "," << speed.v_ << std::endl;
         tmp_s += ds;
     }
