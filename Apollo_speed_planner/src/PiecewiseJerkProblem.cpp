@@ -31,10 +31,14 @@ OSQPData* PiecewiseJerkProblem::FormulateProblem() {
     std::vector<c_float> P_data;
     std::vector<c_int> P_indices;
     std::vector<c_int> P_indptr;
-    // 计算hessian矩阵，用CSC表示法。
+    // 计算hessian矩阵，用CSC表示法  // compressed sparse colum
     // x应该是表示s，所以hessian矩阵包括x部分（应该gradient还有另一部分），速度惩罚，加速度惩罚，加加速度惩罚（通过对加速度差分）
+    // P
     CalculateKernel(&P_data, &P_indices, &P_indptr);
+
+
     // calculate affine constraints
+    // A
     std::vector<c_float> A_data;
     std::vector<c_int> A_indices;
     std::vector<c_int> A_indptr;
@@ -44,6 +48,7 @@ OSQPData* PiecewiseJerkProblem::FormulateProblem() {
                               &upper_bounds);
 
     // calculate offset
+    // q
     std::vector<c_float> q;
     CalculateOffset(&q);
 

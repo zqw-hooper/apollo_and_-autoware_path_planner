@@ -41,8 +41,19 @@ ref_data = pd.read_csv(pwd+"/ref.csv")
 index =  ref_data["index"].values
 ref = ref_data["ref"].values
 optimized_ref = ref_data["optimized_ref"].values
+s_bounds_lower = ref_data["s_bounds_lower"].values
+s_bounds_upper = ref_data["s_bounds_upper"].values
+velocity = ref_data["velocity"].values
+
 plt.scatter(index,ref, color="b")
 plt.scatter(index,optimized_ref, color="r")
+plt.scatter(index,s_bounds_lower, color="m")
+plt.scatter(index,s_bounds_upper, color="m")
+plt.scatter(index,velocity, color="k")
+plt.title("optimized path")
+plt.xlabel("index")
+plt.ylabel("s")
+
 
 
 plt.show()

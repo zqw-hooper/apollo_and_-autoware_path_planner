@@ -33,7 +33,9 @@ bool PiecewiseJerkSpeedOptimizer::Process(std::vector<std::pair<double, double>>
                                           SpeedData *speed_data)
 {
     if (s_bounds.size() != soft_s_bounds.size())
+    {
         return false;
+    }
     delta_t_ = dt;                                // 时间间隔，这里等于0.2s
     num_of_knots_ = s_bounds.size();              // 优化的点数目，这里等于40
     total_time_ = delta_t_ * (num_of_knots_ - 1); // 总时间
@@ -60,7 +62,7 @@ bool PiecewiseJerkSpeedOptimizer::Process(std::vector<std::pair<double, double>>
         bound.second = std::min(bound.second, total_length_);
     }
 
-    // Smooth reference line
+    // 优化 reference_line
     std::vector<double> distance;
     std::vector<double> velocity;
     std::vector<double> acceleration;
@@ -74,32 +76,19 @@ bool PiecewiseJerkSpeedOptimizer::Process(std::vector<std::pair<double, double>>
     {
         return false;
     }
-
+    // 优化后的路径点
     // 横坐标t, 纵坐标s
     std::ofstream out;
     out.open("../plot/ref.csv");
-    out << "index,ref,optimized_ref" << std::endl;
+    out << "index,ref,optimized_ref,s_bounds_lower,s_bounds_upper,velocity" << std::endl;
     for (int i = 0; i != ref_s_list.size(); ++i)
     {
-       
-        out << i<<","<<ref_s_list[i] << "," <<distance[i]<<std::endl;
+
+        out << i << "," << ref_s_list[i] << "," << distance[i] << ","
+            << s_bounds[i].first << "," << s_bounds[i].second 
+            <<","<<velocity[i] <<std::endl;
     }
     out.close();
-
-    std::cout << "ref_s_list" << std::endl;
-    std::cout << "ref_s_list.size()" << ref_s_list.size() << std::endl;
-    for (int i = 0; i < ref_s_list.size(); i++)
-    {
-        std::cout << ref_s_list[i] << " ";
-    }
-    std::cout << "ref_s_list" << std::endl;
-
-    std::cout << "distance" << std::endl;
-    std::cout << "distance.size()  " << distance.size() << std::endl;
-    for (int i = 0; i < distance.size(); i++)
-    {
-        std::cout << distance[i] << " ";
-    }
 
     // Smooth curvature
     const auto curvature_smooth_start = std::chrono::system_clock::now();
@@ -109,18 +98,18 @@ bool PiecewiseJerkSpeedOptimizer::Process(std::vector<std::pair<double, double>>
     std::chrono::duration<double> curvature_smooth_diff =
         curvature_smooth_end - curvature_smooth_start;
     std::cout << "path curvature smoothing for nlp optimization takes "
-              << curvature_smooth_diff.count() * 1000.0 << " ms"<<std::endl;
+              << curvature_smooth_diff.count() * 1000.0 << " ms" << std::endl;
     if (!path_curvature_smooth_status)
         return false;
 
     // Smooth speed limit.
     const auto speed_limit_smooth_start = std::chrono::system_clock::now();
     const auto speed_limit_smooth_status = SmoothSpeedLimit(speed_limit);
-    const auto speed_limit_smooth_end = std::chrono::system_clock::now(); 
+    const auto speed_limit_smooth_end = std::chrono::system_clock::now();
     std::chrono::duration<double> speed_limit_smooth_diff =
         speed_limit_smooth_end - speed_limit_smooth_start;
     std::cout << "speed limit smoothing for nlp optimization takes "
-              << speed_limit_smooth_diff.count() * 1000.0 << " ms"<<std::endl;
+              << speed_limit_smooth_diff.count() * 1000.0 << " ms" << std::endl;
     if (!speed_limit_smooth_status)
         return false;
 
@@ -165,27 +154,29 @@ bool PiecewiseJerkSpeedOptimizer::OptimizeByQP(const std::vector<std::pair<doubl
                                                std::vector<double> *acceleration)
 {
     // 初始状态
-    std::array<double, 3> init_states = {s_init_, s_dot_init_, s_ddot_init_};
-    PiecewiseJerkSpeedProblem piecewise_jerk_problem(num_of_knots_, delta_t_,
+    std::array<double, 3> init_states = {0, s_dot_init_, s_ddot_init_};
+    // std::cout << "s_init_   " << s_init_ << std::endl;
+    PiecewiseJerkSpeedProblem piecewise_jerk_speed_problem(num_of_knots_, delta_t_,
                                                      init_states);
-    piecewise_jerk_problem.set_dx_bounds(
+    std::cout << "num_of_knots_  " << num_of_knots_ << std::endl;
+    piecewise_jerk_speed_problem.set_dx_bounds(
         0.0, s_dot_max_);
-    piecewise_jerk_problem.set_ddx_bounds(s_ddot_min_, s_ddot_max_);
-    piecewise_jerk_problem.set_dddx_bound(s_dddot_min_, s_dddot_max_);
-    piecewise_jerk_problem.set_x_bounds(s_bounds);
-    piecewise_jerk_problem.set_weight_x(0.0);
-    piecewise_jerk_problem.set_weight_dx(0.0);
-    piecewise_jerk_problem.set_weight_ddx(1.0);
-    piecewise_jerk_problem.set_weight_dddx(1.0);
-    piecewise_jerk_problem.set_x_ref(1.0, ref_s_list);
-    if (!piecewise_jerk_problem.Optimize())
+    piecewise_jerk_speed_problem.set_ddx_bounds(s_ddot_min_, s_ddot_max_);
+    piecewise_jerk_speed_problem.set_dddx_bound(s_dddot_min_, s_dddot_max_);
+    piecewise_jerk_speed_problem.set_x_bounds(s_bounds);
+    piecewise_jerk_speed_problem.set_weight_x(10.0);
+    piecewise_jerk_speed_problem.set_weight_dx(0.0);
+    piecewise_jerk_speed_problem.set_weight_ddx(1.0);
+    piecewise_jerk_speed_problem.set_weight_dddx(1.0);
+    piecewise_jerk_speed_problem.set_x_ref(10.0, ref_s_list);
+    if (!piecewise_jerk_speed_problem.Optimize())
     {
         std::cout << "Speed Optimization by Quadratic Programming failed" << std::endl;
         return false;
     }
-    *distance = piecewise_jerk_problem.opt_x();
-    *velocity = piecewise_jerk_problem.opt_dx();
-    *acceleration = piecewise_jerk_problem.opt_ddx();
+    *distance = piecewise_jerk_speed_problem.opt_x();
+    *velocity = piecewise_jerk_speed_problem.opt_dx();
+    *acceleration = piecewise_jerk_speed_problem.opt_ddx();
     return true;
 }
 
@@ -326,6 +317,7 @@ bool PiecewiseJerkSpeedOptimizer::OptimizeByNLP(const std::vector<std::pair<doub
         LOG(WARNING) << msg;
         return false;
     }
+    
     std::vector<std::vector<double>> warm_start;
     std::size_t size = warm_start_distance.size();
     for (std::size_t i = 0; i < size; ++i)
