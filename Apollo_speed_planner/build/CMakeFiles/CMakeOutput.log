@@ -1,4 +1,4 @@
-The system is: Linux - 4.15.0-112-generic - x86_64
+The system is: Linux - 4.4.0-176-generic - x86_64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
 Compiler: /usr/bin/cc 
 Build flags: 
@@ -10,7 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/3.5.1/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/3.5.1/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /usr/bin/c++ 
@@ -23,33 +23,33 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/3.5.1/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/3.5.1/CompilerIdCXX/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_ecd41/fast"
-/usr/bin/make -f CMakeFiles/cmTC_ecd41.dir/build.make CMakeFiles/cmTC_ecd41.dir/build
-make[1]: Entering directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_ecd41.dir/testCCompiler.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_ecd41.dir/testCCompiler.c.o   -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_ecd41
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ecd41.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_ecd41.dir/testCCompiler.c.o  -o cmTC_ecd41 
-make[1]: Leaving directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_a0cbe/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a0cbe.dir/build.make CMakeFiles/cmTC_a0cbe.dir/build
+make[1]: Entering directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a0cbe.dir/testCCompiler.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_a0cbe.dir/testCCompiler.c.o   -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_a0cbe
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a0cbe.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_a0cbe.dir/testCCompiler.c.o  -o cmTC_a0cbe 
+make[1]: Leaving directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_6adf6/fast"
-/usr/bin/make -f CMakeFiles/cmTC_6adf6.dir/build.make CMakeFiles/cmTC_6adf6.dir/build
-make[1]: Entering directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_6adf6.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_6adf6.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_6adf6
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6adf6.dir/link.txt --verbose=1
-/usr/bin/cc      -v CMakeFiles/cmTC_6adf6.dir/CMakeCCompilerABI.c.o  -o cmTC_6adf6  
+Run Build Command:"/usr/bin/make" "cmTC_b176e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b176e.dir/build.make CMakeFiles/cmTC_b176e.dir/build
+make[1]: Entering directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b176e.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_b176e.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_b176e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b176e.dir/link.txt --verbose=1
+/usr/bin/cc      -v CMakeFiles/cmTC_b176e.dir/CMakeCCompilerABI.c.o  -o cmTC_b176e  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper
@@ -59,23 +59,23 @@ Thread model: posix
 gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.12) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_6adf6' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccs1RWga.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_6adf6 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_6adf6.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
-make[1]: Leaving directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_b176e' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/cc4dAp1V.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_b176e /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_b176e.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_6adf6/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_6adf6.dir/build.make CMakeFiles/cmTC_6adf6.dir/build]
-  ignore line: [make[1]: Entering directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_6adf6.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc     -o CMakeFiles/cmTC_6adf6.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_6adf6]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6adf6.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc      -v CMakeFiles/cmTC_6adf6.dir/CMakeCCompilerABI.c.o  -o cmTC_6adf6  ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_b176e/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_b176e.dir/build.make CMakeFiles/cmTC_b176e.dir/build]
+  ignore line: [make[1]: Entering directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_b176e.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc     -o CMakeFiles/cmTC_b176e.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_b176e]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b176e.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc      -v CMakeFiles/cmTC_b176e.dir/CMakeCCompilerABI.c.o  -o cmTC_b176e  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper]
@@ -85,13 +85,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.12) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_6adf6' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccs1RWga.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_6adf6 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_6adf6.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_b176e' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/cc4dAp1V.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_b176e /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_b176e.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccs1RWga.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cc4dAp1V.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -108,7 +108,7 @@ Parsed C implicit link information from above output:
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_6adf6] ==> ignore
+    arg [cmTC_b176e] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o] ==> ignore
@@ -120,7 +120,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/5/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../..]
-    arg [CMakeFiles/cmTC_6adf6.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_b176e.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -152,17 +152,17 @@ Parsed C implicit link information from above output:
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_7ed19/fast"
-/usr/bin/make -f CMakeFiles/cmTC_7ed19.dir/build.make CMakeFiles/cmTC_7ed19.dir/build
-make[1]: Entering directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_7ed19.dir/feature_tests.c.o
-/usr/bin/cc    -std=c11 -o CMakeFiles/cmTC_7ed19.dir/feature_tests.c.o   -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_7ed19
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7ed19.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_7ed19.dir/feature_tests.c.o  -o cmTC_7ed19 
-make[1]: Leaving directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_0476b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0476b.dir/build.make CMakeFiles/cmTC_0476b.dir/build
+make[1]: Entering directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0476b.dir/feature_tests.c.o
+/usr/bin/cc    -std=c11 -o CMakeFiles/cmTC_0476b.dir/feature_tests.c.o   -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_0476b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0476b.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_0476b.dir/feature_tests.c.o  -o cmTC_0476b 
+make[1]: Leaving directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -172,17 +172,17 @@ make[1]: Leaving directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Ap
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_efdae/fast"
-/usr/bin/make -f CMakeFiles/cmTC_efdae.dir/build.make CMakeFiles/cmTC_efdae.dir/build
-make[1]: Entering directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_efdae.dir/feature_tests.c.o
-/usr/bin/cc    -std=c99 -o CMakeFiles/cmTC_efdae.dir/feature_tests.c.o   -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_efdae
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_efdae.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_efdae.dir/feature_tests.c.o  -o cmTC_efdae 
-make[1]: Leaving directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_e1ea2/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e1ea2.dir/build.make CMakeFiles/cmTC_e1ea2.dir/build
+make[1]: Entering directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e1ea2.dir/feature_tests.c.o
+/usr/bin/cc    -std=c99 -o CMakeFiles/cmTC_e1ea2.dir/feature_tests.c.o   -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_e1ea2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e1ea2.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_e1ea2.dir/feature_tests.c.o  -o cmTC_e1ea2 
+make[1]: Leaving directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -192,17 +192,17 @@ make[1]: Leaving directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Ap
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_82d3f/fast"
-/usr/bin/make -f CMakeFiles/cmTC_82d3f.dir/build.make CMakeFiles/cmTC_82d3f.dir/build
-make[1]: Entering directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_82d3f.dir/feature_tests.c.o
-/usr/bin/cc    -std=c90 -o CMakeFiles/cmTC_82d3f.dir/feature_tests.c.o   -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_82d3f
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_82d3f.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_82d3f.dir/feature_tests.c.o  -o cmTC_82d3f 
-make[1]: Leaving directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_177e8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_177e8.dir/build.make CMakeFiles/cmTC_177e8.dir/build
+make[1]: Entering directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_177e8.dir/feature_tests.c.o
+/usr/bin/cc    -std=c90 -o CMakeFiles/cmTC_177e8.dir/feature_tests.c.o   -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_177e8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_177e8.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_177e8.dir/feature_tests.c.o  -o cmTC_177e8 
+make[1]: Leaving directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -210,30 +210,30 @@ make[1]: Leaving directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Ap
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_2c603/fast"
-/usr/bin/make -f CMakeFiles/cmTC_2c603.dir/build.make CMakeFiles/cmTC_2c603.dir/build
-make[1]: Entering directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_2c603.dir/testCXXCompiler.cxx.o
-/usr/bin/c++      -o CMakeFiles/cmTC_2c603.dir/testCXXCompiler.cxx.o -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_2c603
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2c603.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_2c603.dir/testCXXCompiler.cxx.o  -o cmTC_2c603 
-make[1]: Leaving directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_630eb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_630eb.dir/build.make CMakeFiles/cmTC_630eb.dir/build
+make[1]: Entering directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_630eb.dir/testCXXCompiler.cxx.o
+/usr/bin/c++      -o CMakeFiles/cmTC_630eb.dir/testCXXCompiler.cxx.o -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_630eb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_630eb.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_630eb.dir/testCXXCompiler.cxx.o  -o cmTC_630eb 
+make[1]: Leaving directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_c56eb/fast"
-/usr/bin/make -f CMakeFiles/cmTC_c56eb.dir/build.make CMakeFiles/cmTC_c56eb.dir/build
-make[1]: Entering directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_c56eb.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++      -o CMakeFiles/cmTC_c56eb.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_c56eb
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c56eb.dir/link.txt --verbose=1
-/usr/bin/c++       -v CMakeFiles/cmTC_c56eb.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_c56eb  
+Run Build Command:"/usr/bin/make" "cmTC_90335/fast"
+/usr/bin/make -f CMakeFiles/cmTC_90335.dir/build.make CMakeFiles/cmTC_90335.dir/build
+make[1]: Entering directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_90335.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++      -o CMakeFiles/cmTC_90335.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_90335
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_90335.dir/link.txt --verbose=1
+/usr/bin/c++       -v CMakeFiles/cmTC_90335.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_90335  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper
@@ -243,23 +243,23 @@ Thread model: posix
 gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.12) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_c56eb' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/cc5gIZFF.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_c56eb /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_c56eb.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
-make[1]: Leaving directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_90335' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccAUNino.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_90335 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_90335.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_c56eb/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_c56eb.dir/build.make CMakeFiles/cmTC_c56eb.dir/build]
-  ignore line: [make[1]: Entering directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_c56eb.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_c56eb.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_c56eb]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c56eb.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_c56eb.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_c56eb  ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_90335/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_90335.dir/build.make CMakeFiles/cmTC_90335.dir/build]
+  ignore line: [make[1]: Entering directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_90335.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_90335.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_90335]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_90335.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_90335.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_90335  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper]
@@ -269,13 +269,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.12) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_c56eb' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/cc5gIZFF.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_c56eb /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_c56eb.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_90335' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccAUNino.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_90335 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_90335.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/cc5gIZFF.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccAUNino.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -292,7 +292,7 @@ Parsed CXX implicit link information from above output:
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_c56eb] ==> ignore
+    arg [cmTC_90335] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o] ==> ignore
@@ -304,7 +304,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/5/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../..]
-    arg [CMakeFiles/cmTC_c56eb.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_90335.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -334,17 +334,17 @@ Parsed CXX implicit link information from above output:
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_6893b/fast"
-/usr/bin/make -f CMakeFiles/cmTC_6893b.dir/build.make CMakeFiles/cmTC_6893b.dir/build
-make[1]: Entering directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_6893b.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++14 -o CMakeFiles/cmTC_6893b.dir/feature_tests.cxx.o -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_6893b
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6893b.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_6893b.dir/feature_tests.cxx.o  -o cmTC_6893b 
-make[1]: Leaving directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_01b6b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_01b6b.dir/build.make CMakeFiles/cmTC_01b6b.dir/build
+make[1]: Entering directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_01b6b.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++14 -o CMakeFiles/cmTC_01b6b.dir/feature_tests.cxx.o -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_01b6b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_01b6b.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_01b6b.dir/feature_tests.cxx.o  -o cmTC_01b6b 
+make[1]: Leaving directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -407,17 +407,17 @@ make[1]: Leaving directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Ap
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_fb585/fast"
-/usr/bin/make -f CMakeFiles/cmTC_fb585.dir/build.make CMakeFiles/cmTC_fb585.dir/build
-make[1]: Entering directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_fb585.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_fb585.dir/feature_tests.cxx.o -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_fb585
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fb585.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_fb585.dir/feature_tests.cxx.o  -o cmTC_fb585 
-make[1]: Leaving directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_5a255/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5a255.dir/build.make CMakeFiles/cmTC_5a255.dir/build
+make[1]: Entering directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_5a255.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_5a255.dir/feature_tests.cxx.o -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_5a255
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5a255.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_5a255.dir/feature_tests.cxx.o  -o cmTC_5a255 
+make[1]: Leaving directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -480,17 +480,17 @@ make[1]: Leaving directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Ap
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_d222d/fast"
-/usr/bin/make -f CMakeFiles/cmTC_d222d.dir/build.make CMakeFiles/cmTC_d222d.dir/build
-make[1]: Entering directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_d222d.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_d222d.dir/feature_tests.cxx.o -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_d222d
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d222d.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_d222d.dir/feature_tests.cxx.o  -o cmTC_d222d 
-make[1]: Leaving directory '/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_af453/fast"
+/usr/bin/make -f CMakeFiles/cmTC_af453.dir/build.make CMakeFiles/cmTC_af453.dir/build
+make[1]: Entering directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_af453.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_af453.dir/feature_tests.cxx.o -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_af453
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_af453.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_af453.dir/feature_tests.cxx.o  -o cmTC_af453 
+make[1]: Leaving directory '/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers

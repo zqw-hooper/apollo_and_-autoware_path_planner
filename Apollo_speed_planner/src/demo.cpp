@@ -59,6 +59,7 @@ int main()
     }
 
     double dt = 0.2;
+    // 上下边界
     std::vector<std::pair<double, double>> s_bounds;
     for (int i = 0; i != 41; ++i)
     {
@@ -106,7 +107,7 @@ int main()
     bool speed_planning_status =
         piecewise_jerk_speed_optimizer.Process(s_bounds, s_bounds, ref_s_list, speed_limit, dt, path, 7, 0, &result);
     auto t2 = std::clock();
-    std::cout << "time: " << (double)(t2 - t1) / CLOCKS_PER_SEC << std::endl;
+    std::cout << "PiecewiseJerkSpeedOptimizer precess time: " << (double)(t2 - t1) / CLOCKS_PER_SEC << std::endl;
 
     double t = 0;
     while (t < 7)

@@ -1,1 +1,1 @@
-/usr/bin/c++   -O3 -DNDEBUG   CMakeFiles/demo.dir/src/demo.cpp.o  -o demo  -L/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/osqp/lib libdemo_lib.a -lglog -losqp -lipopt -Wl,-rpath,/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/osqp/lib 
+/usr/bin/c++   -O3 -DNDEBUG   CMakeFiles/demo.dir/src/demo.cpp.o  -o demo  -L/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/osqp/lib libdemo_lib.a -lglog -losqp -lipopt -Wl,-rpath,/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/osqp/lib 

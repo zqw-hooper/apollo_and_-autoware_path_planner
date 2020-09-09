@@ -50,7 +50,7 @@ plt.scatter(index,optimized_ref, color="r")
 plt.scatter(index,s_bounds_lower, color="m")
 plt.scatter(index,s_bounds_upper, color="m")
 plt.scatter(index,velocity, color="k")
-plt.title("optimized path")
+plt.title("ref.csv")
 plt.xlabel("index")
 plt.ylabel("s")
 

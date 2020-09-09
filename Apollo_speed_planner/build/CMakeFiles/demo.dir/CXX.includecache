@@ -60,7 +60,7 @@ vector
 
 ../include/SpeedPoint.hpp
 
-/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/src/demo.cpp
+/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/src/demo.cpp
 iostream
 -
 fstream
@@ -70,5 +70,5 @@ ctime
 vector
 -
 PiecewiseJerkSpeedOptimizer.hpp
-/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/src/PiecewiseJerkSpeedOptimizer.hpp
+/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/src/PiecewiseJerkSpeedOptimizer.hpp
 
