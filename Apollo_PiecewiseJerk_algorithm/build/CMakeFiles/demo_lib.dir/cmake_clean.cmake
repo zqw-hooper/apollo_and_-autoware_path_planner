@@ -7,7 +7,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/demo_lib.dir/src/PiecewiseJerkPathProblem.cpp.o"
   "CMakeFiles/demo_lib.dir/src/PiecewiseJerkProblem.cpp.o"
   "CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.o"
-  "CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o"
+  "CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o"
   "CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o"
   "CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.o"
   "CMakeFiles/demo_lib.dir/src/SpeedData.cpp.o"

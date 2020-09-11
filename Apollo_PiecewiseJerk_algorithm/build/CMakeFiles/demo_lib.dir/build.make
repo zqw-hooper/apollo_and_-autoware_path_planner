@@ -249,28 +249,28 @@ CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.o.prov
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.o.provides.build: CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.o
 
 
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: CMakeFiles/demo_lib.dir/flags.make
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../src/PiecewiseJerkSpeedOptimizer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedOptimizer.cpp
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: CMakeFiles/demo_lib.dir/flags.make
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp
 
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedOptimizer.cpp > CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.i
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp > CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.i
 
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedOptimizer.cpp -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.s
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.s
 
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o.requires:
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o.requires:
 
-.PHONY : CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o.requires
+.PHONY : CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o.requires
 
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o.provides: CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o.requires
-	$(MAKE) -f CMakeFiles/demo_lib.dir/build.make CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o.provides.build
-.PHONY : CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o.provides
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o.provides: CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o.requires
+	$(MAKE) -f CMakeFiles/demo_lib.dir/build.make CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o.provides.build
+.PHONY : CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o.provides
 
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o.provides.build: CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o.provides.build: CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o
 
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o: CMakeFiles/demo_lib.dir/flags.make
@@ -427,7 +427,7 @@ demo_lib_OBJECTS = \
 "CMakeFiles/demo_lib.dir/src/PiecewiseJerkPathProblem.cpp.o" \
 "CMakeFiles/demo_lib.dir/src/PiecewiseJerkProblem.cpp.o" \
 "CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.o" \
-"CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o" \
+"CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o" \
 "CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o" \
 "CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.o" \
 "CMakeFiles/demo_lib.dir/src/SpeedData.cpp.o" \
@@ -446,7 +446,7 @@ libdemo_lib.a: CMakeFiles/demo_lib.dir/src/PathPoint.cpp.o
 libdemo_lib.a: CMakeFiles/demo_lib.dir/src/PiecewiseJerkPathProblem.cpp.o
 libdemo_lib.a: CMakeFiles/demo_lib.dir/src/PiecewiseJerkProblem.cpp.o
 libdemo_lib.a: CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.o
-libdemo_lib.a: CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o
+libdemo_lib.a: CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o
 libdemo_lib.a: CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o
 libdemo_lib.a: CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.o
 libdemo_lib.a: CMakeFiles/demo_lib.dir/src/SpeedData.cpp.o
@@ -472,7 +472,7 @@ CMakeFiles/demo_lib.dir/requires: CMakeFiles/demo_lib.dir/src/PathPoint.cpp.o.re
 CMakeFiles/demo_lib.dir/requires: CMakeFiles/demo_lib.dir/src/PiecewiseJerkPathProblem.cpp.o.requires
 CMakeFiles/demo_lib.dir/requires: CMakeFiles/demo_lib.dir/src/PiecewiseJerkProblem.cpp.o.requires
 CMakeFiles/demo_lib.dir/requires: CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.o.requires
-CMakeFiles/demo_lib.dir/requires: CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o.requires
+CMakeFiles/demo_lib.dir/requires: CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o.requires
 CMakeFiles/demo_lib.dir/requires: CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o.requires
 CMakeFiles/demo_lib.dir/requires: CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.o.requires
 CMakeFiles/demo_lib.dir/requires: CMakeFiles/demo_lib.dir/src/SpeedData.cpp.o.requires

@@ -28,7 +28,7 @@ add_library(demo_lib
         src/PiecewiseJerkPathProblem.cpp
         src/PiecewiseJerkProblem.cpp
         src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp
-        src/PiecewiseJerkSpeedOptimizer.cpp
+        src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp
         src/PiecewiseJerkSpeedProblem.cpp
         src/PiecewiseJerkTrajectory1d.cpp
         src/SpeedData.cpp

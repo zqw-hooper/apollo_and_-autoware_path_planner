@@ -45,7 +45,19 @@ CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.o
  ../include/PiecewiseJerkSpeedNonlinearIpoptInterface.hpp
  ../include/PiecewiseJerkTrajectory1d.hpp
  /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o
+ ../include/PiecewiseJerkProblem.hpp
+ ../include/PiecewiseJerkSpeedProblem.hpp
+ ../osqp/include/constants.h
+ ../osqp/include/cs.h
+ ../osqp/include/glob_opts.h
+ ../osqp/include/lin_alg.h
+ ../osqp/include/osqp.h
+ ../osqp/include/osqp_configure.h
+ ../osqp/include/types.h
+ ../osqp/include/util.h
+ /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedProblem.cpp
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o
  ../include/ConstantJerkTrajectory1d.hpp
  ../include/Curve1d.hpp
  ../include/DiscretizedPath.hpp
@@ -68,19 +80,7 @@ CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o
  ../osqp/include/osqp_configure.h
  ../osqp/include/types.h
  ../osqp/include/util.h
- /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedOptimizer.cpp
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o
- ../include/PiecewiseJerkProblem.hpp
- ../include/PiecewiseJerkSpeedProblem.hpp
- ../osqp/include/constants.h
- ../osqp/include/cs.h
- ../osqp/include/glob_opts.h
- ../osqp/include/lin_alg.h
- ../osqp/include/osqp.h
- ../osqp/include/osqp_configure.h
- ../osqp/include/types.h
- ../osqp/include/util.h
- /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedProblem.cpp
+ /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.o
  ../include/ConstantJerkTrajectory1d.hpp
  ../include/Curve1d.hpp

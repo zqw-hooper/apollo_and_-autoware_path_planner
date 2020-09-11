@@ -1,7 +1,3 @@
-//
-// Created by ljn on 20-5-25.
-//
-
 #define HAVE_CSTDDEF
 #include <coin/IpIpoptApplication.hpp>
 #include <coin/IpSolveStatistics.hpp>

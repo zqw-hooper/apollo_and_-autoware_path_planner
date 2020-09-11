@@ -218,7 +218,13 @@ glog/logging.h
 PiecewiseJerkSpeedNonlinearIpoptInterface.hpp
 /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedNonlinearIpoptInterface.hpp
 
-/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedOptimizer.cpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedProblem.cpp
+PiecewiseJerkSpeedProblem.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedProblem.hpp
+glog/logging.h
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
+
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp
 coin/IpIpoptApplication.hpp
 -
 coin/IpSolveStatistics.hpp
@@ -243,12 +249,6 @@ SpeedData.hpp
 /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedData.hpp
 SpeedProfileGenerator.hpp
 /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedProfileGenerator.hpp
-
-/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedProblem.cpp
-PiecewiseJerkSpeedProblem.hpp
-/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedProblem.hpp
-glog/logging.h
-/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
 
 /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkTrajectory1d.cpp
 glog/logging.h

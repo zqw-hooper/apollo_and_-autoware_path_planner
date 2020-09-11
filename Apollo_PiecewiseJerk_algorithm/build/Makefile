@@ -325,33 +325,6 @@ src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.s:
 	$(MAKE) -f CMakeFiles/demo_lib.dir/build.make CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.s
 .PHONY : src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.s
 
-src/PiecewiseJerkSpeedOptimizer.o: src/PiecewiseJerkSpeedOptimizer.cpp.o
-
-.PHONY : src/PiecewiseJerkSpeedOptimizer.o
-
-# target to build an object file
-src/PiecewiseJerkSpeedOptimizer.cpp.o:
-	$(MAKE) -f CMakeFiles/demo_lib.dir/build.make CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o
-.PHONY : src/PiecewiseJerkSpeedOptimizer.cpp.o
-
-src/PiecewiseJerkSpeedOptimizer.i: src/PiecewiseJerkSpeedOptimizer.cpp.i
-
-.PHONY : src/PiecewiseJerkSpeedOptimizer.i
-
-# target to preprocess a source file
-src/PiecewiseJerkSpeedOptimizer.cpp.i:
-	$(MAKE) -f CMakeFiles/demo_lib.dir/build.make CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.i
-.PHONY : src/PiecewiseJerkSpeedOptimizer.cpp.i
-
-src/PiecewiseJerkSpeedOptimizer.s: src/PiecewiseJerkSpeedOptimizer.cpp.s
-
-.PHONY : src/PiecewiseJerkSpeedOptimizer.s
-
-# target to generate assembly for a file
-src/PiecewiseJerkSpeedOptimizer.cpp.s:
-	$(MAKE) -f CMakeFiles/demo_lib.dir/build.make CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.s
-.PHONY : src/PiecewiseJerkSpeedOptimizer.cpp.s
-
 src/PiecewiseJerkSpeedProblem.o: src/PiecewiseJerkSpeedProblem.cpp.o
 
 .PHONY : src/PiecewiseJerkSpeedProblem.o
@@ -378,6 +351,33 @@ src/PiecewiseJerkSpeedProblem.s: src/PiecewiseJerkSpeedProblem.cpp.s
 src/PiecewiseJerkSpeedProblem.cpp.s:
 	$(MAKE) -f CMakeFiles/demo_lib.dir/build.make CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.s
 .PHONY : src/PiecewiseJerkSpeedProblem.cpp.s
+
+src/PiecewiseJerkSpeed_nonlinear_Optimizer.o: src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o
+
+.PHONY : src/PiecewiseJerkSpeed_nonlinear_Optimizer.o
+
+# target to build an object file
+src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o:
+	$(MAKE) -f CMakeFiles/demo_lib.dir/build.make CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o
+.PHONY : src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o
+
+src/PiecewiseJerkSpeed_nonlinear_Optimizer.i: src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.i
+
+.PHONY : src/PiecewiseJerkSpeed_nonlinear_Optimizer.i
+
+# target to preprocess a source file
+src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.i:
+	$(MAKE) -f CMakeFiles/demo_lib.dir/build.make CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.i
+.PHONY : src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.i
+
+src/PiecewiseJerkSpeed_nonlinear_Optimizer.s: src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.s
+
+.PHONY : src/PiecewiseJerkSpeed_nonlinear_Optimizer.s
+
+# target to generate assembly for a file
+src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.s:
+	$(MAKE) -f CMakeFiles/demo_lib.dir/build.make CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.s
+.PHONY : src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.s
 
 src/PiecewiseJerkTrajectory1d.o: src/PiecewiseJerkTrajectory1d.cpp.o
 
@@ -599,12 +599,12 @@ help:
 	@echo "... src/PiecewiseJerkSpeedNonlinearIpoptInterface.o"
 	@echo "... src/PiecewiseJerkSpeedNonlinearIpoptInterface.i"
 	@echo "... src/PiecewiseJerkSpeedNonlinearIpoptInterface.s"
-	@echo "... src/PiecewiseJerkSpeedOptimizer.o"
-	@echo "... src/PiecewiseJerkSpeedOptimizer.i"
-	@echo "... src/PiecewiseJerkSpeedOptimizer.s"
 	@echo "... src/PiecewiseJerkSpeedProblem.o"
 	@echo "... src/PiecewiseJerkSpeedProblem.i"
 	@echo "... src/PiecewiseJerkSpeedProblem.s"
+	@echo "... src/PiecewiseJerkSpeed_nonlinear_Optimizer.o"
+	@echo "... src/PiecewiseJerkSpeed_nonlinear_Optimizer.i"
+	@echo "... src/PiecewiseJerkSpeed_nonlinear_Optimizer.s"
 	@echo "... src/PiecewiseJerkTrajectory1d.o"
 	@echo "... src/PiecewiseJerkTrajectory1d.i"
 	@echo "... src/PiecewiseJerkTrajectory1d.s"

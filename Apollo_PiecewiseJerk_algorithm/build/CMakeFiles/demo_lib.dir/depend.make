@@ -45,30 +45,6 @@ CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.o: ../
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.o: ../include/PiecewiseJerkTrajectory1d.hpp
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.o: ../src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp
 
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../include/ConstantJerkTrajectory1d.hpp
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../include/Curve1d.hpp
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../include/DiscretizedPath.hpp
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../include/PathPoint.hpp
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../include/PiecewiseJerkPathProblem.hpp
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../include/PiecewiseJerkProblem.hpp
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../include/PiecewiseJerkSpeedNonlinearIpoptInterface.hpp
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../include/PiecewiseJerkSpeedOptimizer.hpp
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../include/PiecewiseJerkSpeedProblem.hpp
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../include/PiecewiseJerkTrajectory1d.hpp
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../include/SpeedData.hpp
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../include/SpeedLimit.hpp
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../include/SpeedPoint.hpp
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../include/SpeedProfileGenerator.hpp
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../osqp/include/constants.h
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../osqp/include/cs.h
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../osqp/include/glob_opts.h
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../osqp/include/lin_alg.h
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../osqp/include/osqp.h
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../osqp/include/osqp_configure.h
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../osqp/include/types.h
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../osqp/include/util.h
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../src/PiecewiseJerkSpeedOptimizer.cpp
-
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o: ../include/PiecewiseJerkProblem.hpp
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o: ../include/PiecewiseJerkSpeedProblem.hpp
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o: ../osqp/include/constants.h
@@ -80,6 +56,30 @@ CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o: ../osqp/include/osq
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o: ../osqp/include/types.h
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o: ../osqp/include/util.h
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o: ../src/PiecewiseJerkSpeedProblem.cpp
+
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/ConstantJerkTrajectory1d.hpp
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/Curve1d.hpp
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/DiscretizedPath.hpp
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/PathPoint.hpp
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/PiecewiseJerkPathProblem.hpp
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/PiecewiseJerkProblem.hpp
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/PiecewiseJerkSpeedNonlinearIpoptInterface.hpp
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/PiecewiseJerkSpeedOptimizer.hpp
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/PiecewiseJerkSpeedProblem.hpp
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/PiecewiseJerkTrajectory1d.hpp
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/SpeedData.hpp
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/SpeedLimit.hpp
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/SpeedPoint.hpp
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/SpeedProfileGenerator.hpp
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../osqp/include/constants.h
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../osqp/include/cs.h
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../osqp/include/glob_opts.h
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../osqp/include/lin_alg.h
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../osqp/include/osqp.h
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../osqp/include/osqp_configure.h
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../osqp/include/types.h
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../osqp/include/util.h
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.o: ../include/ConstantJerkTrajectory1d.hpp
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.o: ../include/Curve1d.hpp
