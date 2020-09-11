@@ -27,17 +27,12 @@ hostinfo               = unknown
 /usr/bin/oslevel       = unknown
 /bin/universe          = unknown
 
-PATH: /opt/ros/kinetic/bin
-PATH: /home/ak/bin
-PATH: /home/ak/.local/bin
 PATH: /usr/local/sbin
 PATH: /usr/local/bin
 PATH: /usr/sbin
 PATH: /usr/bin
 PATH: /sbin
 PATH: /bin
-PATH: /usr/games
-PATH: /usr/local/games
 PATH: /snap/bin
 
 
@@ -914,18 +909,18 @@ lt_lt_cv_sys_global_symbol_to_cdecl='"sed -n -e '\''s/^. .* \\(.*\\)\$/extern in
 ## ----------------- ##
 
 ABSBUILDDIR=''
-ACLOCAL='${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/missing --run aclocal-1.9'
+ACLOCAL='${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/missing --run aclocal-1.9'
 ADD_CFLAGS=''
 ADD_CXXFLAGS=''
 ADD_FFLAGS=''
 AMDEPBACKSLASH='\'
 AMDEP_FALSE='#'
 AMDEP_TRUE=''
-AMTAR='${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/missing --run tar'
+AMTAR='${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/missing --run tar'
 AR='ar'
-AUTOCONF='${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/missing --run autoconf'
-AUTOHEADER='${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/missing --run autoheader'
-AUTOMAKE='${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/missing --run automake-1.9'
+AUTOCONF='${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/missing --run autoconf'
+AUTOHEADER='${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/missing --run autoheader'
+AUTOMAKE='${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/missing --run automake-1.9'
 AUX_DIR=''
 AWK='mawk'
 BUILDTOOLSDIR=''
@@ -983,7 +978,7 @@ LT_LDFLAGS='-no-undefined'
 MAINT='#'
 MAINTAINER_MODE_FALSE=''
 MAINTAINER_MODE_TRUE='#'
-MAKEINFO='${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/missing --run makeinfo'
+MAKEINFO='${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/missing --run makeinfo'
 MPICC=''
 MPICXX=''
 MPIF77=''
@@ -1008,7 +1003,7 @@ VPATH_DISTCLEANFILES=''
 abs_bin_dir='/usr/local/bin'
 abs_include_dir='/usr/local/include'
 abs_lib_dir='/usr/local/lib'
-abs_source_dir='/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7'
+abs_source_dir='/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7'
 ac_c_preproc_warn_flag=''
 ac_ct_AR='ar'
 ac_ct_CC='gcc'
@@ -1051,7 +1046,7 @@ host_os='linux-gnu'
 host_vendor='unknown'
 includedir='${prefix}/include'
 infodir='${prefix}/info'
-install_sh='/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/install-sh'
+install_sh='/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/install-sh'
 libdir='${exec_prefix}/lib'
 libexecdir='${exec_prefix}/libexec'
 localstatedir='${prefix}/var'

@@ -1,4 +1,0 @@
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/edit_cache.dir
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/rebuild_cache.dir
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/demo.dir
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_speed_planner/build/CMakeFiles/demo_lib.dir

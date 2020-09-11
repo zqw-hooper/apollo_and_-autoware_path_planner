@@ -30,6 +30,7 @@ PiecewiseJerkSpeedNonlinearIpoptInterface::
       a_offset_(num_of_points * 2) {}
 
 // returns the size of the problem
+// 重写了/usr/local/include/coin/IpTNLP.hpp
 bool PiecewiseJerkSpeedNonlinearIpoptInterface::get_nlp_info(
     int &n, int &m, int &nnz_jac_g, int &nnz_h_lag,
     IndexStyleEnum &index_style)

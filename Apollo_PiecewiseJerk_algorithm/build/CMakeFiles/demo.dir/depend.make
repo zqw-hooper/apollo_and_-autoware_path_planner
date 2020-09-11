@@ -7,7 +7,7 @@ CMakeFiles/demo.dir/src/demo.cpp.o: ../include/DiscretizedPath.hpp
 CMakeFiles/demo.dir/src/demo.cpp.o: ../include/PathPoint.hpp
 CMakeFiles/demo.dir/src/demo.cpp.o: ../include/PiecewiseJerkPathProblem.hpp
 CMakeFiles/demo.dir/src/demo.cpp.o: ../include/PiecewiseJerkProblem.hpp
-CMakeFiles/demo.dir/src/demo.cpp.o: ../include/PiecewiseJerkSpeedOptimizer.hpp
+CMakeFiles/demo.dir/src/demo.cpp.o: ../include/PiecewiseJerkSpeed_nonlinear_Optimizer.hpp
 CMakeFiles/demo.dir/src/demo.cpp.o: ../include/PiecewiseJerkTrajectory1d.hpp
 CMakeFiles/demo.dir/src/demo.cpp.o: ../include/SpeedData.hpp
 CMakeFiles/demo.dir/src/demo.cpp.o: ../include/SpeedLimit.hpp

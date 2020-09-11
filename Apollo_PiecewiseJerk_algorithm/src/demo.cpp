@@ -5,7 +5,7 @@
 #include <fstream>
 #include <ctime>
 #include <vector>
-#include "PiecewiseJerkSpeedOptimizer.hpp"
+#include "PiecewiseJerkSpeed_nonlinear_Optimizer.hpp"
 #include "PiecewiseJerkPathProblem.hpp"
 
 int main()
@@ -79,16 +79,16 @@ int main()
     std::vector<double> ref_s_list;
     for (int i = 0; i != 41; ++i)
     {
-        ref_s_list.emplace_back(30);
-        //
-        // if (i < 20)
-        // {
-        //     ref_s_list.emplace_back(10 * i * dt);
-        // }
-        // else
-        // {
-        //     ref_s_list.emplace_back(40);
-        // }
+        // ref_s_list.emplace_back(30);
+
+        if (i < 20)
+        {
+            ref_s_list.emplace_back(10 * i * dt);
+        }
+        else
+        {
+            ref_s_list.emplace_back(40);
+        }
     }
 
     // 速度的上边界
@@ -104,10 +104,11 @@ int main()
     }
 
     // piecewise_path_optimizer
-    // 路径规划
+    // 路径规划  // 处理静态障碍物
     // 参考:
     // https://blog.csdn.net/weixin_41399111/article/details/105826425
     // https://www.cnblogs.com/liuzubing/p/11051390.html
+    if (1)
     {
         int num_of_knots = 200;
         std::array<double, 3> x_init{0, 0, 0};
@@ -137,7 +138,7 @@ int main()
         }
         for (int k = 0; k < 20; k++)
         {
-            lat_boundaries.at(num_of_knots /5 + k).first = 1;
+            lat_boundaries.at(num_of_knots / 5 + k).first = 1;
         }
 
         path_optimizer.set_x_bounds(lat_boundaries); // 横向l
@@ -167,14 +168,14 @@ int main()
         out.close();
     }
 
-    // 速度规划  // 轨迹规划
+    // 速度规划  // 轨迹规划  // 处理动态障碍物
     auto t1 = std::clock();
-    PiecewiseJerkSpeedOptimizer piecewise_jerk_speed_optimizer;
+    PiecewiseJerkSpeedNonlinearOptimizer piecewise_jerk_speed_optimizer;
     SpeedData optimized_speed_data;
     bool speed_planning_status =
         piecewise_jerk_speed_optimizer.Process(s_bounds, s_bounds, ref_s_list, speed_limit, dt, path, 7, 0, &optimized_speed_data);
     auto t2 = std::clock();
-    std::cout << "PiecewiseJerkSpeedOptimizer precess time: " << (double)(t2 - t1) / CLOCKS_PER_SEC << std::endl;
+    std::cout << "piecewise_jerk_speed_nonlinear_optimizer precess time: " << (double)(t2 - t1) / CLOCKS_PER_SEC << std::endl;
 
     double t = 0;
     while (t < 7)

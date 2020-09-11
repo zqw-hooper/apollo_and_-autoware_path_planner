@@ -64,8 +64,8 @@ CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../inc
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/PiecewiseJerkPathProblem.hpp
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/PiecewiseJerkProblem.hpp
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/PiecewiseJerkSpeedNonlinearIpoptInterface.hpp
-CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/PiecewiseJerkSpeedOptimizer.hpp
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/PiecewiseJerkSpeedProblem.hpp
+CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/PiecewiseJerkSpeed_nonlinear_Optimizer.hpp
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/PiecewiseJerkTrajectory1d.hpp
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/SpeedData.hpp
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o: ../include/SpeedLimit.hpp

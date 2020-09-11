@@ -1,1 +1,0 @@
-../LAPACK/SRC/dlasq1.f

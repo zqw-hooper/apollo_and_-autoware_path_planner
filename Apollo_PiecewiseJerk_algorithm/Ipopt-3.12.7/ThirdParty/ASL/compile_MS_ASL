@@ -12,8 +12,8 @@ set -e
 # copying the sources.
 
 # set -x
-mkinstalldirs="/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/install-sh -d"
-abs_source_dir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL
+mkinstalldirs="/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/install-sh -d"
+abs_source_dir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL
 compdir=compdir
 
 rm -rf $compdir

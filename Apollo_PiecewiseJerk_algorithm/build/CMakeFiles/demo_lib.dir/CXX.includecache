@@ -58,7 +58,11 @@ vector
 PiecewiseJerkTrajectory1d.hpp
 ../include/PiecewiseJerkTrajectory1d.hpp
 
-../include/PiecewiseJerkSpeedOptimizer.hpp
+../include/PiecewiseJerkSpeedProblem.hpp
+PiecewiseJerkProblem.hpp
+../include/PiecewiseJerkProblem.hpp
+
+../include/PiecewiseJerkSpeed_nonlinear_Optimizer.hpp
 vector
 -
 DiscretizedPath.hpp
@@ -71,10 +75,6 @@ SpeedData.hpp
 ../include/SpeedData.hpp
 DiscretizedPath.hpp
 ../include/DiscretizedPath.hpp
-
-../include/PiecewiseJerkSpeedProblem.hpp
-PiecewiseJerkProblem.hpp
-../include/PiecewiseJerkProblem.hpp
 
 ../include/PiecewiseJerkTrajectory1d.hpp
 string
@@ -237,8 +237,8 @@ fstream
 -
 glog/logging.h
 /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
-PiecewiseJerkSpeedOptimizer.hpp
-/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedOptimizer.hpp
+PiecewiseJerkSpeed_nonlinear_Optimizer.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeed_nonlinear_Optimizer.hpp
 PiecewiseJerkSpeedProblem.hpp
 /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedProblem.hpp
 PiecewiseJerkPathProblem.hpp

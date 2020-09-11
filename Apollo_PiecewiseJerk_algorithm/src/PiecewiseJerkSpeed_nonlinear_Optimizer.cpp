@@ -8,25 +8,25 @@
 #include <fstream>
 
 #include "glog/logging.h"
-#include "PiecewiseJerkSpeedOptimizer.hpp"
+#include "PiecewiseJerkSpeed_nonlinear_Optimizer.hpp"
 #include "PiecewiseJerkSpeedProblem.hpp"
 #include "PiecewiseJerkPathProblem.hpp"
 #include "PiecewiseJerkSpeedNonlinearIpoptInterface.hpp"
 #include "SpeedData.hpp"
 #include "SpeedProfileGenerator.hpp"
 
-PiecewiseJerkSpeedOptimizer::PiecewiseJerkSpeedOptimizer()
+PiecewiseJerkSpeedNonlinearOptimizer::PiecewiseJerkSpeedNonlinearOptimizer()
     : smoothed_speed_limit_(0, 0, 0),
       smoothed_path_curvature_(0, 0, 0) {}
-bool PiecewiseJerkSpeedOptimizer::Process(std::vector<std::pair<double, double>> &s_bounds,
-                                          const std::vector<std::pair<double, double>> &soft_s_bounds,
-                                          const std::vector<double> &ref_s_list,
-                                          const SpeedLimit &speed_limit,
-                                          double dt,
-                                          const DiscretizedPath &path,
-                                          double init_v,
-                                          double init_a,
-                                          SpeedData *speed_data)
+bool PiecewiseJerkSpeedNonlinearOptimizer::Process(std::vector<std::pair<double, double>> &s_bounds,
+                                                   const std::vector<std::pair<double, double>> &soft_s_bounds,
+                                                   const std::vector<double> &ref_s_list,
+                                                   const SpeedLimit &speed_limit,
+                                                   double dt,
+                                                   const DiscretizedPath &path,
+                                                   double init_v,
+                                                   double init_a,
+                                                   SpeedData *speed_data)
 {
     if (s_bounds.size() != soft_s_bounds.size())
     {
@@ -114,7 +114,7 @@ bool PiecewiseJerkSpeedOptimizer::Process(std::vector<std::pair<double, double>>
     const auto nlp_start = std::chrono::system_clock::now();
     // 速度规划  // trajectory
     const auto nlp_smooth_status =
-        OptimizeByNLP(s_bounds, soft_s_bounds, &distance, &velocity, &acceleration);
+        speed_non_linear_optimizer(s_bounds, soft_s_bounds, &distance, &velocity, &acceleration);
     const auto nlp_end = std::chrono::system_clock::now();
     std::chrono::duration<double> nlp_diff = nlp_end - nlp_start;
     LOG(INFO) << "speed nlp optimization takes " << nlp_diff.count() * 1000.0
@@ -146,11 +146,11 @@ bool PiecewiseJerkSpeedOptimizer::Process(std::vector<std::pair<double, double>>
     return true;
 }
 
-bool PiecewiseJerkSpeedOptimizer::OptimizeByQP(const std::vector<std::pair<double, double>> &s_bounds,
-                                               const std::vector<double> &ref_s_list,
-                                               std::vector<double> *distance,
-                                               std::vector<double> *velocity,
-                                               std::vector<double> *acceleration)
+bool PiecewiseJerkSpeedNonlinearOptimizer::OptimizeByQP(const std::vector<std::pair<double, double>> &s_bounds,
+                                                        const std::vector<double> &ref_s_list,
+                                                        std::vector<double> *distance,
+                                                        std::vector<double> *velocity,
+                                                        std::vector<double> *acceleration)
 {
     // 初始状态
     std::array<double, 3> init_states = {30, s_dot_init_, s_ddot_init_};
@@ -169,6 +169,7 @@ bool PiecewiseJerkSpeedOptimizer::OptimizeByQP(const std::vector<std::pair<doubl
     piecewise_jerk_speed_problem.set_weight_ddx(1.0);
     piecewise_jerk_speed_problem.set_weight_dddx(1.0);
     piecewise_jerk_speed_problem.set_x_ref(10.0, ref_s_list);
+    // Solve the problem
     if (!piecewise_jerk_speed_problem.Optimize())
     {
         std::cout << "Speed Optimization by Quadratic Programming failed" << std::endl;
@@ -180,7 +181,7 @@ bool PiecewiseJerkSpeedOptimizer::OptimizeByQP(const std::vector<std::pair<doubl
     return true;
 }
 
-bool PiecewiseJerkSpeedOptimizer::SmoothPathCurvature(const DiscretizedPath &cartesian_path)
+bool PiecewiseJerkSpeedNonlinearOptimizer::SmoothPathCurvature(const DiscretizedPath &cartesian_path)
 {
     const double delta_s = 0.5;
     std::vector<double> path_curvature;
@@ -234,7 +235,7 @@ bool PiecewiseJerkSpeedOptimizer::SmoothPathCurvature(const DiscretizedPath &car
     return true;
 }
 
-bool PiecewiseJerkSpeedOptimizer::SmoothSpeedLimit(const SpeedLimit &speed_limit)
+bool PiecewiseJerkSpeedNonlinearOptimizer::SmoothSpeedLimit(const SpeedLimit &speed_limit)
 {
     double delta_s = 2.0;
     std::vector<double> speed_ref;
@@ -287,11 +288,11 @@ bool PiecewiseJerkSpeedOptimizer::SmoothSpeedLimit(const SpeedLimit &speed_limit
     return true;
 }
 
-bool PiecewiseJerkSpeedOptimizer::OptimizeByNLP(const std::vector<std::pair<double, double>> &s_bounds,
-                                                const std::vector<std::pair<double, double>> &soft_s_bounds,
-                                                std::vector<double> *distance,
-                                                std::vector<double> *velocity,
-                                                std::vector<double> *acceleration)
+bool PiecewiseJerkSpeedNonlinearOptimizer::speed_non_linear_optimizer(const std::vector<std::pair<double, double>> &s_bounds,
+                                                                      const std::vector<std::pair<double, double>> &soft_s_bounds,
+                                                                      std::vector<double> *distance,
+                                                                      std::vector<double> *velocity,
+                                                                      std::vector<double> *acceleration)
 {
     // Set optimizer instance
     auto ptr_interface = new PiecewiseJerkSpeedNonlinearIpoptInterface(
@@ -328,7 +329,9 @@ bool PiecewiseJerkSpeedOptimizer::OptimizeByNLP(const std::vector<std::pair<doub
     }
     ptr_interface->set_warm_start(warm_start);
 
+    // Set weights and reference values
     // Use smoothed reference // smooth_driving_guide_line
+    // FLAGS_use_smoothed_dp_guide_line
     ptr_interface->set_reference_spatial_distance(*distance);
     // s_potential_weight  // 带w的是权重
     ptr_interface->set_w_reference_spatial_distance(10.0);
@@ -336,13 +339,13 @@ bool PiecewiseJerkSpeedOptimizer::OptimizeByNLP(const std::vector<std::pair<doub
     // ptr_interface->set_soft_safety_bounds(s_soft_bounds_);
     // ptr_interface->set_w_soft_s_bound(config.soft_s_bound_weight());
 
-    ptr_interface->set_w_overall_a(2.0);
-    ptr_interface->set_w_overall_j(3.0);
-    ptr_interface->set_w_overall_centripetal_acc(1000.0);
+    ptr_interface->set_w_overall_a(2.0);                  //acc_weight
+    ptr_interface->set_w_overall_j(3.0);                  //jerk_weight
+    ptr_interface->set_w_overall_centripetal_acc(1000.0); // lat_acc_weight
 
     // In apollo, default cruise speed is 5.0.
-    ptr_interface->set_reference_speed(5.0);
-    ptr_interface->set_w_reference_speed(5.0);
+    ptr_interface->set_reference_speed(5.0);   // cruise_speed_
+    ptr_interface->set_w_reference_speed(5.0); // ref_v_weight
 
     Ipopt::SmartPtr<Ipopt::TNLP> problem = ptr_interface;
     Ipopt::SmartPtr<Ipopt::IpoptApplication> app = IpoptApplicationFactory();
@@ -361,31 +364,24 @@ bool PiecewiseJerkSpeedOptimizer::OptimizeByNLP(const std::vector<std::pair<doub
     }
 
     const auto start_timestamp = std::chrono::system_clock::now();
+    /** Solve a problem that inherits from TNLP */
     status = app->OptimizeTNLP(problem);
     const auto end_timestamp = std::chrono::system_clock::now();
     std::chrono::duration<double> diff = end_timestamp - start_timestamp;
-    LOG(INFO) << "*** The optimization problem take time: " << diff.count() * 1000.0
+    LOG(INFO) << "The optimization problem take time: " << diff.count() * 1000.0
               << " ms.";
     if (status == Ipopt::Solve_Succeeded ||
         status == Ipopt::Solved_To_Acceptable_Level)
     {
         // Retrieve some statistics about the solve
         Ipopt::Index iter_count = app->Statistics()->IterationCount();
-        DLOG(INFO) << "*** The problem solved in " << iter_count << " iterations!";
+        DLOG(INFO) << "The problem solved in " << iter_count << " iterations!";
         Ipopt::Number final_obj = app->Statistics()->FinalObjective();
-        DLOG(INFO) << "*** The final value of the objective function is " << final_obj
+        DLOG(INFO) << " The final value of the objective function is " << final_obj
                    << '.';
     }
     else
     {
-        //        const auto& ipopt_return_status =
-        //            IpoptReturnStatus_Name(static_cast<IpoptReturnStatus>(status));
-        //        if (ipopt_return_status.empty()) {
-        //            AERROR << "Solver ends with unknown failure code: "
-        //                   << static_cast<int>(status);
-        //        } else {
-        //            AERROR << "Solver failure case is : " << ipopt_return_status;
-        //        }
         std::string msg("Piecewise jerk speed nonlinear optimizer failed!");
         LOG(WARNING) << msg;
         return false;

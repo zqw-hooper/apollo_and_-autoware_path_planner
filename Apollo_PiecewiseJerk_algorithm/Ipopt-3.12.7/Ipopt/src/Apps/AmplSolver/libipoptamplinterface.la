@@ -14,7 +14,7 @@ library_names='libipoptamplinterface.so.1.10.7 libipoptamplinterface.so.1 libipo
 old_library=''
 
 # Libraries that this one depends upon.
-dependency_libs=' /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/Ipopt/src/Interfaces/libipopt.la /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/Mumps/libcoinmumps.la -lgfortran -lquadmath /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/libcoinasl.la -ldl  '
+dependency_libs=' /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/Ipopt/src/Interfaces/libipopt.la /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Mumps/libcoinmumps.la -lgfortran -lquadmath /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/libcoinasl.la -ldl  '
 
 # Version information for libipoptamplinterface.
 current=11
@@ -33,4 +33,4 @@ dlpreopen=''
 
 # Directory that this library needs to be installed in:
 libdir='/usr/local/lib'
-relink_command="(cd /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/Ipopt/src/Apps/AmplSolver; /bin/bash ../../../../libtool  --tag=CXX --mode=relink g++ -O3 -pipe -DNDEBUG -DIPOPT_BUILD -o libipoptamplinterface.la -rpath /usr/local/lib -no-undefined -version-info 11:7:10 AmplTNLP.lo ../../Interfaces/libipopt.la /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/libcoinasl.la -lm -ldl @inst_prefix_dir@)"
+relink_command="(cd /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/Ipopt/src/Apps/AmplSolver; /bin/bash ../../../../libtool  --tag=CXX --mode=relink g++ -O3 -pipe -DNDEBUG -DIPOPT_BUILD -o libipoptamplinterface.la -rpath /usr/local/lib -no-undefined -version-info 11:7:10 AmplTNLP.lo ../../Interfaces/libipopt.la /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/libcoinasl.la -lm -ldl @inst_prefix_dir@)"

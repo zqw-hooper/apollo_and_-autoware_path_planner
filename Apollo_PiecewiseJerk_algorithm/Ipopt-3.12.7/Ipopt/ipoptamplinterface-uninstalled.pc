@@ -1,10 +1,10 @@
 prefix=/usr/local
-libdir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/Ipopt/src/Apps/AmplSolver
+libdir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/Ipopt/src/Apps/AmplSolver
 
 Name: IPOPT
 Description: Ampl Interface TNLP to Ipopt
 URL: https://projects.coin-or.org/Ipopt
 Version: 3.12.7
 Libs: ${libdir}/libipoptamplinterface.la 
-Cflags: -I/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/Ipopt/src/Apps/AmplSolver
+Cflags: -I/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/Ipopt/src/Apps/AmplSolver
 Requires: ipopt coinasl 

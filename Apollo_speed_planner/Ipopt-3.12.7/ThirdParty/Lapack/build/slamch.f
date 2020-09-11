@@ -1,1 +1,0 @@
-../LAPACK/INSTALL/slamch.f

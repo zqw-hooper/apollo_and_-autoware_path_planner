@@ -1,1 +1,0 @@
-../LAPACK/SRC/dsyevr.f

@@ -1,1 +1,0 @@
-addpath /usr/local/lib

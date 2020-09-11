@@ -8,7 +8,7 @@ CMakeFiles/demo.dir/src/demo.cpp.o
  ../include/PathPoint.hpp
  ../include/PiecewiseJerkPathProblem.hpp
  ../include/PiecewiseJerkProblem.hpp
- ../include/PiecewiseJerkSpeedOptimizer.hpp
+ ../include/PiecewiseJerkSpeed_nonlinear_Optimizer.hpp
  ../include/PiecewiseJerkTrajectory1d.hpp
  ../include/SpeedData.hpp
  ../include/SpeedLimit.hpp

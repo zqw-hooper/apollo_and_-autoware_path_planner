@@ -1,1 +1,0 @@
-../LAPACK/SRC/dsteqr.f

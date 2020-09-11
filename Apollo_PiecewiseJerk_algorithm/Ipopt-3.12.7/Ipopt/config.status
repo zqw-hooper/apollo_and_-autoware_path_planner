@@ -597,12 +597,12 @@ s,@INSTALL_DATA@,${INSTALL} -m 644,;t t
 s,@CYGPATH_W@,echo,;t t
 s,@PACKAGE@,ipopt,;t t
 s,@VERSION@,3.12.7,;t t
-s,@ACLOCAL@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/Ipopt/missing --run aclocal-1.9,;t t
-s,@AUTOCONF@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/Ipopt/missing --run autoconf,;t t
-s,@AUTOMAKE@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/Ipopt/missing --run automake-1.9,;t t
-s,@AUTOHEADER@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/Ipopt/missing --run autoheader,;t t
-s,@MAKEINFO@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/Ipopt/missing --run makeinfo,;t t
-s,@install_sh@,/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/Ipopt/install-sh,;t t
+s,@ACLOCAL@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/Ipopt/missing --run aclocal-1.9,;t t
+s,@AUTOCONF@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/Ipopt/missing --run autoconf,;t t
+s,@AUTOMAKE@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/Ipopt/missing --run automake-1.9,;t t
+s,@AUTOHEADER@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/Ipopt/missing --run autoheader,;t t
+s,@MAKEINFO@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/Ipopt/missing --run makeinfo,;t t
+s,@install_sh@,/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/Ipopt/install-sh,;t t
 s,@STRIP@,strip,;t t
 s,@ac_ct_STRIP@,strip,;t t
 s,@INSTALL_STRIP_PROGRAM@,${SHELL} $(install_sh) -c -s,;t t
@@ -610,7 +610,7 @@ s,@mkdir_p@,mkdir -p --,;t t
 s,@AWK@,mawk,;t t
 s,@SET_MAKE@,,;t t
 s,@am__leading_dot@,.,;t t
-s,@AMTAR@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/Ipopt/missing --run tar,;t t
+s,@AMTAR@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/Ipopt/missing --run tar,;t t
 s,@am__tar@,${AMTAR} chof - "$$tardir",;t t
 s,@am__untar@,${AMTAR} xf -,;t t
 s,@DEPDIR@,.deps,;t t
@@ -634,7 +634,7 @@ s,@have_automake@,,;t t
 s,@have_svn@,,;t t
 s,@BUILDTOOLSDIR@,,;t t
 s,@AUX_DIR@,,;t t
-s,@abs_source_dir@,/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/Ipopt,;t t
+s,@abs_source_dir@,/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/Ipopt,;t t
 s,@abs_lib_dir@,/usr/local/lib,;t t
 s,@abs_include_dir@,/usr/local/include,;t t
 s,@abs_bin_dir@,/usr/local/bin,;t t
@@ -676,8 +676,8 @@ s,@PKG_CONFIG@,pkg-config,;t t
 s,@ac_ct_PKG_CONFIG@,pkg-config,;t t
 s,@COIN_HAS_PKGCONFIG_TRUE@,,;t t
 s,@COIN_HAS_PKGCONFIG_FALSE@,#,;t t
-s,@COIN_PKG_CONFIG_PATH@,/usr/local/lib64/pkgconfig:/usr/local/lib/pkgconfig:/usr/local/share/pkgconfig:/opt/ros/kinetic/lib/pkgconfig:/opt/ros/kinetic/lib/x86_64-linux-gnu/pkgconfig,;t t
-s,@COIN_PKG_CONFIG_PATH_UNINSTALLED@,/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/Ipopt:/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/Mumps:/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL:,;t t
+s,@COIN_PKG_CONFIG_PATH@,/usr/local/lib64/pkgconfig:/usr/local/lib/pkgconfig:/usr/local/share/pkgconfig:,;t t
+s,@COIN_PKG_CONFIG_PATH_UNINSTALLED@,/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/Ipopt:/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Mumps:/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL:,;t t
 s,@BLAS_LIBS@,/usr/local/lib/libcoinblas.a -lgfortran  -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. -lgfortran -lm -lquadmath,;t t
 s,@BLAS_CFLAGS@,,;t t
 s,@BLAS_DATA@,,;t t
@@ -685,11 +685,11 @@ s,@BLAS_DEPENDENCIES@,,;t t
 s,@BLAS_LIBS_INSTALLED@,,;t t
 s,@BLAS_CFLAGS_INSTALLED@,,;t t
 s,@BLAS_DATA_INSTALLED@,,;t t
-s,@IPOPTLIB_CFLAGS@,-DCOIN_USE_MUMPS_MPI_H -I/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/Mumps/MUMPS/libseq -I/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/Mumps/MUMPS/include ,;t t
-s,@IPOPTLIB_LIBS@,-L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/Mumps/libcoinmumps.la /usr/local/lib/libcoinblas.a -lgfortran -lm -lquadmath -lgfortran -lm -lquadmath /usr/local/lib/libcoinlapack.a /usr/local/lib/libcoinblas.a -lgfortran  -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. -lgfortran -lm -lquadmath /usr/local/lib/libcoinblas.a -lgfortran  -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. -lgfortran -lm -lquadmath -lm  -ldl,;t t
+s,@IPOPTLIB_CFLAGS@,-DCOIN_USE_MUMPS_MPI_H -I/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Mumps/MUMPS/libseq -I/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Mumps/MUMPS/include ,;t t
+s,@IPOPTLIB_LIBS@,-L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Mumps/libcoinmumps.la /usr/local/lib/libcoinblas.a -lgfortran -lm -lquadmath -lgfortran -lm -lquadmath /usr/local/lib/libcoinlapack.a /usr/local/lib/libcoinblas.a -lgfortran  -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. -lgfortran -lm -lquadmath /usr/local/lib/libcoinblas.a -lgfortran  -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. -lgfortran -lm -lquadmath -lm  -ldl,;t t
 s,@IPOPTLIB_PCLIBS@,/usr/local/lib/libcoinlapack.a /usr/local/lib/libcoinblas.a -lgfortran  -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. -lgfortran -lm -lquadmath /usr/local/lib/libcoinblas.a -lgfortran  -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. -lgfortran -lm -lquadmath -lm  -ldl,;t t
 s,@IPOPTLIB_PCREQUIRES@,coinmumps ,;t t
-s,@IPOPTLIB_DEPENDENCIES@, /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/Mumps/libcoinmumps.la /usr/local/lib/libcoinblas.a /usr/local/lib/libcoinlapack.a /usr/local/lib/libcoinblas.a  /usr/local/lib/libcoinblas.a   ,;t t
+s,@IPOPTLIB_DEPENDENCIES@, /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Mumps/libcoinmumps.la /usr/local/lib/libcoinblas.a /usr/local/lib/libcoinlapack.a /usr/local/lib/libcoinblas.a  /usr/local/lib/libcoinblas.a   ,;t t
 s,@IPOPTLIB_CFLAGS_INSTALLED@,,;t t
 s,@IPOPTLIB_LIBS_INSTALLED@,/usr/local/lib/libcoinlapack.a /usr/local/lib/libcoinblas.a -lgfortran  -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. -lgfortran -lm -lquadmath /usr/local/lib/libcoinblas.a -lgfortran  -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. -lgfortran -lm -lquadmath -lm  -ldl,;t t
 s,@COIN_HAS_BLAS_TRUE@,,;t t
@@ -703,18 +703,18 @@ s,@LAPACK_CFLAGS_INSTALLED@,,;t t
 s,@LAPACK_DATA_INSTALLED@,,;t t
 s,@COIN_HAS_LAPACK_TRUE@,,;t t
 s,@COIN_HAS_LAPACK_FALSE@,#,;t t
-s,@ASL_LIBS@,/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/libcoinasl.la -lm -ldl,;t t
-s,@ASL_CFLAGS@,-I/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL -I/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/solvers,;t t
+s,@ASL_LIBS@,/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/libcoinasl.la -lm -ldl,;t t
+s,@ASL_CFLAGS@,-I/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL -I/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/solvers,;t t
 s,@ASL_DATA@,,;t t
-s,@ASL_DEPENDENCIES@, /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/libcoinasl.la,;t t
+s,@ASL_DEPENDENCIES@, /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/libcoinasl.la,;t t
 s,@ASL_LIBS_INSTALLED@,,;t t
 s,@ASL_CFLAGS_INSTALLED@,,;t t
 s,@ASL_DATA_INSTALLED@,,;t t
-s,@IPOPTAMPLINTERFACELIB_CFLAGS@,-I/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL -I/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/solvers ,;t t
-s,@IPOPTAMPLINTERFACELIB_LIBS@,/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/libcoinasl.la -lm -ldl ,;t t
+s,@IPOPTAMPLINTERFACELIB_CFLAGS@,-I/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL -I/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/solvers ,;t t
+s,@IPOPTAMPLINTERFACELIB_LIBS@,/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/libcoinasl.la -lm -ldl ,;t t
 s,@IPOPTAMPLINTERFACELIB_PCLIBS@,,;t t
 s,@IPOPTAMPLINTERFACELIB_PCREQUIRES@,coinasl ,;t t
-s,@IPOPTAMPLINTERFACELIB_DEPENDENCIES@, /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/libcoinasl.la  ,;t t
+s,@IPOPTAMPLINTERFACELIB_DEPENDENCIES@, /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/libcoinasl.la  ,;t t
 s,@IPOPTAMPLINTERFACELIB_CFLAGS_INSTALLED@,,;t t
 s,@IPOPTAMPLINTERFACELIB_LIBS_INSTALLED@,,;t t
 s,@COIN_HAS_ASL_TRUE@,,;t t
@@ -728,10 +728,10 @@ s,@HSL_CFLAGS_INSTALLED@,,;t t
 s,@HSL_DATA_INSTALLED@,,;t t
 s,@COIN_HAS_HSL_TRUE@,#,;t t
 s,@COIN_HAS_HSL_FALSE@,,;t t
-s,@MUMPS_LIBS@,-L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/Mumps/libcoinmumps.la /usr/local/lib/libcoinblas.a -lgfortran -lm -lquadmath -lgfortran -lm -lquadmath,;t t
-s,@MUMPS_CFLAGS@,-DCOIN_USE_MUMPS_MPI_H -I/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/Mumps/MUMPS/libseq -I/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/Mumps/MUMPS/include,;t t
+s,@MUMPS_LIBS@,-L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Mumps/libcoinmumps.la /usr/local/lib/libcoinblas.a -lgfortran -lm -lquadmath -lgfortran -lm -lquadmath,;t t
+s,@MUMPS_CFLAGS@,-DCOIN_USE_MUMPS_MPI_H -I/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Mumps/MUMPS/libseq -I/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Mumps/MUMPS/include,;t t
 s,@MUMPS_DATA@,,;t t
-s,@MUMPS_DEPENDENCIES@, /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/Mumps/libcoinmumps.la /usr/local/lib/libcoinblas.a,;t t
+s,@MUMPS_DEPENDENCIES@, /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Mumps/libcoinmumps.la /usr/local/lib/libcoinblas.a,;t t
 s,@MUMPS_LIBS_INSTALLED@,,;t t
 s,@MUMPS_CFLAGS_INSTALLED@,,;t t
 s,@MUMPS_DATA_INSTALLED@,,;t t
@@ -769,7 +769,7 @@ s,@BUILD_INEXACT_TRUE@,#,;t t
 s,@BUILD_INEXACT_FALSE@,,;t t
 s,@LIBEXT@,a,;t t
 s,@VPATH_DISTCLEANFILES@,,;t t
-s,@ABSBUILDDIR@,/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/Ipopt,;t t
+s,@ABSBUILDDIR@,/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/Ipopt,;t t
 s,@LIBOBJS@,,;t t
 s,@LTLIBOBJS@,,;t t
 CEOF

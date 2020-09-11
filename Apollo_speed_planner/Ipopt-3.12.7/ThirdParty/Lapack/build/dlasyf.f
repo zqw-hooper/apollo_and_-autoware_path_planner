@@ -1,1 +1,0 @@
-../LAPACK/SRC/dlasyf.f

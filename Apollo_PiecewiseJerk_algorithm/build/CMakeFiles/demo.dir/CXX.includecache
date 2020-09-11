@@ -42,7 +42,7 @@ utility
 osqp.h
 -
 
-../include/PiecewiseJerkSpeedOptimizer.hpp
+../include/PiecewiseJerkSpeed_nonlinear_Optimizer.hpp
 vector
 -
 DiscretizedPath.hpp
@@ -153,8 +153,8 @@ ctime
 -
 vector
 -
-PiecewiseJerkSpeedOptimizer.hpp
-/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedOptimizer.hpp
+PiecewiseJerkSpeed_nonlinear_Optimizer.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeed_nonlinear_Optimizer.hpp
 PiecewiseJerkPathProblem.hpp
 /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkPathProblem.hpp
 

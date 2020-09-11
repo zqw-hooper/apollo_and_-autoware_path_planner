@@ -1,1 +1,0 @@
-../LAPACK/INSTALL/dlamch.f

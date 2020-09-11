@@ -65,8 +65,8 @@ CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeed_nonlinear_Optimizer.cpp.o
  ../include/PiecewiseJerkPathProblem.hpp
  ../include/PiecewiseJerkProblem.hpp
  ../include/PiecewiseJerkSpeedNonlinearIpoptInterface.hpp
- ../include/PiecewiseJerkSpeedOptimizer.hpp
  ../include/PiecewiseJerkSpeedProblem.hpp
+ ../include/PiecewiseJerkSpeed_nonlinear_Optimizer.hpp
  ../include/PiecewiseJerkTrajectory1d.hpp
  ../include/SpeedData.hpp
  ../include/SpeedLimit.hpp

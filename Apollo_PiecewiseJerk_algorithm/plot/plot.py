@@ -23,16 +23,16 @@ ax.set_title("st_test.csv")
 plt.xlabel('t')
 plt.ylabel('s')
 
-# v_data = pd.read_csv(pwd+"/v_test.csv")
-# s = v_data["s"].values
-# v_limit = v_data["b"].values
-# v = v_data["v"].values
-# bx = fig.add_subplot(122)
-# plt.scatter(s, v_limit, color="r")
-# plt.scatter(s, v, color="b")
-# bx.set_title("v_test.csv")
-# plt.xlabel('s')
-# plt.ylabel('v')
+v_data = pd.read_csv(pwd+"/v_test.csv")
+s = v_data["s"].values
+v_limit = v_data["b"].values
+v = v_data["v"].values
+bx = fig.add_subplot(122)
+plt.scatter(s, v_limit, color="r")
+plt.scatter(s, v, color="b")
+bx.set_title("v_test.csv")
+plt.xlabel('s')
+plt.ylabel('v')
 
 
 

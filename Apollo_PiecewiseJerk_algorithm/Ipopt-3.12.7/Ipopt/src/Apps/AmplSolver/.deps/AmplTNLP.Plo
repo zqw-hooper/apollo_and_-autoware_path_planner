@@ -128,8 +128,8 @@ AmplTNLP.lo: AmplTNLP.cpp /usr/include/stdc-predef.h \
  ../../LinAlg/IpMatrix.hpp ../../LinAlg/IpBlas.hpp \
  /usr/include/c++/5/cstring /usr/include/string.h \
  /usr/include/x86_64-linux-gnu/bits/string3.h \
- /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/solvers/asl.h \
- /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/arith.h \
+ /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/solvers/asl.h \
+ /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/arith.h \
  /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
@@ -140,16 +140,16 @@ AmplTNLP.lo: AmplTNLP.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
  /usr/include/x86_64-linux-gnu/bits/mathinline.h \
- /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/stdio1.h \
+ /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/stdio1.h \
  /usr/include/errno.h /usr/include/x86_64-linux-gnu/bits/errno.h \
  /usr/include/linux/errno.h /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/solvers/funcadd.h \
+ /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/solvers/funcadd.h \
  /usr/include/setjmp.h /usr/include/x86_64-linux-gnu/bits/setjmp2.h \
- /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/solvers/asl_pfgh.h \
- /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/solvers/psinfo.h \
- /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/solvers/nlp2.h \
- /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/solvers/getstub.h
+ /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/solvers/asl_pfgh.h \
+ /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/solvers/psinfo.h \
+ /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/solvers/nlp2.h \
+ /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/solvers/getstub.h
 
 /usr/include/stdc-predef.h:
 
@@ -513,9 +513,9 @@ AmplTNLP.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/string3.h:
 
-/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/solvers/asl.h:
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/solvers/asl.h:
 
-/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/arith.h:
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/arith.h:
 
 /usr/include/math.h:
 
@@ -539,7 +539,7 @@ AmplTNLP.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/mathinline.h:
 
-/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/stdio1.h:
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/stdio1.h:
 
 /usr/include/errno.h:
 
@@ -553,16 +553,16 @@ AmplTNLP.hpp:
 
 /usr/include/asm-generic/errno-base.h:
 
-/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/solvers/funcadd.h:
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/solvers/funcadd.h:
 
 /usr/include/setjmp.h:
 
 /usr/include/x86_64-linux-gnu/bits/setjmp2.h:
 
-/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/solvers/asl_pfgh.h:
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/solvers/asl_pfgh.h:
 
-/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/solvers/psinfo.h:
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/solvers/psinfo.h:
 
-/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/solvers/nlp2.h:
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/solvers/nlp2.h:
 
-/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_speed_planner/Ipopt-3.12.7/ThirdParty/ASL/solvers/getstub.h:
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/ASL/solvers/getstub.h:

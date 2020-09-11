@@ -1,1 +1,0 @@
-../LAPACK/SRC/zpotf2.f

@@ -1,1 +1,0 @@
-../LAPACK/SRC/dgeqr2.f
