@@ -77,7 +77,7 @@ bool PiecewiseJerkSpeedOptimizer::Process(std::vector<std::pair<double, double>>
     {
         return false;
     }
-    // 优化后的路径点  // reference_line
+    // reference_line
     // 横坐标t, 纵坐标s
     std::ofstream out;
     out.open("../plot/ref.csv");

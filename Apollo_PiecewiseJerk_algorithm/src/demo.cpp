@@ -105,8 +105,11 @@ int main()
 
     // piecewise_path_optimizer
     // 路径规划
+    // 参考:
+    // https://blog.csdn.net/weixin_41399111/article/details/105826425
+    // https://www.cnblogs.com/liuzubing/p/11051390.html
     {
-        int num_of_knots = 100;
+        int num_of_knots = 200;
         std::array<double, 3> x_init{0, 0, 0};
         std::array<double, 3> end_state{0, 0, 0};
         float delta_s = 0.5;
@@ -128,9 +131,13 @@ int main()
             ddl_bounds.push_back(tmp_ds);    // 横向, ddl的边界
         }
 
-        for (int k = 0; k < 10; k++)
+        for (int k = 0; k < 20; k++)
         {
-            lat_boundaries.at(num_of_knots / 2 + k).second = -1;
+            lat_boundaries.at(num_of_knots / 1.5 + k).second = -1;
+        }
+        for (int k = 0; k < 20; k++)
+        {
+            lat_boundaries.at(num_of_knots /5 + k).first = 1;
         }
 
         path_optimizer.set_x_bounds(lat_boundaries); // 横向l
