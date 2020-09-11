@@ -15,6 +15,10 @@
 #include <string>
 #include <memory>
 
+#include <chrono>
+#include <iostream>
+#include <fstream>
+
 class Box2d
 {
 public:
@@ -187,7 +191,6 @@ public:
     return obs_id_;
   }
 
-private:
   bool is_init_ = false;
   std::string obs_id_;
   std::vector<StPoint> lower_points_;
@@ -296,10 +299,10 @@ StGraph::StGraph(const DiscretizedPath &path, const std::vector<Obstacle> &obsta
   CalculateAllObstacleStBoundary(obstacles);
 }
 
+// 获取 st_graph 图中,所有障碍物的 st_boundary
 bool StGraph::GetAllObstacleStBoundary(std::vector<StBoundary> *const st_boundaries) const
 {
   // CHECK_NOTNULL(st_boundaries);
-
   for (auto iter = obs_st_boundary_.begin(); iter != obs_st_boundary_.end(); ++iter)
   {
     st_boundaries->emplace_back(iter->second);
@@ -369,17 +372,17 @@ void StGraph::CalculateAllObstacleStBoundary(const std::vector<Obstacle> &obstac
   }
 }
 
+// 计算每个obstacle的 st_boundary 边界
 bool StGraph::CalculateObstacleStBoundary(const Obstacle &obstacle,
                                           StBoundary *const st_boundary) const
 {
   // CHECK_NOTNULL(st_boundary);
-
   if (obstacle.is_static)
-  {
+  { // 计算静态障碍物的边界
     return CalculateStaticObstacleStBoundary(obstacle.id, obstacle.bounding_box, st_boundary);
   }
   else
-  {
+  { // 计算动态障碍物的边界
     return CalculateDynamicObstacleStBoundary(obstacle, st_boundary);
   }
 }
@@ -388,13 +391,13 @@ bool StGraph::CalculateStaticObstacleStBoundary(const std::string &obs_id, const
                                                 StBoundary *const st_boundary) const
 {
   // CHECK_NOTNULL(st_boundary);
-
   double lower_s = 0.0;
   double upper_s = 0.0;
   if (!GetBlockedSRange(obs_box, &lower_s, &upper_s))
   {
     return false;
   }
+  // t=0时的上下边界,t=time_range_时的上下边界
   std::vector<StPoint> lower_points{StPoint(0.0, lower_s), StPoint(time_range_, lower_s)};
   std::vector<StPoint> upper_points{StPoint(0.0, upper_s), StPoint(time_range_, upper_s)};
   st_boundary->Init(obs_id, lower_points, upper_points);
@@ -406,7 +409,6 @@ bool StGraph::GetBlockedSRange(const Box2d &obs_box, double *const lower_s,
 {
   // CHECK_NOTNULL(lower_s);
   // CHECK_NOTNULL(upper_s);
-
   const double radius = 5.0;
   double radiAus = 2;
   const auto &points = GetWaypointsWithinDistance(obs_box.center_[0], obs_box.center_[1], radiAus);
@@ -504,127 +506,146 @@ int main()
   {
     points.emplace_back(x, x, M_PI / 4.0, std::hypot(x, x));
   }
+  // 离散的路径点
   path_ = std::make_shared<DiscretizedPath>(points);
 
-  std::vector<Obstacle> obstacles;
-  StGraph st_graph(*path_, obstacles);
+  // // center,heading,length,width
+  // Box2d obs_box({5.0, 5.0}, M_PI / 4.0, 2.0, 1.0);
+  // // 静止的障碍物   // true表示
+  // Obstacle obs("2", obs_box, true);
 
-  std::vector<StBoundary> st_boundaries;
-  st_graph.GetAllObstacleStBoundary(&st_boundaries);
-  // EXPECT_TRUE(st_boundaries.empty());
-  std::cout << "should be true   " << st_boundaries.empty() << std::endl;
-
-  std::string id = "1";
-  StBoundary st_boundary;
-  // EXPECT_TRUE(!st_graph.GetObstacleStBoundary(id, &st_boundary));
-  std::cout << "should be true   " << !st_graph.GetObstacleStBoundary(id, &st_boundary) << std::endl;
-
-  double t = 0.0;
-  std::vector<std::pair<double, double>> blocked_ranges;
-  st_graph.GetAllBlockedSRangesByT(t, &blocked_ranges);
-  // EXPECT_TRUE(blocked_ranges.empty());
-  std::cout << "should be true   " << (blocked_ranges.empty()) << std::endl;
-
-  // 静止的障碍物
-  Box2d obs_box({5.0, 5.0}, M_PI / 4.0, 2.0, 1.0);
-  Obstacle obs("2", obs_box, true);
-  StGraph st_graph_1(*path_, std::vector<Obstacle>{obs});
-
-  // std::vector<StBoundary> st_boundaries;
-  // st_graph.GetAllObstacleStBoundary(&st_boundaries);
-  // // EXPECT_TRUE(!st_boundaries.empty());
-  //   std::cout << "should be true   " << (!st_boundaries.empty()) << std::endl;
-  // std::string id = "2";
-  // StBoundary st_boundary;
-  // // EXPECT_TRUE(st_graph.GetObstacleStBoundary(id, &st_boundary));
-  //    std::cout << "should be true   " << (st_graph.GetObstacleStBoundary(id, &st_boundary)) << std::endl;
-  // double lower_s = 0.0;
-  // double upper_s = 0.0;
-  // st_boundary.Evaluate(3.0, &lower_s, &upper_s);
-  // // EXPECT_EQ(lower_s, 5 * std::sqrt(2.0) - 2.0);
-  // // EXPECT_EQ(upper_s, 5 * std::sqrt(2.0) + 2.0);
-
-  //    std::cout << "should be true   " << (lower_s==(5 * std::sqrt(2.0) - 2.0)) << std::endl;
-  //    std::cout << "should be true   " << (upper_s==( 5 * std::sqrt(2.0) + 2.0)) << std::endl;
-
-  // double t = 0.0;
-  // std::vector<std::pair<double, double>> blocked_ranges;
-  // st_graph.GetAllBlockedSRangesByT(t, &blocked_ranges);
-  // // EXPECT_TRUE(!blocked_ranges.empty());
-  //    std::cout << "should be true   " << (!blocked_ranges.empty()) << std::endl;
-
-  {
-    Box2d obs_box({-5.0, -1.0}, M_PI / 4.0, 2.0, 1.0);
-    std::vector<TrajectoryPoint> traj_points;
-    TrajectoryPoint traj_p1({-5, -1, M_PI / 4.0, 0}, 0.0, 0.0);
-    TrajectoryPoint traj_p2({5, 1, M_PI / 4.0, 0}, 0.0, 1.0);
-    TrajectoryPoint traj_p3({4, 4, M_PI / 4.0, 0}, 0.0, 2.0);
-    TrajectoryPoint traj_p4({4.5, 4.5, M_PI / 4.0, 0}, 0.0, 2.5);
-    TrajectoryPoint traj_p5({5.5, 5.5, M_PI / 4.0, 0}, 0.0, 3.0);
-    TrajectoryPoint traj_p6({5, 8, M_PI / 4.0, 0}, 0.0, 3.5);
-
-    traj_points.emplace_back(traj_p1);
-    traj_points.emplace_back(traj_p2);
-    traj_points.emplace_back(traj_p3);
-    traj_points.emplace_back(traj_p4);
-    traj_points.emplace_back(traj_p5);
-    traj_points.emplace_back(traj_p6);
-
-    DiscretizedTrajectory obs_trajectory(traj_points);
-    // 动态障碍物
-    Obstacle obs("3", obs_box, false, obs_trajectory);
-    StGraph st_graph(*path_, std::vector<Obstacle>{obs});
-
-    std::vector<StBoundary> st_boundaries;
-    st_graph.GetAllObstacleStBoundary(&st_boundaries);
-    std::cout << "st_boundaries is not empty   " << (!st_boundaries.empty()) << std::endl;
-  }
-
-  {
-    Box2d obs_box({-5.0, -1.0}, M_PI / 4.0, 2.0, 1.0);
-    std::vector<TrajectoryPoint> traj_points;
-    double t = 0.0;
-    for (double x = 5.0; x > 0.0; x -= 0.1)
-    {
-      TrajectoryPoint traj_p({x, -x + 5, 3 * M_PI / 4.0, 0}, 0.0, t);
-      traj_points.emplace_back(traj_p);
-      t += 0.1;
-    }
-
-    DiscretizedTrajectory obs_trajectory(traj_points);
-    Obstacle obs("2", obs_box, false, obs_trajectory);
-    StGraph st_graph(*path_, std::vector<Obstacle>{obs});
-
-    std::vector<StBoundary> st_boundaries;
-    st_graph.GetAllObstacleStBoundary(&st_boundaries);
-    std::cout << "st_boundaries is not empty   " << (!st_boundaries.empty()) << std::endl;
-  }
-
-
-{
-  Box2d obs_box3({-5.0, -1.0}, M_PI / 4.0, 2.0, 1.0);
+  // 动态障碍物
+  Box2d obs_box({-5.0, -1.0}, M_PI / 4.0, 2.0, 1.0);
   std::vector<TrajectoryPoint> traj_points;
-  double t = 0.0;
-  for (double x = 5.0; x > 0.0; x -= 0.1)
-  {
-    TrajectoryPoint traj_p({x, -x + 5, 3 * M_PI / 4.0, 0}, 0.0, t);
-    traj_points.emplace_back(traj_p);
-    t += 0.1;
-  }
+  TrajectoryPoint traj_p1({-5, -1, M_PI / 4.0, 0}, 0.0, 0.0);
+  TrajectoryPoint traj_p2({5, 1, M_PI / 4.0, 0}, 0.0, 1.0);
+  TrajectoryPoint traj_p3({4, 4, M_PI / 4.0, 0}, 0.0, 2.0);
+  TrajectoryPoint traj_p4({4.5, 4.5, M_PI / 4.0, 0}, 0.0, 2.5);
+  TrajectoryPoint traj_p5({5.5, 5.5, M_PI / 4.0, 0}, 0.0, 3.0);
+  TrajectoryPoint traj_p6({5, 8, M_PI / 4.0, 0}, 0.0, 3.5);
+  traj_points.emplace_back(traj_p1);
+  traj_points.emplace_back(traj_p2);
+  traj_points.emplace_back(traj_p3);
+  traj_points.emplace_back(traj_p4);
+  traj_points.emplace_back(traj_p5);
+  traj_points.emplace_back(traj_p6);
 
   DiscretizedTrajectory obs_trajectory(traj_points);
-  Obstacle obs1("3", obs_box3, false, obs_trajectory);
+  // 动态障碍物  // false表示
+  Obstacle obs_3("3", obs_box, false, obs_trajectory);
+  Obstacle obs_4("4", obs_box, false, obs_trajectory);
+  std::vector<Obstacle> all_obstacles;
+  all_obstacles.push_back(obs_3);
+  all_obstacles.push_back(obs_4);
 
-  Box2d obs_box4({15.0, 15.0}, M_PI / 4.0, 2.0, 1.0);
-  Obstacle obs2("4", obs_box4, true); 
-
-  StGraph st_graph(*path_, std::vector<Obstacle>{obs1, obs2});
-
+  StGraph st_graph_static(*path_, all_obstacles);
   std::vector<StBoundary> st_boundaries;
-  st_graph.GetAllObstacleStBoundary(&st_boundaries);
-    std::cout << "st_boundaries is not empty   " << (!st_boundaries.empty()) << std::endl;
+  st_graph_static.GetAllObstacleStBoundary(&st_boundaries);
+  std::cout << "st_boundaries.size()   " << (st_boundaries.size()) << std::endl;
 
-}
+  for (int i = 0; i < st_boundaries.size(); i++)
+  {
+    st_boundaries[i].lower_points_;
+    st_boundaries[i].upper_points_;
+  }
+
+  std::ofstream out;
+  out.open("../plot/st_boundaries.csv");
+  out << "t,s" << std::endl;
+
+  for (int i = 0; i < st_boundaries.size(); i++)
+  {
+    st_boundaries[i].lower_points_;
+    st_boundaries[i].upper_points_;
+
+    for (int n = 0; n < st_boundaries[i].lower_points_.size(); n++)
+    {
+      out << st_boundaries[i].lower_points_[n].t << "," << st_boundaries[i].lower_points_[n].s << std::endl;
+    }
+
+    for (int m = 0; m < st_boundaries[i].upper_points_.size(); m++)
+    {
+      out << st_boundaries[i].upper_points_[m].t << "," << st_boundaries[i].upper_points_[m].s << std::endl;
+    }
+  }
+
+  out.close();
+
+  // {
+  //   Box2d obs_box({-5.0, -1.0}, M_PI / 4.0, 2.0, 1.0);
+  //   std::vector<TrajectoryPoint> traj_points;
+  //   TrajectoryPoint traj_p1({-5, -1, M_PI / 4.0, 0}, 0.0, 0.0);
+  //   TrajectoryPoint traj_p2({5, 1, M_PI / 4.0, 0}, 0.0, 1.0);
+  //   TrajectoryPoint traj_p3({4, 4, M_PI / 4.0, 0}, 0.0, 2.0);
+  //   TrajectoryPoint traj_p4({4.5, 4.5, M_PI / 4.0, 0}, 0.0, 2.5);
+  //   TrajectoryPoint traj_p5({5.5, 5.5, M_PI / 4.0, 0}, 0.0, 3.0);
+  //   TrajectoryPoint traj_p6({5, 8, M_PI / 4.0, 0}, 0.0, 3.5);
+  //   traj_points.emplace_back(traj_p1);
+  //   traj_points.emplace_back(traj_p2);
+  //   traj_points.emplace_back(traj_p3);
+  //   traj_points.emplace_back(traj_p4);
+  //   traj_points.emplace_back(traj_p5);
+  //   traj_points.emplace_back(traj_p6);
+
+  //   DiscretizedTrajectory obs_trajectory(traj_points);
+  //   // 动态障碍物  // false表示
+  //   Obstacle obs_3("3", obs_box, false, obs_trajectory);
+  //   Obstacle obs_4("4", obs_box, false, obs_trajectory);
+  //   std::vector<Obstacle> all_obstacles;
+  //   all_obstacles.push_back(obs_3);
+  //   all_obstacles.push_back(obs_4);
+  //   // 初始化 st_graph  // 初始化的时候计算所有障碍物的 StBoundary
+  //   StGraph st_graph(*path_, all_obstacles);
+
+  //   std::vector<StBoundary> st_boundaries;
+  //   st_graph.GetAllObstacleStBoundary(&st_boundaries);
+  //   std::cout << "st_boundaries.size()   " << (st_boundaries.size()) << std::endl;
+  // }
+
+  // {
+  //   Box2d obs_box({-5.0, -1.0}, M_PI / 4.0, 2.0, 1.0);
+  //   std::vector<TrajectoryPoint> traj_points;
+  //   double t = 0.0;
+  //   for (double x = 5.0; x > 0.0; x -= 0.1)
+  //   {
+  //     TrajectoryPoint traj_p({x, -x + 5, 3 * M_PI / 4.0, 0}, 0.0, t);
+  //     traj_points.emplace_back(traj_p);
+  //     t += 0.1;
+  //   }
+
+  //   DiscretizedTrajectory obs_trajectory(traj_points);
+  //   Obstacle obs("5", obs_box, false, obs_trajectory);
+  //   StGraph st_graph(*path_, std::vector<Obstacle>{obs});
+
+  //   std::vector<StBoundary> st_boundaries;
+  //   st_graph.GetAllObstacleStBoundary(&st_boundaries);
+  //   std::cout << "st_boundaries.size()   " << (st_boundaries.size()) << std::endl;
+  // }
+
+  // if (0)
+  // {
+  //   Box2d obs_box3({-5.0, -1.0}, M_PI / 4.0, 2.0, 1.0);
+  //   std::vector<TrajectoryPoint> traj_points;
+  //   double t = 0.0;
+  //   for (double x = 5.0; x > 0.0; x -= 0.1)
+  //   {
+  //     TrajectoryPoint traj_p({x, -x + 5, 3 * M_PI / 4.0, 0}, 0.0, t);
+  //     traj_points.emplace_back(traj_p);
+  //     t += 0.1;
+  //   }
+
+  //   DiscretizedTrajectory obs_trajectory(traj_points);
+  //   Obstacle obs1("6", obs_box3, false, obs_trajectory);
+
+  //   Box2d obs_box4({15.0, 15.0}, M_PI / 4.0, 2.0, 1.0);
+  //   Obstacle obs2("7", obs_box4, true);
+
+  //   StGraph st_graph(*path_, std::vector<Obstacle>{obs1, obs2});
+
+  //   std::vector<StBoundary> st_boundaries;
+  //   st_graph.GetAllObstacleStBoundary(&st_boundaries);
+  //   std::cout << "st_boundaries.size()   " << (st_boundaries.size()) << std::endl;
+  // }
 
   std::cout << "End ST_graph " << std::endl;
   return 0;
