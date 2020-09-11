@@ -119,12 +119,17 @@ bool InitSpeedLimitLookUp()
   return true;
 }
 
+// node和障碍物的cost
 double GetObstacleCost(const StGraphPoint st_graph_point)
 {
+  float epslion = 0.001;
   float node_s = st_graph_point.st_point.s;
   float node_t = st_graph_point.st_point.t;
 
   float cost = 0;
+
+  // std::cout << "st_boundaries.size()   " << (st_boundaries.size()) << std::endl;
+
   for (int i = 0; i < st_boundaries.size(); i++)
   {
     st_boundaries[i].lower_points_;
@@ -133,7 +138,7 @@ double GetObstacleCost(const StGraphPoint st_graph_point)
       StPoint st_point_tmp = st_boundaries[i].lower_points_[m];
       if (st_point_tmp.t == node_t)
       {
-        cost += 1 / abs(st_point_tmp.s - node_s);
+        cost += 1 / abs(st_point_tmp.s - node_s + 1);
       }
     }
 
@@ -142,7 +147,7 @@ double GetObstacleCost(const StGraphPoint st_graph_point)
       StPoint st_point_tmp = st_boundaries[i].upper_points_[m];
       if (st_point_tmp.t == node_t)
       {
-        cost += 1 / abs(st_point_tmp.s - node_s);
+        cost += 1 / abs(st_point_tmp.s - node_s + 1);
       }
     }
   }
@@ -497,11 +502,13 @@ bool RetrieveSpeedProfile()
 
   // 初始化 cost_table_
   StPoint st_point(0, 0);
+  int level_num = 4;       // level的数量
+  int num_each_level = 10; // 每个level中点的数目
+  // 初始化 cost_table_
   cost_table_ = std::vector<std::vector<StGraphPoint>>(
-      4, std::vector<StGraphPoint>(10, StGraphPoint(st_point)));
+      level_num, std::vector<StGraphPoint>(num_each_level, StGraphPoint(st_point)));
 
-  std::cout << "cost_table_.size()   " << cost_table_.size() << std::endl;
-  std::cout << "cost_table_.[0].size()  " << cost_table_[2].size() << std::endl;
+  std::cout << "cost_table size   " << cost_table_.size() << ",  " << cost_table_[2].size() << std::endl;
 
   // 赋值 cost_table_
   for (int c = 0; c < cost_table_.size(); c++)
@@ -511,10 +518,12 @@ bool RetrieveSpeedProfile()
       StPoint st_point{float(c), float(r)};
       st_point.t = (float(c));
       st_point.s = (float(r));
+      // node 赋值
       cost_table_[c][r].Init(c, r, st_point);
       { // debug code
         if (c == 0)
         {
+          // 对于第一个level不用考虑上一个level中的最小cost的node
           cost_table_[c][r].cost = double(c + r) + GetObstacleCost(cost_table_[c][r]);
         }
         else
@@ -531,7 +540,7 @@ bool RetrieveSpeedProfile()
           }
         }
 
-        // if (c == 2 && r == 3)
+        // if (c == 2 && r == 0)
         // {
         //   cost_table_[c][r].cost = 10;
         // }
@@ -546,11 +555,10 @@ bool RetrieveSpeedProfile()
     {
       for (int r = 0; r < cost_table_[c].size(); r++)
       {
-        // std::cout << "c  " << c << "  r   " << r << std::endl;
+        // 对于第一个level的node,没有pre_node
         if (c == 0)
         {
           continue;
-          cost_table_[c][r].SetPreNode(cost_table_[c][r]);
         }
         else
         {
@@ -569,14 +577,14 @@ bool RetrieveSpeedProfile()
     }
   }
 
-  std::cout << "cost_table_[3][5].pre_node->cost   " << cost_table_[3][5].pre_node->cost
-            << "   " << cost_table_[3][5].pre_node->st_point.t << " " << cost_table_[3][5].pre_node->st_point.s << std::endl;
+  // std::cout << "cost_table_[3][5].pre_node->cost   " << cost_table_[3][5].pre_node->cost
+  //           << "   " << cost_table_[3][5].pre_node->st_point.t << " " << cost_table_[3][5].pre_node->st_point.s << std::endl;
 
   // 找到最后一个level中cost最小的node作为当前node
   StGraphPoint cur_point = cost_table_.back()[5];
   {
     double min_cost = std::numeric_limits<double>::max();
-    for (int i = 0; i <= cost_table_.back().size(); i++)
+    for (int i = 0; i <= cost_table_.back().size() - 1; i++)
     {
       if (cost_table_.back()[i].cost < min_cost)
       {
@@ -586,6 +594,20 @@ bool RetrieveSpeedProfile()
       }
     }
   }
+
+  // { // debug code
+  //   for (int c = 0; c < cost_table_.size(); c++)
+  //   {
+  //     for (int r = 0; r < cost_table_[c].size(); r++)
+  //     {
+  //       std::cout << "index_s, index_t, cost   " << cost_table_[c][r].index_s_ << "  " << cost_table_[c][r].index_t_ << "   " << cost_table_[c][r].cost << std::endl;
+  //     }
+  //   }
+
+  // std::cout << "current_node (t s)  ( " << cur_point.index_t_ << "  "
+  //           << cur_point.index_s_ << " )"
+  //           << "  cost  " << cur_point.cost << std::endl;
+  // }
 
   // cur_point = cost_table_.back()[5];
   // 判断是否找到当前node
@@ -628,24 +650,24 @@ bool RetrieveSpeedProfile()
   //   return false;
   // }
 
-  for (size_t i = 0; i + 1 < speed_profile.size(); ++i)
-  {
-    double v = (speed_profile[i + 1].s - speed_profile[i].s) /
-               (speed_profile[i + 1].t - speed_profile[i].t + 1e-3);
-    speed_profile[i].set_v(v);
-    speed_profile[i].v = v;
-    std::cout << "speed_profile[i + 1].s    " << speed_profile[i + 1].s << std::endl;
-    std::cout << "speed_profile[i ].s    " << speed_profile[i].s << std::endl;
-    std::cout << "speed_profile[i + 1].t    " << speed_profile[i + 1].t << std::endl;
-    std::cout << "speed_profile[i].t    " << speed_profile[i].t << std::endl;
-  }
+  // for (size_t i = 0; i + 1 < speed_profile.size(); ++i)
+  // {
+  //   double v = (speed_profile[i + 1].s - speed_profile[i].s) /
+  //              (speed_profile[i + 1].t - speed_profile[i].t + 1e-3);
+  //   speed_profile[i].set_v(v);
+  //   speed_profile[i].v = v;
+  //   std::cout << "speed_profile[i + 1].s    " << speed_profile[i + 1].s << std::endl;
+  //   std::cout << "speed_profile[i ].s    " << speed_profile[i].s << std::endl;
+  //   std::cout << "speed_profile[i + 1].t    " << speed_profile[i + 1].t << std::endl;
+  //   std::cout << "speed_profile[i].t    " << speed_profile[i].t << std::endl;
+  // }
 
-  std::cout << "speed_profile.size()  " << speed_profile.size() << std::endl;
-  for (int i = 0; i < speed_profile.size(); i++)
-  {
-    std::cout << "index, (s,t,v)  " << i << " (" << speed_profile[i].s << " " << speed_profile[i].t << " "
-              << speed_profile[i].v << ")" << std::endl;
-  }
+  // std::cout << "speed_profile.size()  " << speed_profile.size() << std::endl;
+  // for (int i = 0; i < speed_profile.size(); i++)
+  // {
+  //   std::cout << "index, (s,t,v)  " << i << " (" << speed_profile[i].s << " " << speed_profile[i].t << " "
+  //             << speed_profile[i].v << ")" << std::endl;
+  // }
 
   // *speed_data = SpeedData(speed_profile);
   return true;
@@ -710,6 +732,7 @@ bool DP_speed_Search(std::vector<StBoundary> st_boundaries)
 int main()
 {
 
+  // 加入障碍物
   std::vector<Waypoint> points;
   std::shared_ptr<DiscretizedPath> path_;
   for (double x = 0.0; x < 20; x += 0.1)
@@ -718,7 +741,7 @@ int main()
   }
   path_ = std::make_shared<DiscretizedPath>(points);
 
-  Box2d obs_box3({-5.0, -1.0}, M_PI / 4.0, 2.0, 1.0);
+  Box2d obs_box3({1, 1}, M_PI / 4.0, 1.0, 1.0);
   std::vector<TrajectoryPoint> traj_points;
   double t = 0.0;
   for (double x = 5.0; x > 0.0; x -= 0.1)
@@ -731,37 +754,36 @@ int main()
   DiscretizedTrajectory obs_trajectory(traj_points);
   Obstacle obs1("3", obs_box3, false, obs_trajectory);
 
-  Box2d obs_box4({15.0, 15.0}, M_PI / 4.0, 2.0, 1.0);
+  Box2d obs_box4({1, 1}, M_PI / 4.0, 1, 1.0);
   Obstacle obs2("4", obs_box4, true);
 
   StGraph st_graph(*path_, std::vector<Obstacle>{obs1, obs2});
 
   st_graph.GetAllObstacleStBoundary(&st_boundaries);
-  // std::cout << "st_boundaries is not empty   " << (!st_boundaries.empty()) << std::endl;
 
   //////////////////////////////////////////////////////
-  std::vector<StBoundary> st_boundaries_debug;
-  StBoundary st_boundary_1;
-  StBoundary st_boundary_2;
-  StBoundary st_boundary_3;
+  // std::vector<StBoundary> st_boundaries_debug;
+  // StBoundary st_boundary_1;
+  // StBoundary st_boundary_2;
+  // StBoundary st_boundary_3;
 
-  StPoint lower_point(0.0, 0.0);
-  StPoint upper_point(1.0, 1.0);
-  std::vector<StPoint> lower_points;
-  std::vector<StPoint> upper_points;
+  // StPoint lower_point(0.0, 0.0);
+  // StPoint upper_point(1.0, 1.0);
+  // std::vector<StPoint> lower_points;
+  // std::vector<StPoint> upper_points;
 
-  lower_points.push_back(lower_point);
-  upper_points.push_back(upper_point);
+  // lower_points.push_back(lower_point);
+  // upper_points.push_back(upper_point);
 
-  st_boundary_1.Init("1", lower_points, upper_points);
-  st_boundary_1.Init("2", lower_points, upper_points);
-  st_boundary_1.Init("3", lower_points, upper_points);
+  // st_boundary_1.Init("1", lower_points, upper_points);
+  // st_boundary_1.Init("2", lower_points, upper_points);
+  // st_boundary_1.Init("3", lower_points, upper_points);
 
-  st_boundaries_debug.push_back(st_boundary_1);
-  st_boundaries_debug.push_back(st_boundary_2);
-  st_boundaries_debug.push_back(st_boundary_3);
+  // st_boundaries_debug.push_back(st_boundary_1);
+  // st_boundaries_debug.push_back(st_boundary_2);
+  // st_boundaries_debug.push_back(st_boundary_3);
   // DP用于速度规划
-  DP_speed_Search(st_boundaries_debug);
+  DP_speed_Search(st_boundaries);
   std::cout << "End DP_speed " << std::endl;
   return 0;
 }
