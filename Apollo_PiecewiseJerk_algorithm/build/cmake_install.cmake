@@ -1,4 +1,4 @@
-# Install script for directory: /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm
+# Install script for directory: /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

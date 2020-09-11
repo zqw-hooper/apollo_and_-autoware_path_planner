@@ -67,6 +67,7 @@ bool PiecewiseJerkSpeedOptimizer::Process(std::vector<std::pair<double, double>>
     std::vector<double> velocity;
     std::vector<double> acceleration;
     const auto qp_start = std::chrono::system_clock::now();
+
     const auto qp_smooth_status =
         OptimizeByQP(s_bounds, ref_s_list, &distance, &velocity, &acceleration);
     const auto qp_end = std::chrono::system_clock::now();
@@ -76,7 +77,7 @@ bool PiecewiseJerkSpeedOptimizer::Process(std::vector<std::pair<double, double>>
     {
         return false;
     }
-    // 优化后的路径点
+    // 优化后的路径点  // reference_line
     // 横坐标t, 纵坐标s
     std::ofstream out;
     out.open("../plot/ref.csv");
@@ -115,6 +116,7 @@ bool PiecewiseJerkSpeedOptimizer::Process(std::vector<std::pair<double, double>>
 
     // Solve.
     const auto nlp_start = std::chrono::system_clock::now();
+    // 速度规划  // trajectory
     const auto nlp_smooth_status =
         OptimizeByNLP(s_bounds, soft_s_bounds, &distance, &velocity, &acceleration);
     const auto nlp_end = std::chrono::system_clock::now();
@@ -155,7 +157,8 @@ bool PiecewiseJerkSpeedOptimizer::OptimizeByQP(const std::vector<std::pair<doubl
                                                std::vector<double> *acceleration)
 {
     // 初始状态
-    std::array<double, 3> init_states = {0, s_dot_init_, s_ddot_init_};
+    std::array<double, 3> init_states = {30, s_dot_init_, s_ddot_init_};
+    // std::array<double, 3> init_states = {30, 0, 0};
     // std::cout << "s_init_   " << s_init_ << std::endl;
     PiecewiseJerkSpeedProblem piecewise_jerk_speed_problem(num_of_knots_, delta_t_,
                                                            init_states);

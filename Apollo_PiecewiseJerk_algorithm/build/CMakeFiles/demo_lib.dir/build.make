@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm
+CMAKE_SOURCE_DIR = /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build
+CMAKE_BINARY_DIR = /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/demo_lib.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/demo_lib.dir/flags.make
 
 CMakeFiles/demo_lib.dir/src/ConstantJerkTrajectory1d.cpp.o: CMakeFiles/demo_lib.dir/flags.make
 CMakeFiles/demo_lib.dir/src/ConstantJerkTrajectory1d.cpp.o: ../src/ConstantJerkTrajectory1d.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/demo_lib.dir/src/ConstantJerkTrajectory1d.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/ConstantJerkTrajectory1d.cpp.o -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/ConstantJerkTrajectory1d.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/demo_lib.dir/src/ConstantJerkTrajectory1d.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/ConstantJerkTrajectory1d.cpp.o -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/ConstantJerkTrajectory1d.cpp
 
 CMakeFiles/demo_lib.dir/src/ConstantJerkTrajectory1d.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo_lib.dir/src/ConstantJerkTrajectory1d.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/ConstantJerkTrajectory1d.cpp > CMakeFiles/demo_lib.dir/src/ConstantJerkTrajectory1d.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/ConstantJerkTrajectory1d.cpp > CMakeFiles/demo_lib.dir/src/ConstantJerkTrajectory1d.cpp.i
 
 CMakeFiles/demo_lib.dir/src/ConstantJerkTrajectory1d.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo_lib.dir/src/ConstantJerkTrajectory1d.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/ConstantJerkTrajectory1d.cpp -o CMakeFiles/demo_lib.dir/src/ConstantJerkTrajectory1d.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/ConstantJerkTrajectory1d.cpp -o CMakeFiles/demo_lib.dir/src/ConstantJerkTrajectory1d.cpp.s
 
 CMakeFiles/demo_lib.dir/src/ConstantJerkTrajectory1d.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/demo_lib.dir/src/ConstantJerkTrajectory1d.cpp.o.provides.build: CMake
 
 CMakeFiles/demo_lib.dir/src/DiscretizedPath.cpp.o: CMakeFiles/demo_lib.dir/flags.make
 CMakeFiles/demo_lib.dir/src/DiscretizedPath.cpp.o: ../src/DiscretizedPath.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/demo_lib.dir/src/DiscretizedPath.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/DiscretizedPath.cpp.o -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/DiscretizedPath.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/demo_lib.dir/src/DiscretizedPath.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/DiscretizedPath.cpp.o -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/DiscretizedPath.cpp
 
 CMakeFiles/demo_lib.dir/src/DiscretizedPath.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo_lib.dir/src/DiscretizedPath.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/DiscretizedPath.cpp > CMakeFiles/demo_lib.dir/src/DiscretizedPath.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/DiscretizedPath.cpp > CMakeFiles/demo_lib.dir/src/DiscretizedPath.cpp.i
 
 CMakeFiles/demo_lib.dir/src/DiscretizedPath.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo_lib.dir/src/DiscretizedPath.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/DiscretizedPath.cpp -o CMakeFiles/demo_lib.dir/src/DiscretizedPath.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/DiscretizedPath.cpp -o CMakeFiles/demo_lib.dir/src/DiscretizedPath.cpp.s
 
 CMakeFiles/demo_lib.dir/src/DiscretizedPath.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/demo_lib.dir/src/DiscretizedPath.cpp.o.provides.build: CMakeFiles/dem
 
 CMakeFiles/demo_lib.dir/src/IpoptInterface.cpp.o: CMakeFiles/demo_lib.dir/flags.make
 CMakeFiles/demo_lib.dir/src/IpoptInterface.cpp.o: ../src/IpoptInterface.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/demo_lib.dir/src/IpoptInterface.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/IpoptInterface.cpp.o -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/IpoptInterface.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/demo_lib.dir/src/IpoptInterface.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/IpoptInterface.cpp.o -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/IpoptInterface.cpp
 
 CMakeFiles/demo_lib.dir/src/IpoptInterface.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo_lib.dir/src/IpoptInterface.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/IpoptInterface.cpp > CMakeFiles/demo_lib.dir/src/IpoptInterface.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/IpoptInterface.cpp > CMakeFiles/demo_lib.dir/src/IpoptInterface.cpp.i
 
 CMakeFiles/demo_lib.dir/src/IpoptInterface.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo_lib.dir/src/IpoptInterface.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/IpoptInterface.cpp -o CMakeFiles/demo_lib.dir/src/IpoptInterface.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/IpoptInterface.cpp -o CMakeFiles/demo_lib.dir/src/IpoptInterface.cpp.s
 
 CMakeFiles/demo_lib.dir/src/IpoptInterface.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/demo_lib.dir/src/IpoptInterface.cpp.o.provides.build: CMakeFiles/demo
 
 CMakeFiles/demo_lib.dir/src/math.cpp.o: CMakeFiles/demo_lib.dir/flags.make
 CMakeFiles/demo_lib.dir/src/math.cpp.o: ../src/math.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/demo_lib.dir/src/math.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/math.cpp.o -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/math.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/demo_lib.dir/src/math.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/math.cpp.o -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/math.cpp
 
 CMakeFiles/demo_lib.dir/src/math.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo_lib.dir/src/math.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/math.cpp > CMakeFiles/demo_lib.dir/src/math.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/math.cpp > CMakeFiles/demo_lib.dir/src/math.cpp.i
 
 CMakeFiles/demo_lib.dir/src/math.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo_lib.dir/src/math.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/math.cpp -o CMakeFiles/demo_lib.dir/src/math.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/math.cpp -o CMakeFiles/demo_lib.dir/src/math.cpp.s
 
 CMakeFiles/demo_lib.dir/src/math.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/demo_lib.dir/src/math.cpp.o.provides.build: CMakeFiles/demo_lib.dir/s
 
 CMakeFiles/demo_lib.dir/src/PathPoint.cpp.o: CMakeFiles/demo_lib.dir/flags.make
 CMakeFiles/demo_lib.dir/src/PathPoint.cpp.o: ../src/PathPoint.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/demo_lib.dir/src/PathPoint.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/PathPoint.cpp.o -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PathPoint.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/demo_lib.dir/src/PathPoint.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/PathPoint.cpp.o -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PathPoint.cpp
 
 CMakeFiles/demo_lib.dir/src/PathPoint.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo_lib.dir/src/PathPoint.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PathPoint.cpp > CMakeFiles/demo_lib.dir/src/PathPoint.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PathPoint.cpp > CMakeFiles/demo_lib.dir/src/PathPoint.cpp.i
 
 CMakeFiles/demo_lib.dir/src/PathPoint.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo_lib.dir/src/PathPoint.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PathPoint.cpp -o CMakeFiles/demo_lib.dir/src/PathPoint.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PathPoint.cpp -o CMakeFiles/demo_lib.dir/src/PathPoint.cpp.s
 
 CMakeFiles/demo_lib.dir/src/PathPoint.cpp.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/demo_lib.dir/src/PathPoint.cpp.o.provides.build: CMakeFiles/demo_lib.
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkPathProblem.cpp.o: CMakeFiles/demo_lib.dir/flags.make
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkPathProblem.cpp.o: ../src/PiecewiseJerkPathProblem.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/demo_lib.dir/src/PiecewiseJerkPathProblem.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkPathProblem.cpp.o -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkPathProblem.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/demo_lib.dir/src/PiecewiseJerkPathProblem.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkPathProblem.cpp.o -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkPathProblem.cpp
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkPathProblem.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo_lib.dir/src/PiecewiseJerkPathProblem.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkPathProblem.cpp > CMakeFiles/demo_lib.dir/src/PiecewiseJerkPathProblem.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkPathProblem.cpp > CMakeFiles/demo_lib.dir/src/PiecewiseJerkPathProblem.cpp.i
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkPathProblem.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo_lib.dir/src/PiecewiseJerkPathProblem.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkPathProblem.cpp -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkPathProblem.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkPathProblem.cpp -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkPathProblem.cpp.s
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkPathProblem.cpp.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/demo_lib.dir/src/PiecewiseJerkPathProblem.cpp.o.provides.build: CMake
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkProblem.cpp.o: CMakeFiles/demo_lib.dir/flags.make
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkProblem.cpp.o: ../src/PiecewiseJerkProblem.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/demo_lib.dir/src/PiecewiseJerkProblem.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkProblem.cpp.o -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkProblem.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/demo_lib.dir/src/PiecewiseJerkProblem.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkProblem.cpp.o -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkProblem.cpp
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkProblem.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo_lib.dir/src/PiecewiseJerkProblem.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkProblem.cpp > CMakeFiles/demo_lib.dir/src/PiecewiseJerkProblem.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkProblem.cpp > CMakeFiles/demo_lib.dir/src/PiecewiseJerkProblem.cpp.i
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkProblem.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo_lib.dir/src/PiecewiseJerkProblem.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkProblem.cpp -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkProblem.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkProblem.cpp -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkProblem.cpp.s
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkProblem.cpp.o.requires:
 
@@ -227,16 +227,16 @@ CMakeFiles/demo_lib.dir/src/PiecewiseJerkProblem.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.o: CMakeFiles/demo_lib.dir/flags.make
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.o: ../src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.o -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.o -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp > CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp > CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.i
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.s
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.o.requires:
 
@@ -251,16 +251,16 @@ CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp.o.prov
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: CMakeFiles/demo_lib.dir/flags.make
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o: ../src/PiecewiseJerkSpeedOptimizer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedOptimizer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedOptimizer.cpp
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedOptimizer.cpp > CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedOptimizer.cpp > CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.i
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedOptimizer.cpp -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedOptimizer.cpp -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.s
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o.requires:
 
@@ -275,16 +275,16 @@ CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedOptimizer.cpp.o.provides.build: CM
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o: CMakeFiles/demo_lib.dir/flags.make
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o: ../src/PiecewiseJerkSpeedProblem.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedProblem.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedProblem.cpp
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedProblem.cpp > CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedProblem.cpp > CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.i
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedProblem.cpp -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedProblem.cpp -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.s
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o.requires:
 
@@ -299,16 +299,16 @@ CMakeFiles/demo_lib.dir/src/PiecewiseJerkSpeedProblem.cpp.o.provides.build: CMak
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.o: CMakeFiles/demo_lib.dir/flags.make
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.o: ../src/PiecewiseJerkTrajectory1d.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.o -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkTrajectory1d.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.o -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkTrajectory1d.cpp
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkTrajectory1d.cpp > CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkTrajectory1d.cpp > CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.i
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkTrajectory1d.cpp -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkTrajectory1d.cpp -o CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.s
 
 CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.o.requires:
 
@@ -323,16 +323,16 @@ CMakeFiles/demo_lib.dir/src/PiecewiseJerkTrajectory1d.cpp.o.provides.build: CMak
 
 CMakeFiles/demo_lib.dir/src/SpeedData.cpp.o: CMakeFiles/demo_lib.dir/flags.make
 CMakeFiles/demo_lib.dir/src/SpeedData.cpp.o: ../src/SpeedData.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/demo_lib.dir/src/SpeedData.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/SpeedData.cpp.o -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedData.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/demo_lib.dir/src/SpeedData.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/SpeedData.cpp.o -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedData.cpp
 
 CMakeFiles/demo_lib.dir/src/SpeedData.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo_lib.dir/src/SpeedData.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedData.cpp > CMakeFiles/demo_lib.dir/src/SpeedData.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedData.cpp > CMakeFiles/demo_lib.dir/src/SpeedData.cpp.i
 
 CMakeFiles/demo_lib.dir/src/SpeedData.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo_lib.dir/src/SpeedData.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedData.cpp -o CMakeFiles/demo_lib.dir/src/SpeedData.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedData.cpp -o CMakeFiles/demo_lib.dir/src/SpeedData.cpp.s
 
 CMakeFiles/demo_lib.dir/src/SpeedData.cpp.o.requires:
 
@@ -347,16 +347,16 @@ CMakeFiles/demo_lib.dir/src/SpeedData.cpp.o.provides.build: CMakeFiles/demo_lib.
 
 CMakeFiles/demo_lib.dir/src/SpeedLimit.cpp.o: CMakeFiles/demo_lib.dir/flags.make
 CMakeFiles/demo_lib.dir/src/SpeedLimit.cpp.o: ../src/SpeedLimit.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/demo_lib.dir/src/SpeedLimit.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/SpeedLimit.cpp.o -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedLimit.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/demo_lib.dir/src/SpeedLimit.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/SpeedLimit.cpp.o -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedLimit.cpp
 
 CMakeFiles/demo_lib.dir/src/SpeedLimit.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo_lib.dir/src/SpeedLimit.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedLimit.cpp > CMakeFiles/demo_lib.dir/src/SpeedLimit.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedLimit.cpp > CMakeFiles/demo_lib.dir/src/SpeedLimit.cpp.i
 
 CMakeFiles/demo_lib.dir/src/SpeedLimit.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo_lib.dir/src/SpeedLimit.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedLimit.cpp -o CMakeFiles/demo_lib.dir/src/SpeedLimit.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedLimit.cpp -o CMakeFiles/demo_lib.dir/src/SpeedLimit.cpp.s
 
 CMakeFiles/demo_lib.dir/src/SpeedLimit.cpp.o.requires:
 
@@ -371,16 +371,16 @@ CMakeFiles/demo_lib.dir/src/SpeedLimit.cpp.o.provides.build: CMakeFiles/demo_lib
 
 CMakeFiles/demo_lib.dir/src/SpeedPoint.cpp.o: CMakeFiles/demo_lib.dir/flags.make
 CMakeFiles/demo_lib.dir/src/SpeedPoint.cpp.o: ../src/SpeedPoint.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/demo_lib.dir/src/SpeedPoint.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/SpeedPoint.cpp.o -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedPoint.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/demo_lib.dir/src/SpeedPoint.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/SpeedPoint.cpp.o -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedPoint.cpp
 
 CMakeFiles/demo_lib.dir/src/SpeedPoint.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo_lib.dir/src/SpeedPoint.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedPoint.cpp > CMakeFiles/demo_lib.dir/src/SpeedPoint.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedPoint.cpp > CMakeFiles/demo_lib.dir/src/SpeedPoint.cpp.i
 
 CMakeFiles/demo_lib.dir/src/SpeedPoint.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo_lib.dir/src/SpeedPoint.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedPoint.cpp -o CMakeFiles/demo_lib.dir/src/SpeedPoint.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedPoint.cpp -o CMakeFiles/demo_lib.dir/src/SpeedPoint.cpp.s
 
 CMakeFiles/demo_lib.dir/src/SpeedPoint.cpp.o.requires:
 
@@ -395,16 +395,16 @@ CMakeFiles/demo_lib.dir/src/SpeedPoint.cpp.o.provides.build: CMakeFiles/demo_lib
 
 CMakeFiles/demo_lib.dir/src/SpeedProfileGenerator.cpp.o: CMakeFiles/demo_lib.dir/flags.make
 CMakeFiles/demo_lib.dir/src/SpeedProfileGenerator.cpp.o: ../src/SpeedProfileGenerator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/demo_lib.dir/src/SpeedProfileGenerator.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/SpeedProfileGenerator.cpp.o -c /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedProfileGenerator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/demo_lib.dir/src/SpeedProfileGenerator.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo_lib.dir/src/SpeedProfileGenerator.cpp.o -c /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedProfileGenerator.cpp
 
 CMakeFiles/demo_lib.dir/src/SpeedProfileGenerator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo_lib.dir/src/SpeedProfileGenerator.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedProfileGenerator.cpp > CMakeFiles/demo_lib.dir/src/SpeedProfileGenerator.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedProfileGenerator.cpp > CMakeFiles/demo_lib.dir/src/SpeedProfileGenerator.cpp.i
 
 CMakeFiles/demo_lib.dir/src/SpeedProfileGenerator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo_lib.dir/src/SpeedProfileGenerator.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedProfileGenerator.cpp -o CMakeFiles/demo_lib.dir/src/SpeedProfileGenerator.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedProfileGenerator.cpp -o CMakeFiles/demo_lib.dir/src/SpeedProfileGenerator.cpp.s
 
 CMakeFiles/demo_lib.dir/src/SpeedProfileGenerator.cpp.o.requires:
 
@@ -455,7 +455,7 @@ libdemo_lib.a: CMakeFiles/demo_lib.dir/src/SpeedPoint.cpp.o
 libdemo_lib.a: CMakeFiles/demo_lib.dir/src/SpeedProfileGenerator.cpp.o
 libdemo_lib.a: CMakeFiles/demo_lib.dir/build.make
 libdemo_lib.a: CMakeFiles/demo_lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX static library libdemo_lib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX static library libdemo_lib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/demo_lib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/demo_lib.dir/link.txt --verbose=$(VERBOSE)
 
@@ -487,6 +487,6 @@ CMakeFiles/demo_lib.dir/clean:
 .PHONY : CMakeFiles/demo_lib.dir/clean
 
 CMakeFiles/demo_lib.dir/depend:
-	cd /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build /home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles/demo_lib.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles/demo_lib.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/demo_lib.dir/depend
 

@@ -172,53 +172,53 @@ sys/time.h
 stdio.h
 -
 
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/ConstantJerkTrajectory1d.cpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/ConstantJerkTrajectory1d.cpp
 ConstantJerkTrajectory1d.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/ConstantJerkTrajectory1d.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/ConstantJerkTrajectory1d.hpp
 
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/DiscretizedPath.cpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/DiscretizedPath.cpp
 algorithm
 -
 glog/logging.h
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
 DiscretizedPath.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/DiscretizedPath.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/DiscretizedPath.hpp
 math.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/math.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/math.hpp
 
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/IpoptInterface.cpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/IpoptInterface.cpp
 IpoptInterface.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/IpoptInterface.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/IpoptInterface.hpp
 
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PathPoint.cpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PathPoint.cpp
 PathPoint.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PathPoint.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PathPoint.hpp
 
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkPathProblem.cpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkPathProblem.cpp
 glog/logging.h
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
 PiecewiseJerkPathProblem.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkPathProblem.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkPathProblem.hpp
 
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkProblem.cpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkProblem.cpp
 iostream
 -
 glog/logging.h
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
 PiecewiseJerkProblem.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkProblem.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkProblem.hpp
 
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedNonlinearIpoptInterface.cpp
 algorithm
 -
 limits
 -
 glog/logging.h
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
 PiecewiseJerkSpeedNonlinearIpoptInterface.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedNonlinearIpoptInterface.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedNonlinearIpoptInterface.hpp
 
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedOptimizer.cpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedOptimizer.cpp
 coin/IpIpoptApplication.hpp
 -
 coin/IpSolveStatistics.hpp
@@ -230,71 +230,71 @@ iostream
 fstream
 -
 glog/logging.h
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
 PiecewiseJerkSpeedOptimizer.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedOptimizer.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedOptimizer.hpp
 PiecewiseJerkSpeedProblem.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedProblem.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedProblem.hpp
 PiecewiseJerkPathProblem.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkPathProblem.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkPathProblem.hpp
 PiecewiseJerkSpeedNonlinearIpoptInterface.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedNonlinearIpoptInterface.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedNonlinearIpoptInterface.hpp
 SpeedData.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedData.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedData.hpp
 SpeedProfileGenerator.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedProfileGenerator.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedProfileGenerator.hpp
 
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedProblem.cpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedProblem.cpp
 PiecewiseJerkSpeedProblem.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedProblem.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkSpeedProblem.hpp
 glog/logging.h
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
 
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkTrajectory1d.cpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkTrajectory1d.cpp
 glog/logging.h
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
 PiecewiseJerkTrajectory1d.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkTrajectory1d.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PiecewiseJerkTrajectory1d.hpp
 
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedData.cpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedData.cpp
 algorithm
 -
 utility
 -
 glog/logging.h
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
 SpeedData.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedData.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedData.hpp
 math.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/math.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/math.hpp
 
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedLimit.cpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedLimit.cpp
 algorithm
 -
 SpeedLimit.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedLimit.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedLimit.hpp
 glog/logging.h
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
 
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedPoint.cpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedPoint.cpp
 SpeedPoint.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedPoint.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedPoint.hpp
 
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedProfileGenerator.cpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedProfileGenerator.cpp
 algorithm
 -
 glog/logging.h
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/glog/logging.h
 SpeedPoint.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedPoint.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedPoint.hpp
 SpeedProfileGenerator.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedProfileGenerator.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/SpeedProfileGenerator.hpp
 
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/math.cpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/math.cpp
 cmath
 -
 PathPoint.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PathPoint.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/PathPoint.hpp
 math.hpp
-/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/math.hpp
+/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/math.hpp
 

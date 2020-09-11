@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/demo.cpp" "/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles/demo.dir/src/demo.cpp.o"
+  "/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/src/demo.cpp" "/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles/demo.dir/src/demo.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -17,7 +17,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles/demo_lib.dir/DependInfo.cmake"
+  "/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles/demo_lib.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

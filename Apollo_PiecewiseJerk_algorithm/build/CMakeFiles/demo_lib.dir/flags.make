@@ -6,5 +6,5 @@ CXX_FLAGS = -O3 -DNDEBUG   -std=c++11 -w
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/include -I/home/zy/Desktop/apollo_and_-autoware_path_planner/Apollo_PiecewiseJerk_algorithm/osqp/include -I/usr/include/eigen3 
+CXX_INCLUDES = -I/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/include -I/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/osqp/include -I/usr/include/eigen3 
 
