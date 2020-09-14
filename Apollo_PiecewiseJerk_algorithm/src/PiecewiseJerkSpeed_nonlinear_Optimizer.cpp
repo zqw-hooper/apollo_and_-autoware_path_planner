@@ -26,7 +26,8 @@ bool PiecewiseJerkSpeedNonlinearOptimizer::Process(std::vector<std::pair<double,
                                                    const DiscretizedPath &path,
                                                    double init_v,
                                                    double init_a,
-                                                   SpeedData *speed_data)
+                                                   SpeedData *speed_data,
+                                                   double reference_crusie_velocity)
 {
     if (s_bounds.size() != soft_s_bounds.size())
     {
@@ -63,7 +64,7 @@ bool PiecewiseJerkSpeedNonlinearOptimizer::Process(std::vector<std::pair<double,
     std::vector<double> velocity;
     std::vector<double> acceleration;
     const auto qp_start = std::chrono::system_clock::now();
-
+    // 根据 s_bounds,优化reference_line
     const auto qp_smooth_status =
         OptimizeByQP(s_bounds, ref_s_list, &distance, &velocity, &acceleration);
     const auto qp_end = std::chrono::system_clock::now();
@@ -77,11 +78,11 @@ bool PiecewiseJerkSpeedNonlinearOptimizer::Process(std::vector<std::pair<double,
     // 横坐标t, 纵坐标s
     std::ofstream out;
     out.open("../plot/ref.csv");
-    out << "index,ref,optimized_ref,s_bounds_lower,s_bounds_upper,velocity" << std::endl;
+    out << "t,ref,optimized_ref,s_bounds_lower,s_bounds_upper,velocity" << std::endl;
     for (int i = 0; i != ref_s_list.size(); ++i)
     {
 
-        out << i << "," << ref_s_list[i] << "," << distance[i] << ","
+        out << i * dt << "," << ref_s_list[i] << "," << distance[i] << ","
             << s_bounds[i].first << "," << s_bounds[i].second
             << "," << velocity[i] << std::endl;
     }
@@ -114,7 +115,7 @@ bool PiecewiseJerkSpeedNonlinearOptimizer::Process(std::vector<std::pair<double,
     const auto nlp_start = std::chrono::system_clock::now();
     // 速度规划  // trajectory
     const auto nlp_smooth_status =
-        speed_non_linear_optimizer(s_bounds, soft_s_bounds, &distance, &velocity, &acceleration);
+        speed_non_linear_optimizer(s_bounds, soft_s_bounds, &distance, &velocity, &acceleration, reference_crusie_velocity);
     const auto nlp_end = std::chrono::system_clock::now();
     std::chrono::duration<double> nlp_diff = nlp_end - nlp_start;
     LOG(INFO) << "speed nlp optimization takes " << nlp_diff.count() * 1000.0
@@ -153,7 +154,7 @@ bool PiecewiseJerkSpeedNonlinearOptimizer::OptimizeByQP(const std::vector<std::p
                                                         std::vector<double> *acceleration)
 {
     // 初始状态
-    std::array<double, 3> init_states = {30, s_dot_init_, s_ddot_init_};
+    std::array<double, 3> init_states = {0, s_dot_init_, s_ddot_init_};
     // std::array<double, 3> init_states = {30, 0, 0};
     // std::cout << "s_init_   " << s_init_ << std::endl;
     PiecewiseJerkSpeedProblem piecewise_jerk_speed_problem(num_of_knots_, delta_t_,
@@ -292,16 +293,21 @@ bool PiecewiseJerkSpeedNonlinearOptimizer::speed_non_linear_optimizer(const std:
                                                                       const std::vector<std::pair<double, double>> &soft_s_bounds,
                                                                       std::vector<double> *distance,
                                                                       std::vector<double> *velocity,
-                                                                      std::vector<double> *acceleration)
+                                                                      std::vector<double> *acceleration,
+                                                                      double reference_cruise_velocity)
 {
     // Set optimizer instance
+    // 纵向速度,加速度,加加速度的最大,最小值
     auto ptr_interface = new PiecewiseJerkSpeedNonlinearIpoptInterface(
         s_init_, s_dot_init_, s_ddot_init_, delta_t_, num_of_knots_,
         total_length_, s_dot_max_, s_ddot_min_, s_ddot_max_, s_dddot_min_,
         s_dddot_max_);
 
+    // s点上,下边界  // size = 41
+    std::cout << "s_bounds.size()   " << s_bounds.size() << std::endl;
     ptr_interface->set_safety_bounds(s_bounds);
     ptr_interface->set_curvature_curve(smoothed_path_curvature_);
+    // 纵向的速度边界
     ptr_interface->set_speed_limit_curve(smoothed_speed_limit_);
 
     // Warm start // 使用 smooth_driving_guide_line
@@ -329,21 +335,27 @@ bool PiecewiseJerkSpeedNonlinearOptimizer::speed_non_linear_optimizer(const std:
     }
     ptr_interface->set_warm_start(warm_start);
 
-    // Set weights and reference values
-    // Use smoothed reference // smooth_driving_guide_line
-    // FLAGS_use_smoothed_dp_guide_line
-    ptr_interface->set_reference_spatial_distance(*distance);
-    // s_potential_weight  // 带w的是权重
-    ptr_interface->set_w_reference_spatial_distance(10.0);
-
     // ptr_interface->set_soft_safety_bounds(s_soft_bounds_);
     // ptr_interface->set_w_soft_s_bound(config.soft_s_bound_weight());
 
+    // 优化函数的设置
+    // 参考论文:
+    // << Optimal Trajectory Generation for Autonomous Vehicle Under Centripetal Acceleration 
+    // Constraints for In-lane Driving Scenarios >>
+    // term (1)(2)(3)
     ptr_interface->set_w_overall_a(2.0);                  //acc_weight
     ptr_interface->set_w_overall_j(3.0);                  //jerk_weight
     ptr_interface->set_w_overall_centripetal_acc(1000.0); // lat_acc_weight
 
+    // Set weights and reference values
+    // Use smoothed reference // smooth_driving_guide_line
+    // FLAGS_use_smoothed_dp_guide_line
+    // term (5)
+    ptr_interface->set_reference_spatial_distance(*distance);
+    // s_potential_weight  // 带w的是权重
+    ptr_interface->set_w_reference_spatial_distance(10.0);
     // In apollo, default cruise speed is 5.0.
+    // term(6)
     ptr_interface->set_reference_speed(5.0);   // cruise_speed_
     ptr_interface->set_w_reference_speed(5.0); // ref_v_weight
 

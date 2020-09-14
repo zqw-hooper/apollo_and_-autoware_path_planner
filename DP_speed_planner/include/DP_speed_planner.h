@@ -260,11 +260,18 @@ struct StGraphPoint
     float index_s_ = 0;
     float index_t_ = 0;
 
-    void SetOptimalSpeed(double optimal_velocity_)
+    double crusie_velocity;
+    double current_velocity;
+
+    void SetCruiseSpeed(double crusie_velocity_)
     {
-        optimal_velocity = optimal_velocity_;
+        crusie_velocity = crusie_velocity_;
     }
-    double optimal_velocity = 10;
+
+    void SetCurrentSpeed(double current_velocity_)
+    {
+        current_velocity = current_velocity_;
+    }
 };
 
 class StBoundary

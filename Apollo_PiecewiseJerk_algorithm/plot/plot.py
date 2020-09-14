@@ -38,7 +38,7 @@ plt.ylabel('v')
 
 fig_1 = plt.figure()
 ref_data = pd.read_csv(pwd+"/ref.csv")
-index =  ref_data["index"].values
+index =  ref_data["t"].values
 ref = ref_data["ref"].values
 optimized_ref = ref_data["optimized_ref"].values
 s_bounds_lower = ref_data["s_bounds_lower"].values
@@ -50,7 +50,7 @@ plt.scatter(index,s_bounds_lower, color="m")
 plt.scatter(index,s_bounds_upper, color="m")
 # plt.scatter(index,velocity, color="k")
 plt.title("ref.csv")
-plt.xlabel("index")
+plt.xlabel("t")
 plt.ylabel("s")
 
 

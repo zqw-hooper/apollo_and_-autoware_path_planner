@@ -111,19 +111,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named demo
-
-# Build rule for target.
-demo: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 demo
-.PHONY : demo
-
-# fast build rule for target.
-demo/fast:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/build
-.PHONY : demo/fast
-
-#=============================================================================
 # Target rules for targets named demo_lib
 
 # Build rule for target.
@@ -135,6 +122,32 @@ demo_lib: cmake_check_build_system
 demo_lib/fast:
 	$(MAKE) -f CMakeFiles/demo_lib.dir/build.make CMakeFiles/demo_lib.dir/build
 .PHONY : demo_lib/fast
+
+#=============================================================================
+# Target rules for targets named PiecewiseJerkPathOptimizer
+
+# Build rule for target.
+PiecewiseJerkPathOptimizer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 PiecewiseJerkPathOptimizer
+.PHONY : PiecewiseJerkPathOptimizer
+
+# fast build rule for target.
+PiecewiseJerkPathOptimizer/fast:
+	$(MAKE) -f CMakeFiles/PiecewiseJerkPathOptimizer.dir/build.make CMakeFiles/PiecewiseJerkPathOptimizer.dir/build
+.PHONY : PiecewiseJerkPathOptimizer/fast
+
+#=============================================================================
+# Target rules for targets named PiecewiseJerkSpeedOptimizer
+
+# Build rule for target.
+PiecewiseJerkSpeedOptimizer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 PiecewiseJerkSpeedOptimizer
+.PHONY : PiecewiseJerkSpeedOptimizer
+
+# fast build rule for target.
+PiecewiseJerkSpeedOptimizer/fast:
+	$(MAKE) -f CMakeFiles/PiecewiseJerkSpeedOptimizer.dir/build.make CMakeFiles/PiecewiseJerkSpeedOptimizer.dir/build
+.PHONY : PiecewiseJerkSpeedOptimizer/fast
 
 src/ConstantJerkTrajectory1d.o: src/ConstantJerkTrajectory1d.cpp.o
 
@@ -514,32 +527,59 @@ src/SpeedProfileGenerator.cpp.s:
 	$(MAKE) -f CMakeFiles/demo_lib.dir/build.make CMakeFiles/demo_lib.dir/src/SpeedProfileGenerator.cpp.s
 .PHONY : src/SpeedProfileGenerator.cpp.s
 
-src/demo.o: src/demo.cpp.o
+src/demo_PiecewiseJerkPathOptimizer.o: src/demo_PiecewiseJerkPathOptimizer.cpp.o
 
-.PHONY : src/demo.o
+.PHONY : src/demo_PiecewiseJerkPathOptimizer.o
 
 # target to build an object file
-src/demo.cpp.o:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/demo.cpp.o
-.PHONY : src/demo.cpp.o
+src/demo_PiecewiseJerkPathOptimizer.cpp.o:
+	$(MAKE) -f CMakeFiles/PiecewiseJerkPathOptimizer.dir/build.make CMakeFiles/PiecewiseJerkPathOptimizer.dir/src/demo_PiecewiseJerkPathOptimizer.cpp.o
+.PHONY : src/demo_PiecewiseJerkPathOptimizer.cpp.o
 
-src/demo.i: src/demo.cpp.i
+src/demo_PiecewiseJerkPathOptimizer.i: src/demo_PiecewiseJerkPathOptimizer.cpp.i
 
-.PHONY : src/demo.i
+.PHONY : src/demo_PiecewiseJerkPathOptimizer.i
 
 # target to preprocess a source file
-src/demo.cpp.i:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/demo.cpp.i
-.PHONY : src/demo.cpp.i
+src/demo_PiecewiseJerkPathOptimizer.cpp.i:
+	$(MAKE) -f CMakeFiles/PiecewiseJerkPathOptimizer.dir/build.make CMakeFiles/PiecewiseJerkPathOptimizer.dir/src/demo_PiecewiseJerkPathOptimizer.cpp.i
+.PHONY : src/demo_PiecewiseJerkPathOptimizer.cpp.i
 
-src/demo.s: src/demo.cpp.s
+src/demo_PiecewiseJerkPathOptimizer.s: src/demo_PiecewiseJerkPathOptimizer.cpp.s
 
-.PHONY : src/demo.s
+.PHONY : src/demo_PiecewiseJerkPathOptimizer.s
 
 # target to generate assembly for a file
-src/demo.cpp.s:
-	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/demo.cpp.s
-.PHONY : src/demo.cpp.s
+src/demo_PiecewiseJerkPathOptimizer.cpp.s:
+	$(MAKE) -f CMakeFiles/PiecewiseJerkPathOptimizer.dir/build.make CMakeFiles/PiecewiseJerkPathOptimizer.dir/src/demo_PiecewiseJerkPathOptimizer.cpp.s
+.PHONY : src/demo_PiecewiseJerkPathOptimizer.cpp.s
+
+src/demo_PiecewiseJerkSpeedOptimizer.o: src/demo_PiecewiseJerkSpeedOptimizer.cpp.o
+
+.PHONY : src/demo_PiecewiseJerkSpeedOptimizer.o
+
+# target to build an object file
+src/demo_PiecewiseJerkSpeedOptimizer.cpp.o:
+	$(MAKE) -f CMakeFiles/PiecewiseJerkSpeedOptimizer.dir/build.make CMakeFiles/PiecewiseJerkSpeedOptimizer.dir/src/demo_PiecewiseJerkSpeedOptimizer.cpp.o
+.PHONY : src/demo_PiecewiseJerkSpeedOptimizer.cpp.o
+
+src/demo_PiecewiseJerkSpeedOptimizer.i: src/demo_PiecewiseJerkSpeedOptimizer.cpp.i
+
+.PHONY : src/demo_PiecewiseJerkSpeedOptimizer.i
+
+# target to preprocess a source file
+src/demo_PiecewiseJerkSpeedOptimizer.cpp.i:
+	$(MAKE) -f CMakeFiles/PiecewiseJerkSpeedOptimizer.dir/build.make CMakeFiles/PiecewiseJerkSpeedOptimizer.dir/src/demo_PiecewiseJerkSpeedOptimizer.cpp.i
+.PHONY : src/demo_PiecewiseJerkSpeedOptimizer.cpp.i
+
+src/demo_PiecewiseJerkSpeedOptimizer.s: src/demo_PiecewiseJerkSpeedOptimizer.cpp.s
+
+.PHONY : src/demo_PiecewiseJerkSpeedOptimizer.s
+
+# target to generate assembly for a file
+src/demo_PiecewiseJerkSpeedOptimizer.cpp.s:
+	$(MAKE) -f CMakeFiles/PiecewiseJerkSpeedOptimizer.dir/build.make CMakeFiles/PiecewiseJerkSpeedOptimizer.dir/src/demo_PiecewiseJerkSpeedOptimizer.cpp.s
+.PHONY : src/demo_PiecewiseJerkSpeedOptimizer.cpp.s
 
 src/math.o: src/math.cpp.o
 
@@ -575,9 +615,10 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... rebuild_cache"
-	@echo "... demo"
 	@echo "... demo_lib"
+	@echo "... PiecewiseJerkPathOptimizer"
+	@echo "... rebuild_cache"
+	@echo "... PiecewiseJerkSpeedOptimizer"
 	@echo "... src/ConstantJerkTrajectory1d.o"
 	@echo "... src/ConstantJerkTrajectory1d.i"
 	@echo "... src/ConstantJerkTrajectory1d.s"
@@ -620,9 +661,12 @@ help:
 	@echo "... src/SpeedProfileGenerator.o"
 	@echo "... src/SpeedProfileGenerator.i"
 	@echo "... src/SpeedProfileGenerator.s"
-	@echo "... src/demo.o"
-	@echo "... src/demo.i"
-	@echo "... src/demo.s"
+	@echo "... src/demo_PiecewiseJerkPathOptimizer.o"
+	@echo "... src/demo_PiecewiseJerkPathOptimizer.i"
+	@echo "... src/demo_PiecewiseJerkPathOptimizer.s"
+	@echo "... src/demo_PiecewiseJerkSpeedOptimizer.o"
+	@echo "... src/demo_PiecewiseJerkSpeedOptimizer.i"
+	@echo "... src/demo_PiecewiseJerkSpeedOptimizer.s"
 	@echo "... src/math.o"
 	@echo "... src/math.i"
 	@echo "... src/math.s"

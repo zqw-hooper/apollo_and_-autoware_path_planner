@@ -39,14 +39,11 @@ add_library(demo_lib
 target_include_directories(demo_lib
         PUBLIC
         $<INSTALL_INTERFACE:include>
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-        
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>        
         ${EIGEN3_INCLUDE_DIR} 
         osqp/include
-
         )
-target_link_libraries(demo_lib
-        
+target_link_libraries(demo_lib        
         glog
         osqp
         ipopt
@@ -55,6 +52,11 @@ target_link_libraries(demo_lib
 
 
 
-add_executable(demo
-  src/demo.cpp)
-target_link_libraries(demo  demo_lib)
+add_executable(PiecewiseJerkPathOptimizer
+  src/demo_PiecewiseJerkPathOptimizer.cpp)
+target_link_libraries(PiecewiseJerkPathOptimizer  demo_lib)
+
+
+add_executable(PiecewiseJerkSpeedOptimizer
+  src/demo_PiecewiseJerkSpeedOptimizer.cpp)
+target_link_libraries(PiecewiseJerkSpeedOptimizer  demo_lib)

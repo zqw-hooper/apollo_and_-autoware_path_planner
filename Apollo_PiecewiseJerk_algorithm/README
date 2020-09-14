@@ -6,13 +6,12 @@
 
 Apollo piecewise_jerk算法主要包括两方面，路径规划和速度规划，最后组合成轨迹
 
-
 路径规划: PIECEWISE_JERK_PATH_OPTIMIZER (QP)
 速度规划: SPEED_HEURISTIC_OPTIMIZER (DP)
          PIECEWISE_JERK_NONLINEAR_SPEED_OPTIMIZER  (QP)
 
 
-    Apollo内部关于车辆速度曲线的规划，主要是涉及了几个阶段的主要任务表述:
+Apollo内部关于车辆速度曲线的规划，主要是涉及了几个阶段的主要任务表述:
     1.Speed_bounds_prior_decider:
     首先，将障碍物的轨迹映射到s-t graph，随后计算出障碍物的轨迹（prior过程，障碍物在速度方面不存在decision，因此此次计算轨迹是withoutdecision），并将其放置boundaries集合中，随后设置速度最大限制（沿规划好路径），最后，st_graph_data保存boundaries,speed_limit等.
     2.DP_ST_SPEED_OPTIMIZER：
@@ -26,15 +25,17 @@ Apollo piecewise_jerk算法主要包括两方面，路径规划和速度规划�
 
 
 1. sudo apt-get install libgoogle-glog-dev
-
-sudo apt install coinor-libipopt-dev
+   sudo apt install coinor-libipopt-dev
 
 
 2. 使用脚本安装IPOPT   // 注意每个电脑系统里面的IPOPT版本，从新安装
    sudo ./install_ipopt.sh Ipopt-3.12.7
 
 3. 安装pandas
-    pip install pandas
-     sudo apt-get install python-pandas
+   pip install pandas
+   sudo apt-get install python-pandas
+   plot/plot.py  // 画图
 
-     plot/plot.py  // 画图
+4. 两个demo文件
+   src/demo_PiecewiseJerkPathOptimizer.cpp
+   src/demo_PiecewiseJerkSpeedOptimizer.cpp

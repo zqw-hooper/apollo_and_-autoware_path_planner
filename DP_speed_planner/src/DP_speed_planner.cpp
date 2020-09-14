@@ -136,6 +136,7 @@ double GetObstacleCost(const StGraphPoint st_graph_point)
     for (int m = 0; m < st_boundaries[i].lower_points_.size(); m++)
     {
       StPoint st_point_tmp = st_boundaries[i].lower_points_[m];
+      // std::cout << "lower_points_  t,s  " << st_point_tmp.t << "   " << st_point_tmp.s << std::endl;
       if (st_point_tmp.t == node_t)
       {
         cost += 1 / abs(st_point_tmp.s - node_s + 1);
@@ -145,6 +146,8 @@ double GetObstacleCost(const StGraphPoint st_graph_point)
     for (int m = 0; m < st_boundaries[i].upper_points_.size(); m++)
     {
       StPoint st_point_tmp = st_boundaries[i].upper_points_[m];
+      // std::cout << "upper_points_  t,s  " << st_point_tmp.t << "   " << st_point_tmp.s << std::endl;
+
       if (st_point_tmp.t == node_t)
       {
         cost += 1 / abs(st_point_tmp.s - node_s + 1);
@@ -193,7 +196,7 @@ bool CalculateCostAt(size_t c, size_t r)
     if (c == 0)
     {
       cost_cr.SetTotalCost(0.0);
-      cost_cr.SetOptimalSpeed(init_point_v);
+      cost_cr.SetCruiseSpeed(init_point_v);
       return true;
     }
 
@@ -231,7 +234,7 @@ bool CalculateCostAt(size_t c, size_t r)
       );
 
       cost_cr.SetPreNode(cost_init);
-      cost_cr.SetOptimalSpeed(init_point_v + acc * unit_t_);
+      cost_cr.SetCruiseSpeed(init_point_v + acc * unit_t_);
       return true;
     }
 
@@ -275,14 +278,14 @@ bool CalculateCostAt(size_t c, size_t r)
         const double curr_a =
             2 *
             ((cost_cr.st_point.s - pre_col[r_pre].st_point.s) / unit_t_ -
-             pre_col[r_pre].optimal_velocity) /
+             pre_col[r_pre].crusie_velocity) /
             unit_t_;
         if (curr_a < max_deceleration_ || curr_a > max_acceleration_)
         {
           continue;
         }
 
-        if (pre_col[r_pre].optimal_velocity + curr_a * unit_t_ <
+        if (pre_col[r_pre].crusie_velocity + curr_a * unit_t_ <
                 -kDoubleEpsilon &&
             cost_cr.st_point.s > min_s_consider_speed)
         {
@@ -309,8 +312,8 @@ bool CalculateCostAt(size_t c, size_t r)
         {
           cost_cr.SetTotalCost(cost);
           cost_cr.SetPreNode(pre_col[r_pre]);
-          cost_cr.SetOptimalSpeed(pre_col[r_pre].optimal_velocity +
-                                  curr_a * unit_t_);
+          cost_cr.SetCruiseSpeed(pre_col[r_pre].crusie_velocity +
+                                 curr_a * unit_t_);
         }
       }
       return true;
@@ -331,14 +334,14 @@ bool CalculateCostAt(size_t c, size_t r)
       const double curr_a =
           2 *
           ((cost_cr.st_point.s - pre_col[r_pre].st_point.s) / unit_t_ -
-           pre_col[r_pre].optimal_velocity) /
+           pre_col[r_pre].crusie_velocity) /
           unit_t_;
       if (curr_a > max_acceleration_ || curr_a < max_deceleration_)
       {
         continue;
       }
 
-      if (pre_col[r_pre].optimal_velocity + curr_a * unit_t_ < -kDoubleEpsilon &&
+      if (pre_col[r_pre].crusie_velocity + curr_a * unit_t_ < -kDoubleEpsilon &&
           cost_cr.st_point.s > min_s_consider_speed)
       {
         continue;
@@ -376,8 +379,8 @@ bool CalculateCostAt(size_t c, size_t r)
       {
         cost_cr.SetTotalCost(cost);
         cost_cr.SetPreNode(pre_col[r_pre]);
-        cost_cr.SetOptimalSpeed(pre_col[r_pre].optimal_velocity +
-                                curr_a * unit_t_);
+        cost_cr.SetCruiseSpeed(pre_col[r_pre].crusie_velocity +
+                               curr_a * unit_t_);
       }
     }
   }
@@ -511,15 +514,24 @@ bool RetrieveSpeedProfile()
   std::cout << "cost_table size   " << cost_table_.size() << ",  " << cost_table_[2].size() << std::endl;
 
   // 赋值 cost_table_
+  //
+  float dt = 0.5;
+  float crusie_velocity = 5;
+  float crusie_velocity_interval = crusie_velocity / num_each_level;
   for (int c = 0; c < cost_table_.size(); c++)
   {
     for (int r = 0; r < cost_table_[c].size(); r++)
     {
-      StPoint st_point{float(c), float(r)};
-      st_point.t = (float(c));
-      st_point.s = (float(r));
+      // StPoint st_point{float(c), float(r)};
+      StPoint st_point{0, 0};
+      st_point.t = (float(c) * dt);
+      // 速度撒点 乘以 时间
+      st_point.s = (float(r) * crusie_velocity_interval * st_point.t);
       // node 赋值
       cost_table_[c][r].Init(c, r, st_point);
+      cost_table_[c][r].SetCruiseSpeed(crusie_velocity);
+      cost_table_[c][r].SetCruiseSpeed(float(r) * crusie_velocity_interval);
+      cost_table_[c][r].current_velocity = (float(r) * crusie_velocity_interval);
       { // debug code
         if (c == 0)
         {
@@ -535,7 +547,8 @@ bool RetrieveSpeedProfile()
             {
               min_cost = cost_table_[c - 1][i].cost;
               // 当前node的cost是 上个level中最小的cost，加状态转移的cost
-              cost_table_[c][r].cost = double(c + r) + GetObstacleCost(cost_table_[c][r]) + min_cost;
+              cost_table_[c][r].cost = double(c + r) + GetObstacleCost(cost_table_[c][r]) +
+                                       min_cost + 10*abs(cost_table_[c][r].current_velocity - crusie_velocity);
             }
           }
         }
@@ -620,8 +633,8 @@ bool RetrieveSpeedProfile()
   int index = 0;
   while (&cur_point != nullptr)
   {
-    std::cout << "current_node (t s)  ( " << cur_point.index_t_ << "  "
-              << cur_point.index_s_ << " )"
+    std::cout << "current_node (t s)  ( " << cur_point.st_point.t << "  "
+              << cur_point.st_point.s << " )"
               << "  cost  " << cur_point.cost << std::endl;
 
     SpeedPoint speed_point(0, 0, 0);
