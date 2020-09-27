@@ -1,0 +1,338 @@
+
+
+
+1. https://github.com/ApolloAuto/apollo/issues/12072
+
+
+2. https://github.com/ApolloAuto/apollo/issues/9599
+
+
+
+3. https://github.com/ApolloAuto/apollo/issues/8992
+
+
+
+/////////////////////////////////////////////////////////////////////
+https://github.com/ApolloAuto/apollo/issues/9599
+https://mp.weixin.qq.com/s/ao5hC_3A7fn8_L_PFw399A
+https://arxiv.org/pdf/1807.08048.pdf
+https://mp.weixin.qq.com/s/ao5hC_3A7fn8_L_PFw399A
+
+// EM planner
+
+1. hello, i have two question here.
+
+i read the EM planner paper, it use the DP to build a convex space, then optimize by QP, i think it should be great, BUT in apollo2.0, remove the qp optimization, i wonder why?
+the piecewise jerk optimization seems not the convex optimization, i wonder whether the it can reach the global optimum in 4000 interaction? And 4000 interaction can make sure for the succeed in path optimization? and if failed in path optimization, what will happen?
+
+
+DP is very time consuming. 
+Secondly, sometimes we may fail to find path(s) just because of the resolution and the position of the sampled point(s). Our current solution is :
+(1) find path boundaries based on map, traffic rules, and obstacles. The area inside is "drivable".
+(2) and then use piecewise jerk algorithm to find path(s).
+It fixed the above two major issues in DP solution.
+
+
+In DP we use heuristic speed data to measure the dynamic obstacles, but in piece_wise jerk optimization, we only map the static obstacle to build the l_i constrain. why not add dynamic obstacles constrain by using heuristic speed data like DP way
+
+
+when planning speed with dynamic obstacles, we still use DP
+
+Our planning task is actually divided into path planning and speed planning. The change you mention was on path planning side to deal with the static obstacles with the piecewise_jerk_path_optimizer(which is QP). While on speed planning, we are still using DP + QP(piecewise_jerk_speed_optimizer) framework.
+
+In the piecewise_jerk_path_optimizer, instead of consider the distance with last frame's path, we only consider the current state, or say the path should always consist with current state, which is enough to have the path at least smoothly connect with current state, and we don't really need to keep consistency with a future path.
+AND yes, we have to keep the path decision consistency trying to avoid decision change on the middle of a side pass.
+
+
+I've been trying to look for shortcomings or disadvantages for EM planner for a while, I have studied the details and the procedures very closely, but it seems like EM planner can handle most of the cases already(DP path for static obs and DP speed for moving obs is very efficient I think). So what's the major problems for EM planner then, which area can be improved. I would be appreciated if someone can clarify the major weaknesses or improvements for me, thanks.
+
+
+
+It looks like DP+QP Optimization path planning method was discarded and replaced with path Bound + Optimization method in 3.5. Could you give an indication of why to make such a big change. Thank you.
+
+
+Thank you for your question. The reason is the past DP + QP path optimization cannot handle complex urban driving scenarios, while current implementation (path bound + piecewise jerk method) achieves firm controlling of the path shape, thus is able to produce more flexible paths.
+
+
+Could you clarify why does DP+QP path cannot handle complex urban driving scenarios please. The path that DP generated(with quintic polynomial connected between sampling points) is already feasible and optimal even without the QP part. Thank you very much!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+https://github.com/ApolloAuto/apollo/issues/12072
+https://scihub.wikicn.top/10.1109/itsc.2019.8916917
+
+
+
+As I see in lane_follow_config, there are two tasks PIECEWISE_JERK_SPEED_OPTIMIZER and PIECEWISE_JERK_NONLINEAR_SPEED_OPTIMIZER. It seems that they both use QP to smooth the st path,what is the difference between them?
+
+PIECEWISE_JERK_SPEED_OPTIMIZER is formulated as a QP problem.
+PIECEWISE_JERK_NONLINEAR_SPEED_OPTIMIZER is formulated as a NLP(non linear program) problem since it considered the smoothness of Centripetal Acceleration （it's a non linear objective function）meanwhile. You can refer to code or this paper for more details.
+
+Zhang, Yajia, et al. "Optimal Trajectory Generation for Autonomous Vehicles Under Centripetal Acceleration Constraints for In-lane Driving Scenarios." 2019 IEEE Intelligent Transportation Systems Conference (ITSC). IEEE, 2019.
+
+
+,thanks. I have another question. Before using NLP optimize, it uses QP optimize to smooth the curvature first.But I think curvature is related with path geometry. It only changes curvature and path point does not change. So what is the reason? here is the code
+
+You can read the paper first. In short, the NLP required the kappa should be differentiable, so the code here is to compute a curve "kappa(s)" which has constant jerk (you can also use other algothrim to fit the curve).
+
+
+@zerolover thanks, you really help me a lot.
+Another question,do you know why they use soft safety bounds? The paper did not mention that. they add two slack variables to state variable
+and give them variable bounds:
+lower_s_slack[i]>=0
+upper_s_slack[i]>=0
+the objection function is:
+f=lower_s_slack[i]*w_soft_bounds_+upper_s_slack[i]*w_soft_bounds_
+and add some constraints:
+s[i] - soft_lower_s[i] + lower_slack[i] >= 0.0
+s[i] - soft_upper_s[i] - upper_slack[i] <= 0.0
+I think it is equal to
+s[i] - soft_lower_s[i]>=0
+s[i] - soft_upper_s[i] <=0
+why not add s bounds directly like:
+s[i]>=soft_lower_s[i]
+s[i]<=soft_upper_s[i]
+
+s[i] - soft_lower_s[i] + lower_slack[i] >= 0.0
+s[i] - soft_upper_s[i] - upper_slack[i] <= 0.0
+
+These are two soft constraits on s[i], which means it is possible that s[i] < soft_lower_s[i] or s[i] > soft_upper_s[i], if the slack variable lower_slack[i] or upper_slack[i] is positive enough. However, this would be punished by the cost function.
+
+It expects s[i] to be within the range between soft_lower_s[i] and soft_upper_s[i], but it's ok to go beyond that if necessary.
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+https://github.com/ApolloAuto/apollo/issues/11756
+
+Hello.
+when I run the spiral reference line smoother and perform ipopt optimization solution,the program terminates and dies.How to solve this problem.
+
+
+that's very strange.when running spiral reference_line_smoother_test ,everything is ok!
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+https://github.com/ApolloAuto/apollo/issues/10416
+
+I want to use the Path Smoother that you implement but I have some doubts:
+
+In case I have in advance (obtained outside your platform) a path including both forward and backwards direction what would you say is the easiest way I can input it in your framework? What I mean is that I do not need the whole project but just some specific scripts to compute an optimized trajectory.
+
+I do not understand what is the difference between distance_approach files and iterative_anchoring_smoother.cc
+
+I haven’t seen where you include the direction of the vehicle into the optimization, because if you do optimization between a set of <x,y> points for a path that consisted on both forward and backward path you need it
+
+On-lane planner does not support backward trajectory planning. Please refer to open space planner in planning module.
+
+Yes, my question was about the Open Space Planner
+
+
+You could refer to /apollo/modules/planning/tasks/optimizers/open_space_trajectory_generation/open_space_trajectory_generation.cc for more detail on how to define your own trajectory planner.
+
+Two different approaches on smoothing a jerky trajectory
+
+It is considered in Hybrid A* searching algorithm
+
+Thanks
+
+
+But when you optimize you change the position of <x,y> so the kinematic relationship obtained from A* dissapears
+
+
+apollo/modules/planning/open_space/trajectory_smoother/distance_approach_ipopt_relax_end_interface.cc
+
+Line 771 in c18a5ad
+
+ sin(x[state_index + 2] + ts_ * x[time_index] * 0.5 * 
+
+
+
+
+
+/////////////////////////////////////////////////////////////
+
+
+Hybrid A * path optimized
+
+https://github.com/ApolloAuto/apollo/issues/9555
+http://bce.apollo.auto/login
+
+
+/////////////////////////////////////////////////////
+https://github.com/ApolloAuto/apollo/issues/9764
+
+
+Hi all, I have two questions regarding EM planner under some situations which I hope you could clarify me.
+
+When overtaking scenario. Firstly ego is driving behind a slow car(obstacle) and have decided to overtake it, after the decision has made and the ego proceeded to execute the generated path. Now, when the ego car is at the PARALLEL position of the obstacle, the decision for ego is still overtaking, but what if the obstacle car suddenly decided to speed up, the planned ego path would collide with the obs.
+
+Follow up from the first question. Here I'm assuming that when projecting obstacle trajectory onto ST map, we only treat obstacle moving at a CONSTANT speed. However, in this case how are we going to deal with dynamic changing environments, specially obstacle speed might not be constant and would change according to the change of ego speed(i.e unpredictable behavior of obstacle).
+
+Might be that the planner is re-planning very fast? But if in this case, still, re-planning EVERYTIME after the environment changes might not be realistic, specially dealing with the emergency scenarios mentioned above.
+
+Thank you very much, looking forward to for your reply.
+
+
+ the planning module "re-plan" in every frame (every 100 mil sec), to deal with the changing environment.
+For the example you mentioned, if there is a speed/acceleration/heading changing point of the obstacle that would cause decision changes from OVERTAKE to YIELD, the path cross point is usually along ego car's future trajectory point and still far enough and YIELDable. If it's too close for the ego car to YIELD or STOP, that means the obstacle is mostly merging to ego car's path very aggressively or hitting ego-car on purpose. That'll involve disengagement.
+Hope this help answer your questions. Thanks!
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////
+
+//  Lattice是基于高速公路的
+
+
+lattice planner deal with static obstacle #7314
+
+I have read some code of the lattice planner. And I found that if the static obstacle on the lane which the car running, the static obstacle will map to the ST graph.
+And it is weird, we did not consider it's shape and accurate location. the obstacle may not conflict to the car, and we just map it, leads the car stop or change lane.
+
+lattice planner中对于静止障碍物的处理似乎有一些粗糙，我看到代码中表示，如果静止障碍物在当前车道上，就直接将其映射到ST图中，因此，如果车道上最右侧有一个小箱子（正常行驶不会撞到），我们应该不予考虑，但lattice中，我们似乎无法通过它。当然在em planner中，这个不是问题。
+
+void PathTimeGraph::SetStaticObstacle(
+const Obstacle* obstacle,
+const std::vector& discretized_ref_points) {
+const Polygon2d& polygon = obstacle->PerceptionPolygon();
+
+std::string obstacle_id = obstacle->Id();
+SLBoundary sl_boundary =
+ComputeObstacleBoundary(polygon.GetAllVertices(), discretized_ref_points);
+
+double left_width = FLAGS_default_reference_line_width * 0.5;
+double right_width = FLAGS_default_reference_line_width * 0.5;
+ptr_reference_line_info_->reference_line().GetLaneWidth(
+sl_boundary.start_s(), &left_width, &right_width);
+if (sl_boundary.start_s() > path_range_.second ||
+sl_boundary.end_s() < path_range_.first ||
+sl_boundary.start_l() > left_width ||
+sl_boundary.end_l() < -right_width) {
+ADEBUG << "Obstacle [" << obstacle_id << "] is out of range.";
+return;
+}
+
+path_time_obstacle_map_[obstacle_id].set_obstacle_id(obstacle_id);
+path_time_obstacle_map_[obstacle_id].mutable_bottom_left()->CopyFrom(
+SetPathTimePoint(obstacle_id, sl_boundary.start_s(), 0.0));
+path_time_obstacle_map_[obstacle_id].mutable_bottom_right()->CopyFrom(
+SetPathTimePoint(obstacle_id, sl_boundary.start_s(),
+FLAGS_trajectory_time_length));
+path_time_obstacle_map_[obstacle_id].mutable_upper_left()->CopyFrom(
+SetPathTimePoint(obstacle_id, sl_boundary.end_s(), 0.0));
+path_time_obstacle_map_[obstacle_id].mutable_upper_right()->CopyFrom(
+SetPathTimePoint(obstacle_id, sl_boundary.end_s(),
+FLAGS_trajectory_time_length));
+static_obs_sl_boundaries_.push_back(std::move(sl_boundary));
+ADEBUG << "ST-Graph mapping static obstacle: " << obstacle_id
+<< ", start_s : " << sl_boundary.start_s()
+<< ", end_s : " << sl_boundary.end_s()
+<< ", start_l : " << sl_boundary.start_l()
+<< ", end_l : " << sl_boundary.end_l();
+}
+
+
+
+你说的这个问题确实是在ST上无法越过的, 但是这种情况下就变道了, 这样投影就没问题. Lattice是基于高速公路的, 你说的那种情况发生的概率很小
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 在dreamview里面加入障碍物
+// generate obstacles in dreamview
+
+generated one static obstacle in the middle of the lane with the script "replay_perception.py"(the purple one in pictures)
+
+Planning failed with one static obstacle ahead the vehicle under SimControl mode
+
+
+generated one static obstacle in the middle of the lane with the script "replay_perception.py"(the purple one in pictures)
+start simcontrol --> start planning, routing and prediction modules --> set the start and end point in the map --> send routing request
+planning started, when approaching the obstacle, the vehicle made a stop decision for a while, like in this picture:
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////
+
+LGSVL and Apollo
+https://github.com/ApolloAuto/apollo/issues/5857
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
