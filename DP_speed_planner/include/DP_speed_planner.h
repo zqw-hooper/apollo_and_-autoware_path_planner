@@ -9,6 +9,7 @@
 #include <memory>
 #include <future> // std::async, std::future
 #include <chrono> // std::chrono::milliseconds
+#include <cmath>
 
 class Box2d
 {
