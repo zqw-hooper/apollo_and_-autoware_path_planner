@@ -7,6 +7,7 @@
 #include <limits>
 #include <algorithm>
 #include <memory>
+#include <cmath>
 
 class Box2d
 {
