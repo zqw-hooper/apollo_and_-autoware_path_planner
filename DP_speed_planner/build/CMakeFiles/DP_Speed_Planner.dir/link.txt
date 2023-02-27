@@ -1,1 +1,0 @@
-/usr/bin/c++  -O0 -Wall -g -ggdb -rdynamic CMakeFiles/DP_Speed_Planner.dir/src/DP_speed_planner.cpp.o -o DP_Speed_Planner 

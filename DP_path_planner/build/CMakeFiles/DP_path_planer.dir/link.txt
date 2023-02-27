@@ -1,1 +1,0 @@
-/usr/bin/c++  -O0 -Wall -g -ggdb -rdynamic CMakeFiles/DP_path_planer.dir/src/DP_path_planer.cpp.o -o DP_path_planer 
