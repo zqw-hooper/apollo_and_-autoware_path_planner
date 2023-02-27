@@ -11,10 +11,10 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-data = np.loadtxt('/home/zy/Desktop/op_local_planner/local_map_ROI.csv')
-data_best = np.loadtxt('/home/zy/Desktop/op_local_planner/local_map_ROI_best.csv')
-data_center = np.loadtxt('/home/zy/Desktop/op_local_planner/local_map_ROI_center.csv')
-data_obstacle = np.loadtxt('/home/zy/Desktop/op_local_planner/local_map_ROI_obstacle.csv')
+data = np.loadtxt('local_map_ROI.csv')
+data_best = np.loadtxt('local_map_ROI_best.csv')
+data_center = np.loadtxt('local_map_ROI_center.csv')
+data_obstacle = np.loadtxt('local_map_ROI_obstacle.csv')
 
 
 each_trajectory_point_number = 19

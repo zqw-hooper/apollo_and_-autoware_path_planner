@@ -68,6 +68,7 @@ OSQPData* PiecewiseJerkProblem::FormulateProblem() {
                    CopyData(A_data), CopyData(A_indices), CopyData(A_indptr));
     data->l = CopyData(lower_bounds);
     data->u = CopyData(upper_bounds);
+    
     return data;
 }
 

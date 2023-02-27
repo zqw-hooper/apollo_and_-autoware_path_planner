@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/DP_path_planer.dir/src/DP_path_planer.cpp.o"
-  "DP_path_planer.pdb"
+  "CMakeFiles/DP_path_planer.dir/src/DP_path_planer.cpp.o.d"
   "DP_path_planer"
+  "DP_path_planer.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

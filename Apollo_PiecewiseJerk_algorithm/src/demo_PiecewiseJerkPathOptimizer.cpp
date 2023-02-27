@@ -37,11 +37,14 @@ int main()
 
     for (int k = 0; k < 20; k++)
     {
-        lat_boundaries.at(num_of_knots / 1.5 + k).second = -1;
+        lat_boundaries.at(num_of_knots / 1.5 + k).second = 1.5;
     }
+
+
+
     for (int k = 0; k < 20; k++)
     {
-        lat_boundaries.at(num_of_knots / 5 + k).first = 1;
+        lat_boundaries.at(num_of_knots / 5 + k).first = 0.0;
     }
 
     path_optimizer.set_x_bounds(lat_boundaries); // 横向l

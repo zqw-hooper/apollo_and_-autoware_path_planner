@@ -1,1 +1,0 @@
-/usr/bin/c++   -O3 -DNDEBUG   CMakeFiles/PiecewiseJerkSpeedOptimizer.dir/src/demo_PiecewiseJerkSpeedOptimizer.cpp.o  -o PiecewiseJerkSpeedOptimizer  -L/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/osqp/lib libdemo_lib.a -lglog -losqp -lipopt -Wl,-rpath,/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/osqp/lib 

@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/DP_Speed_Planner.dir/src/DP_speed_planner.cpp.o"
-  "DP_Speed_Planner.pdb"
+  "CMakeFiles/DP_Speed_Planner.dir/src/DP_speed_planner.cpp.o.d"
   "DP_Speed_Planner"
+  "DP_Speed_Planner.pdb"
 )
 
 # Per-language clean rules from dependency scanning.
