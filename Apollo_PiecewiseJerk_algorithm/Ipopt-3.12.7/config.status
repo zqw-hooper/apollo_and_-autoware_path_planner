@@ -519,20 +519,20 @@ s,@INSTALL_DATA@,${INSTALL} -m 644,;t t
 s,@CYGPATH_W@,echo,;t t
 s,@PACKAGE@,ipopt,;t t
 s,@VERSION@,3.12.7,;t t
-s,@ACLOCAL@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/missing --run aclocal-1.9,;t t
-s,@AUTOCONF@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/missing --run autoconf,;t t
-s,@AUTOMAKE@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/missing --run automake-1.9,;t t
-s,@AUTOHEADER@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/missing --run autoheader,;t t
-s,@MAKEINFO@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/missing --run makeinfo,;t t
-s,@install_sh@,/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/install-sh,;t t
+s,@ACLOCAL@,${SHELL} /home/feiyuxiao/Documents/github/apollo-planner-standalone/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/missing --run aclocal-1.9,;t t
+s,@AUTOCONF@,${SHELL} /home/feiyuxiao/Documents/github/apollo-planner-standalone/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/missing --run autoconf,;t t
+s,@AUTOMAKE@,${SHELL} /home/feiyuxiao/Documents/github/apollo-planner-standalone/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/missing --run automake-1.9,;t t
+s,@AUTOHEADER@,${SHELL} /home/feiyuxiao/Documents/github/apollo-planner-standalone/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/missing --run autoheader,;t t
+s,@MAKEINFO@,${SHELL} /home/feiyuxiao/Documents/github/apollo-planner-standalone/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/missing --run makeinfo,;t t
+s,@install_sh@,/home/feiyuxiao/Documents/github/apollo-planner-standalone/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/install-sh,;t t
 s,@STRIP@,strip,;t t
 s,@ac_ct_STRIP@,strip,;t t
 s,@INSTALL_STRIP_PROGRAM@,${SHELL} $(install_sh) -c -s,;t t
 s,@mkdir_p@,mkdir -p --,;t t
-s,@AWK@,mawk,;t t
+s,@AWK@,gawk,;t t
 s,@SET_MAKE@,,;t t
 s,@am__leading_dot@,.,;t t
-s,@AMTAR@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/missing --run tar,;t t
+s,@AMTAR@,${SHELL} /home/feiyuxiao/Documents/github/apollo-planner-standalone/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/missing --run tar,;t t
 s,@am__tar@,${AMTAR} chof - "$$tardir",;t t
 s,@am__untar@,${AMTAR} xf -,;t t
 s,@DEPDIR@,.deps,;t t
@@ -556,7 +556,7 @@ s,@have_automake@,,;t t
 s,@have_svn@,,;t t
 s,@BUILDTOOLSDIR@,,;t t
 s,@AUX_DIR@,,;t t
-s,@abs_source_dir@,/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7,;t t
+s,@abs_source_dir@,/home/feiyuxiao/Documents/github/apollo-planner-standalone/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7,;t t
 s,@abs_lib_dir@,/usr/local/lib,;t t
 s,@abs_include_dir@,/usr/local/include,;t t
 s,@abs_bin_dir@,/usr/local/bin,;t t
@@ -583,14 +583,14 @@ s,@LT_LDFLAGS@,-no-undefined,;t t
 s,@COIN_SKIP_PROJECTS@,,;t t
 s,@subdirs@, ThirdParty/ASL ThirdParty/Mumps Ipopt,;t t
 s,@coin_have_doxygen@,no,;t t
-s,@coin_have_latex@,no,;t t
+s,@coin_have_latex@,yes,;t t
 s,@coin_doxy_usedot@,YES,;t t
 s,@coin_doxy_tagname@,doxydoc/ipopt_doxy.tag,;t t
 s,@coin_doxy_logname@,doxydoc/ipopt_doxy.log,;t t
 s,@COIN_HAS_DOXYGEN_TRUE@,#,;t t
 s,@COIN_HAS_DOXYGEN_FALSE@,,;t t
-s,@COIN_HAS_LATEX_TRUE@,#,;t t
-s,@COIN_HAS_LATEX_FALSE@,,;t t
+s,@COIN_HAS_LATEX_TRUE@,,;t t
+s,@COIN_HAS_LATEX_FALSE@,#,;t t
 s,@coin_doxy_tagfiles@,,;t t
 s,@coin_doxy_excludes@,,;t t
 s,@LIBEXT@,a,;t t

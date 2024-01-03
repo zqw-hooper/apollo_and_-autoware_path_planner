@@ -1,3 +1,0 @@
-/home/zy/Desktop/Apollo_and_Autoware_path_planner/DP_path_planner/build/CMakeFiles/edit_cache.dir
-/home/zy/Desktop/Apollo_and_Autoware_path_planner/DP_path_planner/build/CMakeFiles/DP_path_planer.dir
-/home/zy/Desktop/Apollo_and_Autoware_path_planner/DP_path_planner/build/CMakeFiles/rebuild_cache.dir

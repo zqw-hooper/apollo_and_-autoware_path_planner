@@ -1,5 +1,0 @@
-/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles/edit_cache.dir
-/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles/demo_lib.dir
-/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles/PiecewiseJerkPathOptimizer.dir
-/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles/rebuild_cache.dir
-/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/build/CMakeFiles/PiecewiseJerkSpeedOptimizer.dir

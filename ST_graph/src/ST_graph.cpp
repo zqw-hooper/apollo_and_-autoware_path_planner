@@ -18,6 +18,7 @@
 #include <chrono>
 #include <iostream>
 #include <fstream>
+#include <cmath>
 
 class Box2d
 {

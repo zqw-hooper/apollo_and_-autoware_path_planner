@@ -513,14 +513,14 @@ s,@F77@,gfortran,;t t
 s,@ac_ct_F77@,gfortran,;t t
 s,@FFLAGS@,-O3 -pipe  ,;t t
 s,@MPIF77@,,;t t
-s,@FLIBS@, -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. -lgfortran -lm -lquadmath,;t t
+s,@FLIBS@, -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. -lgfortran -lm -lquadmath,;t t
 s,@PKG_CONFIG@,pkg-config,;t t
 s,@ac_ct_PKG_CONFIG@,pkg-config,;t t
 s,@COIN_HAS_PKGCONFIG_TRUE@,,;t t
 s,@COIN_HAS_PKGCONFIG_FALSE@,#,;t t
 s,@COIN_PKG_CONFIG_PATH@,/usr/local/lib64/pkgconfig:/usr/local/lib/pkgconfig:/usr/local/share/pkgconfig:,;t t
 s,@COIN_PKG_CONFIG_PATH_UNINSTALLED@,,;t t
-s,@BLAS_LIBS@,/usr/local/lib/libcoinblas.a -lgfortran  -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. -lgfortran -lm -lquadmath,;t t
+s,@BLAS_LIBS@,/usr/local/lib/libcoinblas.a -lgfortran  -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. -lgfortran -lm -lquadmath  -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. -lgfortran -lm -lquadmath,;t t
 s,@BLAS_CFLAGS@,,;t t
 s,@BLAS_DATA@,,;t t
 s,@BLAS_DEPENDENCIES@,,;t t
@@ -528,12 +528,12 @@ s,@BLAS_LIBS_INSTALLED@,,;t t
 s,@BLAS_CFLAGS_INSTALLED@,,;t t
 s,@BLAS_DATA_INSTALLED@,,;t t
 s,@LAPACKLIB_CFLAGS@,,;t t
-s,@LAPACKLIB_LIBS@,/usr/local/lib/libcoinblas.a -lgfortran  -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. -lgfortran -lm -lquadmath ,;t t
-s,@LAPACKLIB_PCLIBS@,/usr/local/lib/libcoinblas.a -lgfortran  -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. -lgfortran -lm -lquadmath   -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. -lgfortran -lm -lquadmath,;t t
+s,@LAPACKLIB_LIBS@,/usr/local/lib/libcoinblas.a -lgfortran  -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. -lgfortran -lm -lquadmath  -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. -lgfortran -lm -lquadmath ,;t t
+s,@LAPACKLIB_PCLIBS@,/usr/local/lib/libcoinblas.a -lgfortran  -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. -lgfortran -lm -lquadmath  -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. -lgfortran -lm -lquadmath   -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. -lgfortran -lm -lquadmath,;t t
 s,@LAPACKLIB_PCREQUIRES@,,;t t
 s,@LAPACKLIB_DEPENDENCIES@,,;t t
 s,@LAPACKLIB_CFLAGS_INSTALLED@,,;t t
-s,@LAPACKLIB_LIBS_INSTALLED@,/usr/local/lib/libcoinblas.a -lgfortran  -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. -lgfortran -lm -lquadmath ,;t t
+s,@LAPACKLIB_LIBS_INSTALLED@,/usr/local/lib/libcoinblas.a -lgfortran  -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. -lgfortran -lm -lquadmath  -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. -lgfortran -lm -lquadmath ,;t t
 s,@COIN_HAS_BLAS_TRUE@,,;t t
 s,@COIN_HAS_BLAS_FALSE@,#,;t t
 s,@DLAMCH_FFLAGS@,-O3 -pipe   -O0,;t t
@@ -545,20 +545,20 @@ s,@INSTALL_DATA@,${INSTALL} -m 644,;t t
 s,@CYGPATH_W@,echo,;t t
 s,@PACKAGE@,thirdpartylapack,;t t
 s,@VERSION@,1.5.6,;t t
-s,@ACLOCAL@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Lapack/missing --run aclocal-1.9,;t t
-s,@AUTOCONF@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Lapack/missing --run autoconf,;t t
-s,@AUTOMAKE@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Lapack/missing --run automake-1.9,;t t
-s,@AUTOHEADER@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Lapack/missing --run autoheader,;t t
-s,@MAKEINFO@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Lapack/missing --run makeinfo,;t t
-s,@install_sh@,/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Lapack/install-sh,;t t
+s,@ACLOCAL@,${SHELL} /home/feiyuxiao/Documents/github/apollo-planner-standalone/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Lapack/missing --run aclocal-1.9,;t t
+s,@AUTOCONF@,${SHELL} /home/feiyuxiao/Documents/github/apollo-planner-standalone/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Lapack/missing --run autoconf,;t t
+s,@AUTOMAKE@,${SHELL} /home/feiyuxiao/Documents/github/apollo-planner-standalone/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Lapack/missing --run automake-1.9,;t t
+s,@AUTOHEADER@,${SHELL} /home/feiyuxiao/Documents/github/apollo-planner-standalone/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Lapack/missing --run autoheader,;t t
+s,@MAKEINFO@,${SHELL} /home/feiyuxiao/Documents/github/apollo-planner-standalone/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Lapack/missing --run makeinfo,;t t
+s,@install_sh@,/home/feiyuxiao/Documents/github/apollo-planner-standalone/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Lapack/install-sh,;t t
 s,@STRIP@,strip,;t t
 s,@ac_ct_STRIP@,strip,;t t
 s,@INSTALL_STRIP_PROGRAM@,${SHELL} $(install_sh) -c -s,;t t
 s,@mkdir_p@,mkdir -p --,;t t
-s,@AWK@,mawk,;t t
+s,@AWK@,gawk,;t t
 s,@SET_MAKE@,,;t t
 s,@am__leading_dot@,.,;t t
-s,@AMTAR@,${SHELL} /home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Lapack/missing --run tar,;t t
+s,@AMTAR@,${SHELL} /home/feiyuxiao/Documents/github/apollo-planner-standalone/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Lapack/missing --run tar,;t t
 s,@am__tar@,${AMTAR} chof - "$$tardir",;t t
 s,@am__untar@,${AMTAR} xf -,;t t
 s,@DEPDIR@,.deps,;t t
@@ -579,7 +579,7 @@ s,@have_automake@,,;t t
 s,@have_svn@,,;t t
 s,@BUILDTOOLSDIR@,,;t t
 s,@AUX_DIR@,,;t t
-s,@abs_source_dir@,/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Lapack,;t t
+s,@abs_source_dir@,/home/feiyuxiao/Documents/github/apollo-planner-standalone/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Lapack,;t t
 s,@abs_lib_dir@,/usr/local/lib,;t t
 s,@abs_include_dir@,/usr/local/include,;t t
 s,@abs_bin_dir@,/usr/local/bin,;t t
@@ -611,7 +611,7 @@ s,@DEPENDENCY_LINKING_FALSE@,#,;t t
 s,@LT_LDFLAGS@,-no-undefined -version-info 6:6:5,;t t
 s,@LIBEXT@,a,;t t
 s,@VPATH_DISTCLEANFILES@,,;t t
-s,@ABSBUILDDIR@,/home/ak/Desktop/Apollo_and_Autoware_path_planner/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Lapack/build,;t t
+s,@ABSBUILDDIR@,/home/feiyuxiao/Documents/github/apollo-planner-standalone/Apollo_PiecewiseJerk_algorithm/Ipopt-3.12.7/ThirdParty/Lapack/build,;t t
 s,@LIBOBJS@,,;t t
 s,@LTLIBOBJS@,,;t t
 CEOF
